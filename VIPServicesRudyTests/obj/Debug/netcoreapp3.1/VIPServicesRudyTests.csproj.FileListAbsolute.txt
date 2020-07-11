@@ -88,3 +88,10 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.AssemblyInfo.cs
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.csproj.CopyComplete
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.genruntimeconfig.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\bin\Debug\netcoreapp3.1\VIPServicesRudyTests.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\bin\Debug\netcoreapp3.1\Shouldly.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\bin\Debug\netcoreapp3.1\DomainLibrary.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.csproj.CoreCompileInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyTests\obj\Debug\netcoreapp3.1\VIPServicesRudyTests.pdb

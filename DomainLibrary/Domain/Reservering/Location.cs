@@ -4,7 +4,12 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Reservering
 {
-    class Location
+    public enum Location
     {
+        Gent,
+        Antwerpen,
+        Brussel,
+        Hasselt,
+        Charleroi
     }
 }

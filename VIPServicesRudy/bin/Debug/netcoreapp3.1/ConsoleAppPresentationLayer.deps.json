@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ConsoleAppPresentationLayer/1.0.0": {
+        "dependencies": {
+          "DomainLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleAppPresentationLayer.dll": {}
+        }
+      },
+      "DomainLibrary/1.0.0": {
+        "runtime": {
+          "DomainLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleAppPresentationLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DomainLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

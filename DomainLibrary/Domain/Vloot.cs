@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DomainLibrary.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DomainLibrary.Domain
 {
-    class Vloot
+    public class Vloot : ILimousineRepository
     {
     }
 }

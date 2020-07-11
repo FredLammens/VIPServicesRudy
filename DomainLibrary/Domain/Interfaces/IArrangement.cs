@@ -4,7 +4,9 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Interfaces
 {
-    interface IArrangement
+    public interface IArrangement
     {
+        List<IHour> GetHours(DateTime ReservationDateStart, DateTime ReservationDateEndint, int FirstHourPrice);
+        public int? Price { get; }
     }
 }

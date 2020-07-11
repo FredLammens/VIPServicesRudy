@@ -4,7 +4,9 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Interfaces
 {
-    interface IHour
+    public interface IHour
     {
+        public int Period { get; }
+        public int UnitPrice { get; }
     }
 }

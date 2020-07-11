@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "DomainLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DomainLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DomainLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DomainLibrary/1.0.0": {
+      "type": "project",
+      "path": "../DomainLibrary/DomainLibrary.csproj",
+      "msbuildProject": "../DomainLibrary/DomainLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "DomainLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Biebem\\.nuget\\packages\\": {}
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\DomainLibrary\\DomainLibrary.csproj": {
+              "projectPath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\DomainLibrary\\DomainLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

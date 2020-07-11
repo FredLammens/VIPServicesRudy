@@ -1,0 +1,16 @@
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.exe
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.deps.json
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.runtimeconfig.json
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.runtimeconfig.dev.json
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\DomainLibrary.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.csprojAssemblyReference.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.AssemblyInfoInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.AssemblyInfo.cs
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.csproj.CopyComplete
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.dll
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.genruntimeconfig.cache

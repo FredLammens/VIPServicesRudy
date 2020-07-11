@@ -4,7 +4,12 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Interfaces
 {
-    interface ILimousine
+    public interface ILimousine
     {
+        public string Name { get; }
+        public int FirstHourPrice { get; }
+        public List<IArrangement> Arrangements { get; }
+        public DateTime LastReservation { get; set; }
+        public bool IsReservable(DateTime reservationDateStart);
     }
 }

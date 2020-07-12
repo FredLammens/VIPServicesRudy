@@ -12,6 +12,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
         public HourlyArrangementType Type { get; }
 
         readonly List<IHour> hours;
+        static readonly int maxTerm = 11;
 
         public int? Price
         {
@@ -42,14 +43,27 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
             int period = (ReservationDateEnd - ReservationDateStart).Hours;
             if (period < 1)
                 throw new ArgumentException("period between reservationdates must be at least 1 hour");
+            if (period > maxTerm)
+                throw new ArgumentException($"Hourspan can be maximum {maxTerm} hours");
             //split period in correct times
             int dayPeriod = 0;
             int nightPeriod = 0;
-            if (ReservationDateStart.Hour < (NachtUur.nightHourStart.Hours) && ReservationDateEnd.Hour < (NachtUur.nightHourStart.Hours)) // check allebij ervoor 
+            if (ReservationDateStart.Hour < (NachtUur.nightHourStart.Hours) && ReservationDateEnd.Hour > (NachtUur.nightHourEnd.Hours)) // check allebij ervoor 
             {
-                dayPeriod = period;
+                if ((ReservationDateStart.Hour == 20 && ReservationDateEnd.Hour == 7) || (ReservationDateStart.Hour == 21 && ReservationDateEnd.Hour == 8) || (ReservationDateStart.Hour == 21 && ReservationDateEnd.Hour == 7)) //hardcoded kan beter ?
+                {
+                    dayPeriod = (NachtUur.nightHourStart.Hours - ReservationDateStart.Hour)
+                              + (ReservationDateEnd.Hour - NachtUur.nightHourEnd.Hours);
+                    nightPeriod = period - dayPeriod;
+                }
+                else //normal hours
+                    dayPeriod = period;
             }
-            if (HelperMethods.TimeInRange(ReservationDateEnd, NachtUur.nightHourStart, NachtUur.nightHourEnd)) //einduur er in 
+            else if (HelperMethods.TimeInRange(ReservationDateStart, NachtUur.nightHourStart, NachtUur.nightHourEnd) && HelperMethods.TimeInRange(ReservationDateEnd, NachtUur.nightHourStart, NachtUur.nightHourEnd)) //beide er in 
+            {
+                nightPeriod = period;
+            }
+            else if (HelperMethods.TimeInRange(ReservationDateEnd, NachtUur.nightHourStart, NachtUur.nightHourEnd)) //einduur er in 
             {
                 //start tot eindNAcht = nachturen
                 dayPeriod = NachtUur.nightHourStart.Hours - ReservationDateStart.Hour;
@@ -60,17 +74,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
                 dayPeriod = ReservationDateEnd.Hour - NachtUur.nightHourEnd.Hours;
                 nightPeriod = period - dayPeriod;
             }
-            else if (HelperMethods.TimeInRange(ReservationDateStart, NachtUur.nightHourStart, NachtUur.nightHourEnd) && HelperMethods.TimeInRange(ReservationDateEnd, NachtUur.nightHourStart, NachtUur.nightHourEnd))
-            {//beide er in 
-                nightPeriod = period;
-            }
-            else
-            {
-                dayPeriod = (NachtUur.nightHourStart.Hours - ReservationDateStart.Hour)
-                    + (ReservationDateEnd.Hour - NachtUur.nightHourEnd.Hours);
-                nightPeriod = period - dayPeriod;
-            } // nachturen ertussen 
-            //-------------------
+            //-----------------------------------------------------------------------------------------
             if (dayPeriod > 0)
             {
                 if (dayPeriod == 1)
@@ -78,7 +82,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
                 else
                 {
                     hours.Add(new EersteUur(1, FirstHourPrice));
-                    hours.Add(new TweedeUur(period - 1, FirstHourPrice));
+                    hours.Add(new TweedeUur(dayPeriod - 1, FirstHourPrice));
                 }
             }
             if (nightPeriod > 0)

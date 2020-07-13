@@ -18,16 +18,16 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             Price = price;
         }
 
-        public List<IHour> GetHours(DateTime ReservationDateStart, DateTime ReservationDateEnd, int FirstHourPrice)
+        public List<IHour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
             //check if price is not null
             if (!Price.HasValue)
                 throw new InvalidOperationException("arrangement not available");
             //check if in between right hours
-            if (!HelperMethods.TimeInRange(ReservationDateStart, startTime, endTime))
+            if (!HelperMethods.TimeInRange(reservationDateStart, startTime, endTime))
                 throw new ArgumentException($"startReservationdate must be between {startTime} and {endTime}");
             //check if reservation is in hourterm
-            int period = (ReservationDateEnd - ReservationDateStart).Hours;
+            int period = (reservationDateEnd - reservationDateStart).Hours;
             if (period != hourTerm)
                 throw new ArgumentException($"Hourspan needs to be {hourTerm} hours");
             //return hours

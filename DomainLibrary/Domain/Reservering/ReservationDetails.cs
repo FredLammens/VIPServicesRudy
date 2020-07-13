@@ -24,8 +24,8 @@ namespace DomainLibrary.Domain.Reservering
             ReservationDateEnd = reservationDateEnd;
             StartLocation = startLocation;
             ArrivalLocation = arrivalLocation;
-            Limousine = limousine;
             limousine.LastReservation = reservationDateEnd;
+            Limousine = limousine;
             Arrangement = arrangement;
         }
     }

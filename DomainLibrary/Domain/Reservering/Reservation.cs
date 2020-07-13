@@ -7,20 +7,19 @@ namespace DomainLibrary.Domain.Reservering
 {
     public class Reservation
     {
-        public DateTime ReservationDate { get; }
+        public DateTime ReservationDate { get; } = DateTime.Now;
         public int Number { get; } // met EF autogenerate
         public string Adres { get; }
         public IClient Client { get; }
         public ReservationDetails Details { get; }
         public PriceCalculation PriceCalculation { get; }
-        public Reservation(DateTime reservationDate, string adres, IClient client, ReservationDetails details)
+        public Reservation(string adres, IClient client, ReservationDetails details)
         {
-            ReservationDate = reservationDate;
+            Details = details;
+            PriceCalculation = new PriceCalculation(Details.Arrangement, Details.Limousine, Client, Details.ReservationDateStart, Details.ReservationDateEnd);
             Adres = adres;
             Client = client;
-            client.Reservations.Add(this);
-            Details = details;
-            PriceCalculation = new PriceCalculation(Details.Arrangement, details.Limousine, Client, details.ReservationDateStart, details.ReservationDateEnd);
+            Client.Reservations.Add(this);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DomainLibrary.Domain.Interfaces
     {
         public string Name { get; }
         public int FirstHourPrice { get; }
-        public List<IArrangement> Arrangements { get; }
+        public List<IArrangement> FixedArrangements { get; }
         public DateTime LastReservation { get; set; }
         public bool IsReservable(DateTime reservationDateStart);
     }

@@ -9,14 +9,14 @@ namespace DomainLibrary.Domain.Limousines
     {
         public string Name { get; }
         public int FirstHourPrice { get; }
-        public List<IArrangement> Arrangements { get; }
+        public List<IArrangement> FixedArrangements { get; }
         public DateTime LastReservation { get; set; }
 
-        public Limousine(string name, int firstHourPrice, List<IArrangement> arrangements)
+        public Limousine(string name, int firstHourPrice, List<IArrangement> fixedArrangements)
         {
             Name = name;
             FirstHourPrice = firstHourPrice;
-            Arrangements = arrangements;
+            FixedArrangements = fixedArrangements;
         }
 
         public bool IsReservable(DateTime reservationDateStart)

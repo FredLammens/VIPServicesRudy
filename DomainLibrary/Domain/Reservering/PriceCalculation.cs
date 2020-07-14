@@ -18,7 +18,7 @@ namespace DomainLibrary.Domain.Reservering
         public PriceCalculation(IArrangement arrangement, ILimousine limo, IClient client, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
             Hours = arrangement.GetHours(reservationDateStart, reservationDateEnd, limo.FirstHourPrice);
-            Subtotal = CalculateSubtotal(arrangement);
+            Subtotal = (int)arrangement.Price;
             ChargedDiscounts = CalculateChargedDiscounts(Subtotal, client);
             TotalExclusiveVAT = Subtotal - ChargedDiscounts;
             VATAmount = TotalExclusiveVAT * (Decimal)vatPercentage;
@@ -43,10 +43,6 @@ namespace DomainLibrary.Domain.Reservering
                 else
                     return (decimal)(subtotal * client.Categorie.StaffDiscount[key]);
             }
-        }
-        private int CalculateSubtotal(IArrangement arrangement)
-        {
-            return (int)arrangement.Price;
         }
     }
 }

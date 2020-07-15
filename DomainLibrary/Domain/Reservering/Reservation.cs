@@ -16,9 +16,9 @@ namespace DomainLibrary.Domain.Reservering
         public Reservation(string adres, IClient client, ReservationDetails details)
         {
             Details = details;
-            PriceCalculation = new PriceCalculation(Details.Arrangement, Details.Limousine, Client, Details.ReservationDateStart, Details.ReservationDateEnd);
             Adres = adres;
             Client = client;
+            PriceCalculation = new PriceCalculation(details.Arrangement, details.Limousine, Client, details.ReservationDateStart, details.ReservationDateEnd);
             Client.Reservations.Add(this);
         }
     }

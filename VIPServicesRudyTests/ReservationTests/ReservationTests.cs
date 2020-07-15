@@ -4,7 +4,6 @@ using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Domain.Limousines.HourlyArrangements;
 using DomainLibrary.Domain.Reservering;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using Shouldly;
 using System;
 using System.Collections.Generic;
@@ -100,8 +99,12 @@ namespace VIPServicesRudyTests
             ILimousine limoTest = new Limousine("FIAT 500", 100, new List<IArrangement>() { });
             ICategorie categorieTestVIP = new Categorie(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
             IClient clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
-            PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
-            priceTest.ChargedDiscounts.ShouldBe(0);
+            //PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
+            //kan geen moq met linq expressies gebruiken 
+            ReservationDetails detailsTest = new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement);
+            Reservation _ = new Reservation("bla", clientTest, detailsTest);
+            Reservation test2 = new Reservation("bla", clientTest, detailsTest);
+            test2.PriceCalculation.ChargedDiscounts.ShouldBe(0);
         }
         [TestMethod]
         public void TestPriceCalculationChargedDiscountsMiddleAmountReservation()
@@ -113,7 +116,6 @@ namespace VIPServicesRudyTests
             ICategorie categorieTestVIP = new Categorie(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
             IClient clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
-            Mock<IClient> clientMoq = new Mock<IClient>();
 
         }
         [TestMethod]

@@ -30,6 +30,8 @@ namespace DomainLibrary.Domain.Reservering
         {
             //check if client has made a reservation in the year
             int year = DateTime.Now.Year;
+            if (client.Reservations.Count == 0)
+                return 0;
             int amountLoaned = client.Reservations.Count(r => r.Details.ReservationDateStart.Year == year);
             //return calculated discount 
             if (client.Categorie.StaffDiscount.Equals(null))

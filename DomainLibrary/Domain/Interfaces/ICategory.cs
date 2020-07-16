@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Interfaces
 {
-    public interface ICategorie
+    public interface ICategory
     {
         public SortedList<int, float> StaffDiscount { get; }
         public CategorieType Name { get; }

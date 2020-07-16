@@ -1,12 +1,15 @@
 ﻿using DomainLibrary.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DomainLibrary.Domain.Limousines
 {
     public class Limousine : ILimousine
     {
+        [Key]
+        public int Id { get; }//added for db
         public string Name { get; }
         public int FirstHourPrice { get; }
         public List<IArrangement> FixedArrangements { get; }

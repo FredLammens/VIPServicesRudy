@@ -2,22 +2,24 @@
 using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DomainLibrary.Domain.Client
 {
     public class Client : IClient
     {
+        [Key]
         public int ClientNumber { get; }
         public string Name { get; }
         public string VATNumber { get; }
         public string Adres { get; }
-        public ICategorie Categorie { get; }
+        public ICategory Categorie { get; }
 
         //reservaties bijhouden 
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 
-        public Client(string name, string VATNumber, string adres, ICategorie categorie)
+        public Client(string name, string VATNumber, string adres, ICategory categorie)
         {
             Name = name;
             this.VATNumber = VATNumber;

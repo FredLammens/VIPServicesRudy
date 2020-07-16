@@ -11,7 +11,7 @@ namespace DomainLibrary.Domain.Interfaces
         public string Name { get; }
         public string VATNumber { get; }
         public string Adres { get; }
-        public ICategorie Categorie { get; }
+        public ICategory Categorie { get; }
         public List<Reservation> Reservations { get; set; }
     }
 }

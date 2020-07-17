@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppPresentationLayer", "VIPServicesRudy\ConsoleAppPresentationLayer.csproj", "{2C21F7A5-4081-4442-BF82-91323A92EF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppPresentationLayer", "VIPServicesRudy\ConsoleAppPresentationLayer.csproj", "{2C21F7A5-4081-4442-BF82-91323A92EF7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{B02032DB-7C12-4571-BC3C-ECBBE3A5C5E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{B02032DB-7C12-4571-BC3C-ECBBE3A5C5E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{F265CDA1-F3D2-4CE3-BE50-7B0B82CD8D75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{F265CDA1-F3D2-4CE3-BE50-7B0B82CD8D75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIPServicesRudyTests", "VIPServicesRudyTests\VIPServicesRudyTests.csproj", "{396A4FE1-B8F0-40EA-AD86-F979EB253CD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VIPServicesRudyTests", "VIPServicesRudyTests\VIPServicesRudyTests.csproj", "{396A4FE1-B8F0-40EA-AD86-F979EB253CD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

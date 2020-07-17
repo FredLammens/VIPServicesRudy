@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DomainLibrary.Repositories
 {
-    interface ICategoryRepository
+    public interface ICategoryRepository
     {
         void AddCategory(ICategory categorie);
         void RemoveCategory(ICategory categorie);

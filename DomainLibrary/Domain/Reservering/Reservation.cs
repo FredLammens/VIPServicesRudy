@@ -23,5 +23,9 @@ namespace DomainLibrary.Domain.Reservering
             Client = client;
             Client.Reservations.Add(this);
         }
+        public Reservation()
+        {
+
+        }
     }
 }

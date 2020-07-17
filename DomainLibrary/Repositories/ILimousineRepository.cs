@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DomainLibrary.Repositories
 {
-    interface ILimousineRepository
+    public interface ILimousineRepository
     {
         void AddLimousine(ILimousine limousine);
         void RemoveLimousine(ILimousine limousine);

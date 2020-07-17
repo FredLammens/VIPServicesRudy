@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DomainLibrary.Repositories
 {
-    interface IClientRepository
+    public interface IClientRepository
     {
         void AddClient(IClient client);
         void RemoveClient(IClient client);

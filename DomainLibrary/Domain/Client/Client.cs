@@ -10,7 +10,7 @@ namespace DomainLibrary.Domain.Client
     public class Client : IClient
     {
         [Key]
-        public int ClientNumber { get; }
+        public int ClientNumber { get; set; }
         public string Name { get; }
         public string VATNumber { get; }
         public string Adres { get; }
@@ -25,6 +25,10 @@ namespace DomainLibrary.Domain.Client
             this.VATNumber = VATNumber;
             Adres = adres;
             Categorie = categorie;
+        }
+        public Client()
+        {
+
         }
     }
 }

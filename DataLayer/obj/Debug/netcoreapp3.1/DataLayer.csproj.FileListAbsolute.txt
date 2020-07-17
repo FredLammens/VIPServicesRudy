@@ -12,3 +12,5 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\D
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CopyComplete
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\appsettings.json

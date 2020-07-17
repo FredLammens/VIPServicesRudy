@@ -35,10 +35,10 @@ namespace DataLayer
             switch (db) 
             {
                 case "VIPServicesRudy":
-                    connectionString = configuration.GetConnectionString("VIPServicesRudy").ToString();
+                    connectionString = configuration.GetConnectionString("VIPServicesRudyconnection").ToString();
                     break;
                 case "Test":
-                    connectionString = configuration.GetConnectionString("VIPServicesRudyDbTest").ToString();
+                    connectionString = configuration.GetConnectionString("VIPServicesRudyTestDbconnection").ToString();
                     break;
             }
         }

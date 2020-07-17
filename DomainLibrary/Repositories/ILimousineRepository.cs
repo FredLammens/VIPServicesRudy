@@ -1,4 +1,5 @@
 ﻿using DomainLibrary.Domain.Interfaces;
+using DomainLibrary.Domain.Limousines;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace DomainLibrary.Repositories
 {
     public interface ILimousineRepository
     {
-        void AddLimousine(ILimousine limousine);
-        void RemoveLimousine(ILimousine limousine);
+        void AddLimousine(Limousine limousine);
+        void RemoveLimousine(int Id);
     }
 }

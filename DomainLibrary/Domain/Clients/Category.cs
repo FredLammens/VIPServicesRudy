@@ -1,12 +1,12 @@
-﻿using DomainLibrary.Domain.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DomainLibrary.Domain.Client
+namespace DomainLibrary.Domain.Clients
 {
-    public class Category : ICategory
+    public class Category
     {
         public SortedList<int, float> StaffDiscount { get; }
 

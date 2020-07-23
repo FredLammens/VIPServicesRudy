@@ -1,4 +1,4 @@
-﻿using DomainLibrary.Domain.Interfaces;
+﻿
 using DomainLibrary.Domain.Limousines.Hours;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DomainLibrary.Domain.Limousines.FixedArrangements
 {
-    public class Wellness : IArrangement
+    public class Wellness : Arrangement
     {
-        public int? Price { get; }
+        public override int? Price { get; }
         static readonly int hourTerm = 10;
         static readonly TimeSpan startTime = new TimeSpan(7, 0, 0);
         static readonly TimeSpan endTime = new TimeSpan(12, 0, 0);
@@ -18,7 +18,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             Price = price;
         }
 
-        public List<IHour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
+        public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
             //check if price is not null
             if (!Price.HasValue)
@@ -31,7 +31,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             if (period != hourTerm)
                 throw new ArgumentException($"Hourspan needs to be {hourTerm} hours");
             //return hours
-            return new List<IHour>() { new VastePrijs(period, (int)Price) };
+            return new List<Hour>() { new Hour(HourType.VastePrijs, period, (int)Price) };
         }
     }
 }

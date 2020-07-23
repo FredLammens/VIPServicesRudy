@@ -1,9 +1,5 @@
-﻿using DomainLibrary.Domain.Client;
-using DomainLibrary.Domain.Interfaces;
+﻿using DomainLibrary.Domain.Clients;
 using DomainLibrary.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataLayer.Repositories
 {
@@ -22,7 +18,7 @@ namespace DataLayer.Repositories
 
         public void RemoveClient(int clientNumber)
         {
-            throw new NotImplementedException();
+            context.Clients.Remove(new Client() { ClientNumber = clientNumber });
         }
     }
 }

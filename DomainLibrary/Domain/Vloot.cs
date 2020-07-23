@@ -1,4 +1,5 @@
-﻿using DomainLibrary.Domain.Interfaces;
+﻿
+using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Repositories;
 using System;
 using System.Collections.Generic;
@@ -6,16 +7,24 @@ using System.Text;
 
 namespace DomainLibrary.Domain
 {
-    public class Vloot : ILimousineRepository
+    public class Vloot
     {
-        public void AddLimousine(ILimousine limousine)
+        public IList<Limousine> Limousines { get; }
+        public Vloot()
         {
-            throw new NotImplementedException();
-        }
 
-        public void RemoveLimousine(ILimousine limousine)
+        }
+        public Vloot(IList<Limousine> limousines)
         {
-            throw new NotImplementedException();
+            Limousines = limousines;
+        }
+        public void AddLimousine(Limousine limousine) 
+        {
+            Limousines.Add(limousine);
+        }
+        public void RemoveLimousine(Limousine limousine) 
+        {
+            Limousines.Remove(limousine);
         }
     }
 }

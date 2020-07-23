@@ -1,4 +1,5 @@
-﻿using DomainLibrary.Domain.Interfaces;
+﻿
+using DomainLibrary.Domain.Limousines;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,10 @@ namespace DomainLibrary.Domain.Reservering
         public DateTime ReservationDateEnd { get; }
         public Location StartLocation { get; }
         public Location ArrivalLocation { get; }
-        public ILimousine Limousine { get; }
-        public IArrangement Arrangement { get; }
+        public Limousine Limousine { get; }
+        public Arrangement Arrangement { get; }
 
-        public ReservationDetails(DateTime reservationDateStart, DateTime reservationDateEnd, Location startLocation, Location arrivalLocation, ILimousine limousine, IArrangement arrangement)
+        public ReservationDetails(DateTime reservationDateStart, DateTime reservationDateEnd, Location startLocation, Location arrivalLocation, Limousine limousine, Arrangement arrangement)
         {
             if (!limousine.IsReservable(reservationDateStart))
                 throw new ArgumentException("Between 2 reservations needs to be at least 6 hours of difference");

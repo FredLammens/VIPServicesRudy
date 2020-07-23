@@ -1,4 +1,5 @@
-﻿using DomainLibrary;
+﻿using DataLayer.Repositories;
+using DomainLibrary;
 using DomainLibrary.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,27 @@ namespace DataLayer
         public UnitOfWork(VIPServicesRudyContext context)
         {
             this.context = context;
-            Categories = new 
+            Categories = new CategoryRepository(context);
+            Clients = new ClientRepository(context);
+            Limousines = new LimousineRepository(context);
+            Reservations = new ReservationRepository(context);
+        }
+
+        public int Complete()
+        {
+            try
+            {
+                return context.SaveChanges();
+            }
+            catch (Exception ex) 
+            {
+                throw;
+            }
+        }
+
+        public void Dispose()
+        {
+            context.Dispose();
         }
     }
 }

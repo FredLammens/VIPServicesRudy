@@ -1,21 +1,22 @@
-﻿using DomainLibrary.Domain.Interfaces;
+﻿using DomainLibrary.Domain.Clients;
+using DomainLibrary.Domain.Limousines;
+using DomainLibrary.Domain.Limousines.Hours;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DomainLibrary.Domain.Reservering
 {
     public class PriceCalculation
     {
-        public List<IHour> Hours { get; }
+        public List<Hour> Hours { get; }
         public int Subtotal { get; }
         private readonly float vatPercentage = 0.06f;
         public Decimal ChargedDiscounts { get; }
         public Decimal TotalExclusiveVAT { get; }
         public Decimal VATAmount { get; }
         public Decimal Total { get; }
-        public PriceCalculation(IArrangement arrangement, ILimousine limo, IClient client, DateTime reservationDateStart, DateTime reservationDateEnd)
+        public PriceCalculation(Arrangement arrangement, Limousine limo, Client client, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
             Hours = arrangement.GetHours(reservationDateStart, reservationDateEnd, limo.FirstHourPrice);
             Subtotal = (int)arrangement.Price;
@@ -26,7 +27,7 @@ namespace DomainLibrary.Domain.Reservering
 
 
         }
-        private Decimal CalculateChargedDiscounts(int subtotal, IClient client)
+        private Decimal CalculateChargedDiscounts(int subtotal, Client client)
         {
             //check if client has made a reservation in the year
             int year = DateTime.Now.Year;

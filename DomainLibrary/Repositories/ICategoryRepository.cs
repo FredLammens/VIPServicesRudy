@@ -1,5 +1,5 @@
-﻿using DomainLibrary.Domain.Client;
-using DomainLibrary.Domain.Interfaces;
+﻿using DomainLibrary.Domain.Clients;
+
 using System;
 using System.Collections.Generic;
 using System.Text;

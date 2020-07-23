@@ -1,14 +1,12 @@
-﻿using DomainLibrary.Domain.Interfaces;
-using DomainLibrary.Domain.Limousines.Hours;
+﻿using DomainLibrary.Domain.Limousines.Hours;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DomainLibrary.Domain.Limousines.FixedArrangements
 {
-    public class NightLife : IArrangement
+    public class NightLife : Arrangement
     {
-        public int? Price { get; }
+        public override int? Price { get;}
         static readonly int hourTerm = 7;
         static readonly int maxTerm = 11;
         static readonly TimeSpan startTime = new TimeSpan(20, 0, 0);
@@ -19,7 +17,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             Price = price;
         }
 
-        public List<IHour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
+        public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
             //check if price is not null
             if (!Price.HasValue)
@@ -34,16 +32,16 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             if (period > maxTerm)
                 throw new ArgumentException($"Hourspan can be maximum {maxTerm} hours");
             //initialize hours 
-            List<IHour> hours = new List<IHour>();
+            List<Hour> hours = new List<Hour>();
             //calculate periods
             if (period == hourTerm)
             {
-                hours.Add(new VastePrijs(period, (int)Price));
+                hours.Add(new Hour(HourType.VastePrijs,period, (int)Price));
             }
             else
             {
-                hours.Add(new VastePrijs(hourTerm, (int)Price)); //regular hours
-                hours.Add(new NachtUur(period - hourTerm, firstHourPrice)); //overtime
+                hours.Add(new Hour(HourType.VastePrijs,hourTerm, (int)Price)); //regular hours
+                hours.Add(new Hour(HourType.NachtUur,period - hourTerm, firstHourPrice)); //overtime
             }
             return hours;
         }

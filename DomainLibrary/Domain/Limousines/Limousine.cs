@@ -1,21 +1,19 @@
-﻿using DomainLibrary.Domain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DomainLibrary.Domain.Limousines
 {
-    public class Limousine : ILimousine
+    public class Limousine
     {
         [Key]
         public int Id { get; set; }//added for db
         public string Name { get; }
         public int FirstHourPrice { get; }
-        public List<IArrangement> FixedArrangements { get; }
+        public List<Arrangement> FixedArrangements { get; }
         public DateTime LastReservation { get; set; }
 
-        public Limousine(string name, int firstHourPrice, List<IArrangement> fixedArrangements)
+        public Limousine(string name, int firstHourPrice, List<Arrangement> fixedArrangements)
         {
             Name = name;
             FirstHourPrice = firstHourPrice;
@@ -33,5 +31,17 @@ namespace DomainLibrary.Domain.Limousines
             else
                 return true;
         }
+        public override bool Equals(object obj)
+        {
+            return obj is Limousine limousine &&
+                   Id == limousine.Id &&
+                   Name == limousine.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name);
+        }
+
     }
 }

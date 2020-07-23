@@ -1,10 +1,9 @@
-﻿using DomainLibrary.Domain.Interfaces;
-using DomainLibrary.Domain.Limousines.FixedArrangements;
+﻿using DomainLibrary.Domain.Limousines.FixedArrangements;
+using DomainLibrary.Domain.Limousines.Hours;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace VIPServicesRudyTests.FixedArrangementsTests
 {
@@ -94,7 +93,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 8, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 18, 00, 00);
             int firstHourPrice = 10;
-            List<IHour> hours = wedding.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
+            List<Hour> hours = wedding.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
             hours[0].Period.ShouldBe(7);
             hours[0].UnitPrice.ShouldBe(100);
             hours[1].Period.ShouldBe(3);

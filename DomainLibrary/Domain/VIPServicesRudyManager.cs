@@ -6,10 +6,12 @@ namespace DomainLibrary.Domain
 {
     public class VIPServicesRudyManager
     {
-        //private IUnitOfWork uow;
-        public VIPServicesRudyManager()
-        {
+        private IUnitOfWork uow;
 
+        public VIPServicesRudyManager(IUnitOfWork uow)
+        {
+            this.uow = uow;
         }
+
     }
 }

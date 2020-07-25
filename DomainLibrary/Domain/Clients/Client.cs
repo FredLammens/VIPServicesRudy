@@ -11,10 +11,10 @@ namespace DomainLibrary.Domain.Clients
     {
         [Key]
         public int ClientNumber { get; set; }
-        public string Name { get; set; }
-        public string VATNumber { get; set; }
-        public string Adres { get; set; }
-        public Category Categorie { get; set; }
+        public string Name { get; private set; }
+        public string VATNumber { get; private set; }
+        public string Adres { get; private set; }
+        public Category Categorie { get; private set; }
 
         //reservaties bijhouden 
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();

@@ -2,18 +2,21 @@
 using DomainLibrary.Domain.Limousines;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DomainLibrary.Domain.Reservering
 {
     public class ReservationDetails
     {
-        public DateTime ReservationDateStart { get; }
-        public DateTime ReservationDateEnd { get; }
-        public Location StartLocation { get; }
-        public Location ArrivalLocation { get; }
-        public Limousine Limousine { get; }
-        public Arrangement Arrangement { get; }
+        [Key]
+        public int Id { get; private set; }
+        public DateTime ReservationDateStart { get; private set; }
+        public DateTime ReservationDateEnd { get; private set; }
+        public Location StartLocation { get; private set; }
+        public Location ArrivalLocation { get; private set; }
+        public Limousine Limousine { get; private set; }
+        public Arrangement Arrangement { get; private set; }
 
         public ReservationDetails(DateTime reservationDateStart, DateTime reservationDateEnd, Location startLocation, Location arrivalLocation, Limousine limousine, Arrangement arrangement)
         {
@@ -28,6 +31,10 @@ namespace DomainLibrary.Domain.Reservering
             limousine.LastReservation = reservationDateEnd;
             Limousine = limousine;
             Arrangement = arrangement;
+        }
+        public ReservationDetails()
+        {
+
         }
     }
 }

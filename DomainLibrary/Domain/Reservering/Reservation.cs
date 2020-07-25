@@ -9,10 +9,10 @@ namespace DomainLibrary.Domain.Reservering
         public DateTime ReservationDate { get; } = DateTime.Now;
         [Key]
         public int Number { get; set; } // met EF autogenerate
-        public string Adres { get; }
-        public Client Client { get; }
-        public ReservationDetails Details { get; }
-        public PriceCalculation PriceCalculation { get; }
+        public string Adres { get; private set; }
+        public Client Client { get; private set; }
+        public ReservationDetails Details { get; private set; }
+        public PriceCalculation PriceCalculation { get; private set; }
         public Reservation(string adres, Client client, ReservationDetails details)
         {
             PriceCalculation = new PriceCalculation(details.Arrangement, details.Limousine, client, details.ReservationDateStart, details.ReservationDateEnd);

@@ -44,7 +44,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            Category categorieTestVIP = new Category(new SortedList<int, float>() { {2,0.05f},{7,0.075f},{15,0.1f} },CategorieType.vip);
+            List<Discount> staffDiscount = new List<Discount>() { new Discount(2,0.05f),new Discount(7,0.075f),new Discount(15,0.1f)};
+            Category categorieTestVIP = new Category(staffDiscount,CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6",categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.Hours[0].Period.ShouldBe(1);
@@ -59,7 +60,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            Category categorieTestVIP = new Category(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
+            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.Subtotal.ShouldBe(230);
@@ -71,7 +73,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            Category categorieTestVIP = new Category(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
+            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.ChargedDiscounts.ShouldBe(0);
@@ -83,7 +86,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            Category categorieTestVIP = new Category(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
+            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.ChargedDiscounts.ShouldBe(0);

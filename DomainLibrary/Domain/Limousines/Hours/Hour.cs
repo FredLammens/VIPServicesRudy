@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DomainLibrary.Domain.Limousines.Hours
@@ -25,8 +26,10 @@ namespace DomainLibrary.Domain.Limousines.Hours
     }
     public class Hour
     {
-        public HourType HourType { get; }
-        public int Period { get; }
+        [Key]
+        public int Id { get; private set; }
+        public HourType HourType { get; private set; }
+        public int Period { get; private set; }
         public int UnitPrice { get; private set; }
 
         public Hour(HourType hourType, int period, int unitPrice)

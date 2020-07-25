@@ -9,7 +9,7 @@ namespace DomainLibrary.Domain
 {
     public class Vloot
     {
-        public IList<Limousine> Limousines { get; }
+        public IList<Limousine> Limousines { get; private set; }
         public Vloot()
         {
 

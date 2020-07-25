@@ -3,19 +3,22 @@ using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Domain.Limousines.Hours;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace DomainLibrary.Domain.Reservering
 {
     public class PriceCalculation
     {
-        public List<Hour> Hours { get; }
-        public int Subtotal { get; }
+        [Key]
+        public int Id { get; private set; }
+        public List<Hour> Hours { get; private set; }
+        public int Subtotal { get; private set; }
         private readonly float vatPercentage = 0.06f;
-        public Decimal ChargedDiscounts { get; }
-        public Decimal TotalExclusiveVAT { get; }
-        public Decimal VATAmount { get; }
-        public Decimal Total { get; }
+        public Decimal ChargedDiscounts { get; private set; }
+        public Decimal TotalExclusiveVAT { get; private set; }
+        public Decimal VATAmount { get; private set; }
+        public Decimal Total { get; private set; }
         public PriceCalculation(Arrangement arrangement, Limousine limo, Client client, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
             Hours = arrangement.GetHours(reservationDateStart, reservationDateEnd, limo.FirstHourPrice);
@@ -24,7 +27,9 @@ namespace DomainLibrary.Domain.Reservering
             TotalExclusiveVAT = Subtotal - ChargedDiscounts;
             VATAmount = TotalExclusiveVAT * (Decimal)vatPercentage;
             Total = TotalExclusiveVAT + VATAmount;
-
+        }
+        public PriceCalculation()
+        {
 
         }
         private Decimal CalculateChargedDiscounts(int subtotal, Client client)
@@ -39,12 +44,13 @@ namespace DomainLibrary.Domain.Reservering
                 return 0;
             else
             {
-                IList<int> keys = client.Categorie.StaffDiscount.Keys;
+                List<int> keys = client.Categorie.StaffDiscount.Select(x => x.Aantal).ToList(); //IList<int> keys = client.Categorie.StaffDiscount.Keys;
                 int key = keys.OrderByDescending(x => x).Where(x => x <= amountLoaned).FirstOrDefault();
                 if (key == 0)
                     return 0;
                 else
-                    return (decimal)(subtotal * client.Categorie.StaffDiscount[key]);
+                    //return (decimal)(subtotal * client.Categorie.StaffDiscount[key]);
+                    return (decimal)(subtotal * client.Categorie.StaffDiscount[key].Korting);
             }
         }
     }

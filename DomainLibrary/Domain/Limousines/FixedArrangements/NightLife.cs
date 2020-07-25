@@ -6,7 +6,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
 {
     public class NightLife : Arrangement
     {
-        public override int? Price { get;}
+        public override int? Price { get; set; }
         static readonly int hourTerm = 7;
         static readonly int maxTerm = 11;
         static readonly TimeSpan startTime = new TimeSpan(20, 0, 0);
@@ -15,6 +15,10 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
         public NightLife(int? price)
         {
             Price = price;
+        }
+        public NightLife()
+        {
+
         }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)

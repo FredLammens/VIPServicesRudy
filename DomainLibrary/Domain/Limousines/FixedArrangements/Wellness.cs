@@ -8,7 +8,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
 {
     public class Wellness : Arrangement
     {
-        public override int? Price { get; }
+        public override int? Price { get; set; }
         static readonly int hourTerm = 10;
         static readonly TimeSpan startTime = new TimeSpan(7, 0, 0);
         static readonly TimeSpan endTime = new TimeSpan(12, 0, 0);
@@ -16,6 +16,10 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
         public Wellness(int? price)
         {
             Price = price;
+        }
+        public Wellness()
+        {
+
         }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)

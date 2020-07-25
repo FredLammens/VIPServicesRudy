@@ -25,12 +25,20 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
                 }
                 return subtotal;
             }
+            set 
+            {
+                Price = value;
+            }
         }
 
         public HourlyArrangement(int firstHourPrice, HourlyArrangementType type, DateTime reservationDateStart, DateTime reservationDateEnd)//reservationstart en eind weg => toevoegen aan limo moet kunnen
         {
             Type = type;
             hours = CalculateHours(reservationDateStart, reservationDateEnd, firstHourPrice);
+        }
+        public HourlyArrangement()
+        {
+
         }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)

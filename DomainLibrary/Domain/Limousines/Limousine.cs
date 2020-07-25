@@ -8,9 +8,9 @@ namespace DomainLibrary.Domain.Limousines
     {
         [Key]
         public int Id { get; set; }//added for db
-        public string Name { get; }
-        public int FirstHourPrice { get; }
-        public List<Arrangement> FixedArrangements { get; }
+        public string Name { get; private set; }
+        public int FirstHourPrice { get; private set; }
+        public List<Arrangement> FixedArrangements { get; private set; }
         public DateTime LastReservation { get; set; }
 
         public Limousine(string name, int firstHourPrice, List<Arrangement> fixedArrangements)

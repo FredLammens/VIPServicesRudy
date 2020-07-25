@@ -6,3 +6,4 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\b
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.csprojAssemblyReference.cache

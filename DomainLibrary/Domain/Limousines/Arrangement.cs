@@ -9,7 +9,7 @@ namespace DomainLibrary.Domain.Limousines
     public abstract class Arrangement
     {
         public abstract List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEndint, int firstHourPrice);
-        public abstract int? Price { get; }
+        public abstract int? Price { get; set; }
         [Key]
         public int id { get; set; }
 

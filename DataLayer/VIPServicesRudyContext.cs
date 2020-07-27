@@ -21,10 +21,7 @@ namespace DataLayer
         public DbSet<HourlyArrangement> HourlyArrangements { get; set; }
         //----------------------
         private string connectionString;
-        public VIPServicesRudyContext()
-        {
-
-        }
+        public VIPServicesRudyContext() { }
         public VIPServicesRudyContext(string db="VIPServicesRudy") : base()
         {
             SetConnectionString(db);
@@ -60,7 +57,6 @@ namespace DataLayer
                 .HasValue<Wedding>(2)
                 .HasValue<Wellness>(3)
                 .HasValue<HourlyArrangement>(4);
-            //modelBuilder.Entity<Category>().HasMany(i => i.)
         }
     }
 }

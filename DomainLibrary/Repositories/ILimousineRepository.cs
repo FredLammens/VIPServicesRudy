@@ -10,5 +10,6 @@ namespace DomainLibrary.Repositories
     {
         void AddLimousine(Limousine limousine);
         void RemoveLimousine(int Id);
+        IEnumerable<Limousine> GetAllLimousines();
     }
 }

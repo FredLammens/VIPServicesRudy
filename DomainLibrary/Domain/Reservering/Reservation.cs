@@ -1,5 +1,6 @@
 ﻿using DomainLibrary.Domain.Clients;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DomainLibrary.Domain.Reservering
@@ -21,9 +22,20 @@ namespace DomainLibrary.Domain.Reservering
             Client = client;
             Client.Reservations.Add(this);
         }
-        public Reservation()
-        {
+        public Reservation() { }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Reservation reservation &&
+                   ReservationDate == reservation.ReservationDate &&
+                   Adres == reservation.Adres &&
+                   EqualityComparer<Client>.Default.Equals(Client, reservation.Client) &&
+                   EqualityComparer<ReservationDetails>.Default.Equals(Details, reservation.Details);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ReservationDate, Adres, Client, Details);
         }
     }
 }

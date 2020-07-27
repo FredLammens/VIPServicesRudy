@@ -19,10 +19,7 @@ namespace DomainLibrary.Domain.Limousines
             FirstHourPrice = firstHourPrice;
             FixedArrangements = fixedArrangements;
         }
-        public Limousine()
-        {
-
-        }
+        public Limousine() { }
 
         public bool IsReservable(DateTime reservationDateStart)
         {
@@ -30,17 +27,6 @@ namespace DomainLibrary.Domain.Limousines
                 return false;
             else
                 return true;
-        }
-        public override bool Equals(object obj)
-        {
-            return obj is Limousine limousine &&
-                   Id == limousine.Id &&
-                   Name == limousine.Name;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, Name);
         }
 
     }

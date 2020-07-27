@@ -27,14 +27,7 @@ namespace DataLayer
 
         public int Complete()
         {
-            try
-            {
                 return context.SaveChanges();
-            }
-            catch (Exception ex) 
-            {
-                throw;
-            }
         }
 
         public void Dispose()

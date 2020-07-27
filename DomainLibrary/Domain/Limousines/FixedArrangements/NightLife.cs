@@ -16,10 +16,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
         {
             Price = price;
         }
-        public NightLife()
-        {
-
-        }
+        public NightLife() { }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {

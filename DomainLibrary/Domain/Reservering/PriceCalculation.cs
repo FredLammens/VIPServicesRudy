@@ -28,10 +28,7 @@ namespace DomainLibrary.Domain.Reservering
             VATAmount = TotalExclusiveVAT * (Decimal)vatPercentage;
             Total = TotalExclusiveVAT + VATAmount;
         }
-        public PriceCalculation()
-        {
-
-        }
+        public PriceCalculation() { }
         private Decimal CalculateChargedDiscounts(int subtotal, Client client)
         {
             //check if client has made a reservation in the year

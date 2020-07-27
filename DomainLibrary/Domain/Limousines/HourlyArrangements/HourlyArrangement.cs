@@ -36,10 +36,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
             Type = type;
             hours = CalculateHours(reservationDateStart, reservationDateEnd, firstHourPrice);
         }
-        public HourlyArrangement()
-        {
-
-        }
+        public HourlyArrangement() { }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {

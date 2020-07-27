@@ -1,5 +1,8 @@
 ﻿using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataLayer.Repositories
 {
@@ -19,6 +22,10 @@ namespace DataLayer.Repositories
         public void RemoveLimousine(int id)
         {
             context.Limousines.Remove(new Limousine() { Id = id });
+        }
+        public IEnumerable<Limousine> GetAllLimousines() 
+        {
+            return context.Limousines.AsNoTracking().AsEnumerable();
         }
     }
 }

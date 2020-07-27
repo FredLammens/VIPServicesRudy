@@ -26,9 +26,19 @@ namespace DomainLibrary.Domain.Clients
             Adres = adres;
             Categorie = categorie;
         }
-        public Client()
-        {
+        public Client() { }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Client client &&
+                   Name == client.Name &&
+                   VATNumber == client.VATNumber &&
+                   Adres == client.Adres;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, VATNumber, Adres);
         }
     }
 }

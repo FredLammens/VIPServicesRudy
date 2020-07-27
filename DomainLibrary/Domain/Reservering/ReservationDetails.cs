@@ -32,9 +32,6 @@ namespace DomainLibrary.Domain.Reservering
             Limousine = limousine;
             Arrangement = arrangement;
         }
-        public ReservationDetails()
-        {
-
-        }
+        public ReservationDetails() { }
     }
 }

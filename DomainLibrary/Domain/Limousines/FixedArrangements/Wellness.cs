@@ -23,14 +23,14 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
         {
             //check if price is not null
             if (!Price.HasValue)
-                throw new InvalidOperationException("arrangement not available");
+                throw new InvalidOperationException("Arrangement niet beschikbaar");
             //check if in between right hours
             if (!HelperMethods.TimeInRange(reservationDateStart, startTime, endTime))
-                throw new ArgumentException($"startReservationdate must be between {startTime} and {endTime}");
+                throw new ArgumentException($"Startreservatie moet tussen {startTime.Hours} uur en {endTime.Hours} uur zitten.");
             //check if reservation is in hourterm
             int period = (reservationDateEnd - reservationDateStart).Hours;
             if (period != hourTerm)
-                throw new ArgumentException($"Hourspan needs to be {hourTerm} hours");
+                throw new ArgumentException($"Tijdsduur moet {hourTerm} uur lang zijn.");
             //return hours
             return new List<Hour>() { new Hour(HourType.VastePrijs, period, (int)Price) };
         }

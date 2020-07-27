@@ -5,7 +5,7 @@ using Shouldly;
 using System;
 using System.Collections.Generic;
 
-namespace VIPServicesRudyTests.FixedArrangementsTests
+namespace VIPServicesRudyTests
 {
     //gepaste messages moeten nog gecontroleerd worden !
     [TestClass]
@@ -22,7 +22,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             //Act roept test methode op met ingestelde parameters
             Action act = () => nightlife.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
             //Assert verifieert of juist
-            act.ShouldThrow<InvalidOperationException>();
+            act.ShouldThrow<InvalidOperationException>().Message.ShouldBe("Arrangement niet beschikbaar");
         }
         [TestMethod]
         public void TestNightLifeStartDateInRange()
@@ -42,7 +42,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 1, 00, 00);
             int firstHourPrice = 10;
             Action act = () => nightlife.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<ArgumentException>().Message.ShouldBe("Startreservatie moet tussen 20 uur en 0 uur zitten.");
         }
         [TestMethod]
         public void TestNightLifeStartDateToBig()
@@ -52,7 +52,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 9, 00, 00);
             int firstHourPrice = 10;
             Action act = () => nightlife.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<ArgumentException>().Message.ShouldBe("Startreservatie moet tussen 20 uur en 0 uur zitten.");
         }
         [TestMethod]
         public void TestNightLifeHourspanToSmall()
@@ -62,7 +62,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 2, 00, 00);
             int firstHourPrice = 10;
             Action act = () => nightlife.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<ArgumentException>().Message.ShouldBe("Tijdsduur moet minstens 7 uur zijn.");
         }
         [TestMethod]
         public void TestNightLifeHourspanToBig()
@@ -72,7 +72,7 @@ namespace VIPServicesRudyTests.FixedArrangementsTests
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 11, 00, 00);
             int firstHourPrice = 10;
             Action act = () => nightlife.GetHours(reservationDateStart, reservationDateEnd, firstHourPrice);
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<ArgumentException>().Message.ShouldBe("Tijdsduur kan maximum 11 uur zijn.");
         }
 
         [TestMethod]

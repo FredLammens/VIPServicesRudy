@@ -7,8 +7,7 @@ using System.Text;
 namespace DomainLibrary.Domain.Limousines.HourlyArrangements
 {
     public class HourlyArrangement : Arrangement
-    {   //kan ook abstract zijn en met klassen die deze dan implementeren maar enkel 2 en identiek hetzelfde. mss moet dit nog voor continuiteitsredenen
-        //herbekijken raar geworden met firsthourprice
+    { 
         public HourlyArrangementType Type { get; }
 
         readonly List<Hour> hours;
@@ -47,9 +46,9 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
             List<Hour> hours = new List<Hour>();
             int period = (reservationDateEnd - reservationDateStart).Hours;
             if (period < 1)
-                throw new ArgumentException("period between reservationdates must be at least 1 hour");
+                throw new ArgumentException("Tijdsduur moet minstens 1 uur zijn.");
             if (period > maxTerm)
-                throw new ArgumentException($"Hourspan can be maximum {maxTerm} hours");
+                throw new ArgumentException($"Tijsduur kan maximum {maxTerm} uur zijn.");
             //split period in correct times
             int dayPeriod = 0;
             int nightPeriod = 0;

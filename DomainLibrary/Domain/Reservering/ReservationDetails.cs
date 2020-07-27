@@ -21,9 +21,9 @@ namespace DomainLibrary.Domain.Reservering
         public ReservationDetails(DateTime reservationDateStart, DateTime reservationDateEnd, Location startLocation, Location arrivalLocation, Limousine limousine, Arrangement arrangement)
         {
             if (!limousine.IsReservable(reservationDateStart))
-                throw new ArgumentException("Between 2 reservations needs to be at least 6 hours of difference");
+                throw new ArgumentException("Tussen 2 reservaties moet er minstens 6 uur verschil zijn.");
             if (reservationDateStart.Minute > 0 || reservationDateEnd.Minute > 0)
-                throw new ArgumentException("reservationdates need to be hours only");
+                throw new ArgumentException("Reservatiedatums mogen enkel uren bevatten.");
             ReservationDateStart = reservationDateStart;
             ReservationDateEnd = reservationDateEnd;
             StartLocation = startLocation;

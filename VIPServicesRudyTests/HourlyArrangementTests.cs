@@ -65,7 +65,7 @@ namespace VIPServicesRudyTests
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 9, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 9, 00, 00);
             Action a = () => new HourlyArrangement(10, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-            a.ShouldThrow<ArgumentException>();
+            a.ShouldThrow<ArgumentException>().Message.ShouldBe("Tijdsduur moet minstens 1 uur zijn.");
         }
         [TestMethod]
         public void TestCalculateHoursHourspanToBig() 
@@ -73,7 +73,7 @@ namespace VIPServicesRudyTests
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 01, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 13, 00, 00);
             Action a = () => new HourlyArrangement(10, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-            a.ShouldThrow<ArgumentException>();
+            a.ShouldThrow<ArgumentException>().Message.ShouldBe("Tijsduur kan maximum 11 uur zijn.");
         }
     }
 }

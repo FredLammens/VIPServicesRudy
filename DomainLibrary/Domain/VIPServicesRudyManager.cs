@@ -18,7 +18,7 @@ namespace DomainLibrary.Domain
             this.uow = uow;
         }
 
-        public void AddCategory(List<Discount> staffDiscount,CategorieType name) //enkel voor inserten
+        public void AddCategory(List<Discount> staffDiscount,CategorieType name)
         {
             uow.Categories.AddCategory(new Category(staffDiscount,name));
             uow.Complete();

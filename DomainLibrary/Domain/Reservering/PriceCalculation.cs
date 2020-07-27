@@ -29,7 +29,7 @@ namespace DomainLibrary.Domain.Reservering
             Total = TotalExclusiveVAT + VATAmount;
         }
         public PriceCalculation() { }
-        private Decimal CalculateChargedDiscounts(int subtotal, Client client)
+        private Decimal CalculateChargedDiscounts(int subtotal, Client client) // eventueel herbekijken Sortedlist nogo EF
         {
             //check if client has made a reservation in the year
             int year = DateTime.Now.Year;
@@ -41,13 +41,12 @@ namespace DomainLibrary.Domain.Reservering
                 return 0;
             else
             {
-                List<int> keys = client.Categorie.StaffDiscount.Select(x => x.Aantal).ToList(); //IList<int> keys = client.Categorie.StaffDiscount.Keys;
+                List<int> keys = client.Categorie.StaffDiscount.Select(x => x.Aantal).ToList();
                 int key = keys.OrderByDescending(x => x).Where(x => x <= amountLoaned).FirstOrDefault();
                 if (key == 0)
                     return 0;
                 else
-                    //return (decimal)(subtotal * client.Categorie.StaffDiscount[key]);
-                    return (decimal)(subtotal * client.Categorie.StaffDiscount[key].Korting);
+                    return (decimal)(subtotal * client.Categorie.StaffDiscount.Where(x => x.Aantal == key).FirstOrDefault().Korting);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using DomainLibrary.Domain.Clients;
 using DomainLibrary.Domain.Limousines;
+using DomainLibrary.Domain.Limousines.FixedArrangements;
 using DomainLibrary.Domain.Limousines.HourlyArrangements;
 using DomainLibrary.Domain.Reservering;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -24,7 +25,7 @@ namespace VIPServicesRudyTests
             DateTime reservationDateStartNext = new DateTime(2012, 01, 23, 20, 00, 00);
             DateTime reservationDateEndNext = new DateTime(2012, 01, 24, 5, 00, 00);
             Action a = () => new ReservationDetails(reservationDateStartNext, reservationDateEndNext, Location.Charleroi, Location.Brussel, limoTest, arrangement);
-            a.ShouldThrow<ArgumentException>();
+            a.ShouldThrow<ArgumentException>().Message.ShouldBe("Tussen 2 reservaties moet er minstens 6 uur verschil zijn.");
         }
         [TestMethod]
         public void TestReservationDetailsDatesNotHoursOnly() 
@@ -34,7 +35,7 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Action a = () => new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement);
-            a.ShouldThrow<ArgumentException>();
+            a.ShouldThrow<ArgumentException>().Message.ShouldBe("Reservatiedatums mogen enkel uren bevatten.");
         }
         //PriceCalculations
         [TestMethod]
@@ -44,8 +45,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            List<Discount> staffDiscount = new List<Discount>() { new Discount(2,0.05f),new Discount(7,0.075f),new Discount(15,0.1f)};
-            Category categorieTestVIP = new Category(staffDiscount,CategorieType.vip);
+            List<Discount> vip = new List<Discount>() { new Discount(2,0.05f),new Discount(7,0.075f),new Discount(15,0.1f)};
+            Category categorieTestVIP = new Category(vip,CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6",categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.Hours[0].Period.ShouldBe(1);
@@ -60,8 +61,8 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
-            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
+            List<Discount> vip = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(vip, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.Subtotal.ShouldBe(230);
@@ -73,65 +74,60 @@ namespace VIPServicesRudyTests
             DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
-            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
+            List<Discount> vip = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(vip, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
             PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
             priceTest.ChargedDiscounts.ShouldBe(0);
         }
         [TestMethod]
-        public void TestPriceCalculationChargedDiscountsNullReservation() 
+        public void TestPriceCalculationChargedDiscountsOneReservation()
         {
-            DateTime reservationDateStart = new DateTime(2012, 01, 23, 15, 00, 00);
-            DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
+            DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
+            DateTime reservationDateEnd = new DateTime(2020, 01, 23, 18, 00, 00);
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
-            List<Discount> staffDiscount = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
-            Category categorieTestVIP = new Category(staffDiscount, CategorieType.vip);
+            List<Discount> vip = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(vip, CategorieType.vip);
             Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
-            PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
-            priceTest.ChargedDiscounts.ShouldBe(0);
+            Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart,reservationDateEnd,Location.Gent,Location.Brussel,limoTest,arrangement));
+            test.PriceCalculation.ChargedDiscounts.ShouldBe(0);
         }
-        //[TestMethod]
-        //public void TestPriceCalculationChargedDiscountsOneReservation()
-        //{
-        //    //testDatabank
-        //    //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //    ICategory VIP = new Category(new SortedList<int, float>() { { 2, 0.05f } }, CategorieType.vip);
-        //    ICategory categorieTestVIP = new Category(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
-        //    IClient client = new Client("Lammens frederic", "20665650", "Jef De Belderlaan 7", VIP);
-        //    IClient clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
-        //    NightLife arrangement = new NightLife(1500);
-        //    DateTime reservationDateStart = new DateTime(2012, 01, 23, 15, 00, 00);
-        //    DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
-        //    IArrangement testarrangement = new HourlyArrangement(210, HourlyArrangementType.Airport, new DateTime(2012, 01, 23, 20, 00, 00), new DateTime(2012, 01, 24, 04, 00, 00));
-        //    IArrangement arrangementje = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-        //    Limousine limo = new Limousine("witte volvo", 310, new List<IArrangement>() { arrangement,testarrangement}) ;
-        //    ReservationDetails details = new ReservationDetails(new DateTime(2012, 01, 23, 20, 00, 00), new DateTime(2012, 01, 24, 04, 00, 00), Location.Brussel, Location.Gent, limo, arrangement);
-        //    Reservation test = new Reservation("Jef De Belderlaan 7", client, details);
-        //    //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //    ILimousine limoTest = new Limousine("FIAT 500", 100, new List<IArrangement>() { });
-        //    ReservationDetails detailsTest = new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangementje);
-        //    Reservation test2 = new Reservation("bla", clientTest, detailsTest);
-        //    //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //    test2.PriceCalculation.ChargedDiscounts.ShouldBe(0);
-        //}
-        //[TestMethod]
-        //public void TestPriceCalculationChargedDiscountsMiddleAmountReservation()
-        //{
-        //    DateTime reservationDateStart = new DateTime(2012, 01, 23, 15, 00, 00);
-        //    DateTime reservationDateEnd = new DateTime(2012, 01, 23, 18, 00, 00);
-        //    IArrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-        //    ILimousine limoTest = new Limousine("FIAT 500", 100, new List<IArrangement>() { });
-        //    ICategory categorieTestVIP = new Category(new SortedList<int, float>() { { 2, 0.05f }, { 7, 0.075f }, { 15, 0.1f } }, CategorieType.vip);
-        //    IClient clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
-        //    PriceCalculation priceTest = new PriceCalculation(arrangement, limoTest, clientTest, reservationDateStart, reservationDateEnd);
+        [TestMethod]
+        public void TestPriceCalculationChargedDiscountsMiddleAmountReservation()
+        {
+            DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
+            DateTime reservationDateEnd = new DateTime(2020, 01, 23, 18, 00, 00);
+            Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
+            Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
+            List<Discount> vip = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(vip, CategorieType.vip);
+            Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(1), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(2), reservationDateEnd.AddDays(2), Location.Gent, Location.Brussel, limoTest, arrangement));       
+            test.PriceCalculation.ChargedDiscounts.ShouldBe(11.5m);//5%
+        }
+        [TestMethod]
+        public void TestPriceCalculationChargedDiscountsMaxAmountReservation()
+        {
+            DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
+            DateTime reservationDateEnd = new DateTime(2020, 01, 23, 18, 00, 00);
+            Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
+            Limousine limoTest = new Limousine("FIAT 500", 100, new List<Arrangement>() { });
+            List<Discount> vip = new List<Discount>() { new Discount(2, 0.05f), new Discount(7, 0.075f), new Discount(15, 0.1f) };
+            Category categorieTestVIP = new Category(vip, CategorieType.vip);
+            Client clientTest = new Client("Tom", "684432685", "Jef De Belderlaan 6", categorieTestVIP);
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(1), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(2), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(3), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(4), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(5), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
 
-        //}
-        //[TestMethod]
-        //public void TestPriceCalculationChargedDiscountsMaxAmountReservation()
-        //{
-
-        //}
+            _ = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(6), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
+            Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(7), reservationDateEnd.AddDays(2), Location.Gent, Location.Brussel, limoTest, arrangement));
+            test.PriceCalculation.ChargedDiscounts.ShouldBe(17.25m);//7.5%
+        }
     }
 }

@@ -5,3 +5,4 @@
 ### TODO:
 1. HourlyArrangement => CalculateHour exception = hardcoded find a way for softcode => via date kijken ?
 2. Tests => Check voor juiste Exceptiontext
+3. Exceptions => NL maken

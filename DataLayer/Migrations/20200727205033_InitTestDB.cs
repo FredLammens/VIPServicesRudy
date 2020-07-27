@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class VIPTest : Migration
+    public partial class InitTestDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -97,7 +97,7 @@ namespace DataLayer.Migrations
                 name: "Arrangements",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<int>(nullable: true),
                     ArrangementType = table.Column<int>(nullable: false),
@@ -105,7 +105,7 @@ namespace DataLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Arrangements", x => x.id);
+                    table.PrimaryKey("PK_Arrangements", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Arrangements_Limousines_LimousineId",
                         column: x => x.LimousineId,
@@ -147,16 +147,16 @@ namespace DataLayer.Migrations
                     StartLocation = table.Column<int>(nullable: false),
                     ArrivalLocation = table.Column<int>(nullable: false),
                     LimousineId = table.Column<int>(nullable: true),
-                    Arrangementid = table.Column<int>(nullable: true)
+                    ArrangementId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ReservationDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ReservationDetails_Arrangements_Arrangementid",
-                        column: x => x.Arrangementid,
+                        name: "FK_ReservationDetails_Arrangements_ArrangementId",
+                        column: x => x.ArrangementId,
                         principalTable: "Arrangements",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ReservationDetails_Limousines_LimousineId",
@@ -221,9 +221,9 @@ namespace DataLayer.Migrations
                 column: "PriceCalculationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ReservationDetails_Arrangementid",
+                name: "IX_ReservationDetails_ArrangementId",
                 table: "ReservationDetails",
-                column: "Arrangementid");
+                column: "ArrangementId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReservationDetails_LimousineId",

@@ -10,5 +10,6 @@ namespace DomainLibrary.Repositories
     {
         void AddClient(Client client);
         void RemoveClient(int clientNumber);
+        void AddClients(IList<Client> clients);
     }
 }

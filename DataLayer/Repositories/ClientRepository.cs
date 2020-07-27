@@ -1,5 +1,7 @@
 ﻿using DomainLibrary.Domain.Clients;
 using DomainLibrary.Repositories;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataLayer.Repositories
 {
@@ -15,7 +17,10 @@ namespace DataLayer.Repositories
         {
             context.Clients.Add(client);
         }
-
+        public void AddClients(IList<Client> clients) 
+        {
+            context.Clients.AddRange(clients);
+        }
         public void RemoveClient(int clientNumber)
         {
             context.Clients.Remove(new Client() { ClientNumber = clientNumber });

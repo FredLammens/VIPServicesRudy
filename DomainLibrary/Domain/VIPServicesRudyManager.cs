@@ -18,7 +18,7 @@ namespace DomainLibrary.Domain
             this.uow = uow;
         }
 
-        public void AddCategory(List<Discount> staffDiscount,CategorieType name)
+        public void AddCategory(List<Discount> staffDiscount,CategorieType name)//hoeft er niet bij ? 
         {
             uow.Categories.AddCategory(new Category(staffDiscount,name));
             uow.Complete();
@@ -53,18 +53,22 @@ namespace DomainLibrary.Domain
         public void RemoveReservation(int number) 
         {
             uow.Reservations.RemoveReservering(number);
+            uow.Complete();
         }
         public void RemoveClient(int clientNumber) 
         {
             uow.Clients.RemoveClient(clientNumber);
+            uow.Complete();
         }
         public void RemoveLimousine(int Id) 
         {
             uow.Limousines.RemoveLimousine(Id);
+            uow.Complete();
         }
         public void GetAllLimousine() 
         {
             uow.Limousines.GetAllLimousines();
+            uow.Complete();
         }
     }
 }

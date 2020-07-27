@@ -23,5 +23,9 @@ namespace DataLayer.Repositories
         {
             context.Categories.Remove(new Category() { Name = name });
         }
+        public void AddCategories(IList<Category> categories) 
+        {
+            context.Categories.AddRange(categories);
+        }
     }
 }

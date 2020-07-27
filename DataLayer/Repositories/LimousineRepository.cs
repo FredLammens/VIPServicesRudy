@@ -18,6 +18,10 @@ namespace DataLayer.Repositories
         {
             context.Limousines.Add(limousine);
         }
+        public void AddLimousines(IList<Limousine> limousines) 
+        {
+            context.Limousines.AddRange(limousines);
+        }
 
         public void RemoveLimousine(int id)
         {
@@ -25,7 +29,10 @@ namespace DataLayer.Repositories
         }
         public IEnumerable<Limousine> GetAllLimousines() 
         {
-            return context.Limousines.AsNoTracking().AsEnumerable();
+            return context.Limousines
+                .Include(a => a.FixedArrangements)
+                .AsNoTracking()
+                .AsEnumerable();
         }
     }
 }

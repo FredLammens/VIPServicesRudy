@@ -10,5 +10,6 @@ namespace DomainLibrary.Repositories
     {
         void AddCategory(Category categorie);
         void RemoveCategory(CategorieType name);
+        void AddCategories(IList<Category> categories);
     }
 }

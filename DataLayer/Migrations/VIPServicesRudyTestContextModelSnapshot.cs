@@ -80,7 +80,7 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("DomainLibrary.Domain.Limousines.Arrangement", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -94,7 +94,7 @@ namespace DataLayer.Migrations
                     b.Property<int?>("Price")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("LimousineId");
 
@@ -214,7 +214,7 @@ namespace DataLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Arrangementid")
+                    b.Property<int?>("ArrangementId")
                         .HasColumnType("int");
 
                     b.Property<int>("ArrivalLocation")
@@ -234,7 +234,7 @@ namespace DataLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Arrangementid");
+                    b.HasIndex("ArrangementId");
 
                     b.HasIndex("LimousineId");
 
@@ -316,7 +316,7 @@ namespace DataLayer.Migrations
                 {
                     b.HasOne("DomainLibrary.Domain.Limousines.Arrangement", "Arrangement")
                         .WithMany()
-                        .HasForeignKey("Arrangementid");
+                        .HasForeignKey("ArrangementId");
 
                     b.HasOne("DomainLibrary.Domain.Limousines.Limousine", "Limousine")
                         .WithMany()

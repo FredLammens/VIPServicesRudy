@@ -1,4 +1,5 @@
-﻿using DomainLibrary.Domain.Clients;
+﻿using DataLayer;
+using DomainLibrary.Domain.Clients;
 using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Domain.Limousines.FixedArrangements;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,10 +38,10 @@ namespace DomainLibrary.Domain
         {
             Console.WriteLine("Please enter path of folder with database files (clients,discounts,limousines): ");
             string[] filespath = Directory.GetFiles(Console.ReadLine());
+            List<Category> categories = new List<Category>();
+            int i = 0;
             foreach (string file in filespath)
             {
-                int i = 0;
-                List<Category> categories = new List<Category>();
                 switch (Path.GetFileNameWithoutExtension(file))
                 {
                     case "categories":
@@ -63,11 +65,11 @@ namespace DomainLibrary.Domain
                         i++;
                         break;
                 }
-                if (i == 3)
-                {
-                    uow.Complete();
-                    Console.WriteLine("saved all objects");
-                }
+            }
+            if (i == 3)
+            {
+                uow.Complete();
+                Console.WriteLine("saved all objects");
             }
         }
         private static List<Limousine> ReadLimousines(List<string[]> file)
@@ -77,9 +79,9 @@ namespace DomainLibrary.Domain
             {
                 string name = line[0]; //try catch ??
                 int firstHourPrice = int.Parse(line[1]);
-                NightLife nightLife = new NightLife(int.Parse(line[2]));
-                Wedding wedding = new Wedding(int.Parse(line[3]));
-                Wellness wellness = new Wellness(int.Parse(line[4]));
+                NightLife nightLife = new NightLife(parseToNullableInt(line[2]));
+                Wedding wedding = new Wedding(parseToNullableInt(line[3]));
+                Wellness wellness = new Wellness(parseToNullableInt(line[4]));
                 List<Arrangement> arrangements = new List<Arrangement>() { nightLife, wedding, wellness };
                 Limousine limo = new Limousine(name, firstHourPrice, arrangements);
                 limos.Add(limo);
@@ -93,12 +95,10 @@ namespace DomainLibrary.Domain
             foreach (string[] line in file.Skip(1))
             {
                 CategorieType type = (CategorieType)Enum.Parse(typeof(CategorieType), line[0]);
-                int amount = int.Parse(line[1]);
                 List<Discount> discounts = new List<Discount>();
-                for (int i = 2; i < amount; i++)
+                for (int i = 1; i < line.Length - 1; i +=2 )
                 {
-                    Discount d = new Discount(int.Parse(line[i]), float.Parse(line[i + amount]));
-                    discounts.Add(d);
+                    discounts.Add(new Discount(int.Parse(line[i]), float.Parse(line[i + 1])));
                 }
                 Category cat = new Category(discounts, type);
                 categories.Add(cat);
@@ -112,18 +112,29 @@ namespace DomainLibrary.Domain
             List<Client> clients = new List<Client>();
             foreach (string[] line in file.Skip(1))
             {
-                int clientnumber = int.Parse(line[0]);
+                //int clientnumber = int.Parse(line[0]);
                 string name = line[1];
                 //Categorie
                 Category category = categories.Where(c => c.Name == (CategorieType)Enum.Parse(typeof(CategorieType), line[2])).Single(); //kunnen geen meerdere zijn . particulier nog niet in lijst
                 string VATnumber = line[3];
                 string adres = line[4];
                 Client client = new Client(name, VATnumber, adres, category);
-                client.ClientNumber = clientnumber;
+                //client.ClientNumber = clientnumber;
                 clients.Add(client);
                 Console.WriteLine($"added client: {client.Name}");
             }
             return clients;
+        }
+        private static int? parseToNullableInt(string s)
+        {
+            int? x = int.TryParse(s, out var temp) ? temp : (int?)null;
+            return x;
+        }
+        public static void InitDatabase() 
+        {
+            VIPServicesRudyTestContext testcontext = new VIPServicesRudyTestContext();
+            IUnitOfWork uow = new UnitOfWork(testcontext);
+            InsertIntoDatabase(uow);
         }
     }
 }

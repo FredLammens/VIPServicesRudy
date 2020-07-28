@@ -8,9 +8,7 @@ namespace VIPServicesRudy
     {
         static void Main(string[] args)
         {
-            VIPServicesRudyTestContext testcontext = new VIPServicesRudyTestContext();
-            IUnitOfWork uow = new UnitOfWork(testcontext);
-            Parser.InsertIntoDatabase(uow);
+            Parser.InitDatabase();
         }
     }
 }

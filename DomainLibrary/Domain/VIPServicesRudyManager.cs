@@ -5,6 +5,7 @@ using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
 namespace DomainLibrary.Domain
@@ -17,58 +18,46 @@ namespace DomainLibrary.Domain
         {
             this.uow = uow;
         }
+        public void AddReservation(Reservation reservation) 
+        {
+            //check if reservation is already in it => al gecheckt bij limo reservatie 
+            //check of client al in db check of limo al in databank
+            if (!uow.Clients.inDataBase(reservation.Client))
+                throw new ArgumentException("Client zit nog niet in databank gelieve client eerst toe te voegen.");
+            if(!uow.Limousines.inDataBase(reservation.Details.Limousine))
+                throw new ArgumentException("Limousine zit nog niet in databank gelieve Limousine eerst toe te voegen.");
 
-        public void AddCategory(List<Discount> staffDiscount,CategorieType name)//hoeft er niet bij ? 
-        {
-            uow.Categories.AddCategory(new Category(staffDiscount,name));
+            uow.Reservations.AddReservering(reservation);
             uow.Complete();
         }
-        public void AddReservation(string adress,Client client,DateTime reservationDateStart,DateTime reservationDateEnd,Location startLocation,Location arrivalLocation,Limousine limousine, Arrangement arrangement) 
+        public void AddClient(Client client) 
         {
-            //check if reservation is already in it => in ui fase checken 
-            uow.Reservations.AddReservering(new Reservation(adress, client, new ReservationDetails(reservationDateStart, reservationDateEnd, startLocation, arrivalLocation, limousine, arrangement)));
+            //check if client is already in it
+            if (uow.Clients.inDataBase(client))
+                throw new ArgumentException("Client zit al in de databank.");
+            uow.Clients.AddClient(client);
             uow.Complete();
         }
-        public void AddClient(string name,string VATNumber,string adres,Category category) 
+        public Client GetClient(int number)
         {
-            //check if client is already in it  => in ui fase checken 
-            uow.Clients.AddClient(new Client(name, VATNumber, adres, category));
-            uow.Complete();
+            return uow.Clients.GetClient(number);
         }
-        public void AddLimousine(string name,int firstHourPrice,List<Arrangement> fixedArrangements) 
+        public void AddLimousine(Limousine limo) 
         {
+            if (uow.Limousines.inDataBase(limo))
+                throw new ArgumentException("Limousine zit al in database.");
             //check limousine enkel vasteArrangementen
-            if (fixedArrangements.OfType<HourlyArrangement>().Any())
-            {
-                throw new ArgumentException("Limousine mag enkel vasteArrangementen hebben");
-            }
-            uow.Limousines.AddLimousine(new Limousine(name, firstHourPrice, fixedArrangements));
+            if (limo.FixedArrangements.Count < 3)
+                throw new ArgumentException("Limousine moet 3 vaste arrangementen hebben.");
+            if (limo.FixedArrangements.OfType<HourlyArrangement>().Any())
+                throw new ArgumentException("Limousine mag enkel vasteArrangementen hebben.");
+            uow.Limousines.AddLimousine(limo);
             uow.Complete();
         }
-        public void RemoveCategory(CategorieType name)
+        public IEnumerable<Limousine> GetAllLimousine() //Vloot
         {
-            uow.Categories.RemoveCategory(name);
-            uow.Complete();
+            return uow.Limousines.GetAllLimousines();
         }
-        public void RemoveReservation(int number) 
-        {
-            uow.Reservations.RemoveReservering(number);
-            uow.Complete();
-        }
-        public void RemoveClient(int clientNumber) 
-        {
-            uow.Clients.RemoveClient(clientNumber);
-            uow.Complete();
-        }
-        public void RemoveLimousine(int Id) 
-        {
-            uow.Limousines.RemoveLimousine(Id);
-            uow.Complete();
-        }
-        public void GetAllLimousine() 
-        {
-            uow.Limousines.GetAllLimousines();
-            uow.Complete();
-        }
+
     }
 }

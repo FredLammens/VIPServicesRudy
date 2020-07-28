@@ -7,9 +7,8 @@ using System.Text;
 namespace DomainLibrary.Repositories
 {
     public interface ICategoryRepository
-    {
-        void AddCategory(Category categorie);
-        void RemoveCategory(CategorieType name);
+    { 
         void AddCategories(IList<Category> categories);
+        Category GetCategory(CategorieType name);
     }
 }

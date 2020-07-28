@@ -10,7 +10,8 @@ namespace DomainLibrary.Repositories
     {
         void AddLimousine(Limousine limousine);
         void AddLimousines(IList<Limousine> limousines);
-        void RemoveLimousine(int Id);
         IEnumerable<Limousine> GetAllLimousines();
+        bool inDataBase(Limousine limo);
+        Limousine GetLimousine(int id);
     }
 }

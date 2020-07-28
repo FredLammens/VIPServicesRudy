@@ -23,6 +23,10 @@ namespace DomainLibrary.Domain.Reservering
             Client.Reservations.Add(this);
         }
         public Reservation() { }
+        public void PrintReservation() 
+        {
+
+        }
 
         public override bool Equals(object obj)
         {

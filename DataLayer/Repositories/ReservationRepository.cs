@@ -1,8 +1,7 @@
 ﻿using DomainLibrary.Domain.Reservering;
 using DomainLibrary.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace DataLayer.Repositories
 {
@@ -18,10 +17,9 @@ namespace DataLayer.Repositories
         {
             context.Reservations.Add(reservation);
         }
-
-        public void RemoveReservering(int number)
+        public bool InDatabase(Reservation reservation) 
         {
-            context.Reservations.Remove(new Reservation() { Number = number});
+           return context.Reservations.Any(r => r.Equals(reservation));
         }
     }
 }

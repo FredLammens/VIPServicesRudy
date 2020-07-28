@@ -14,3 +14,6 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\D
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\categories.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\clients.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\limousines.txt

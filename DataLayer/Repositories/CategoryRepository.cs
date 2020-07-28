@@ -2,6 +2,7 @@
 using DomainLibrary.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataLayer.Repositories
@@ -14,18 +15,13 @@ namespace DataLayer.Repositories
             this.context = context;
         }
 
-        public void AddCategory(Category categorie)
-        {
-            context.Categories.Add(categorie);
-        }
-
-        public void RemoveCategory(CategorieType name)
-        {
-            context.Categories.Remove(new Category() { Name = name });
-        }
         public void AddCategories(IList<Category> categories) 
         {
             context.Categories.AddRange(categories);
+        }
+        public Category GetCategory(CategorieType name) 
+        {
+            return context.Categories.Single(c => c.Name == name);
         }
     }
 }

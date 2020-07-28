@@ -1,7 +1,9 @@
 ﻿using DomainLibrary.Domain.Clients;
 using DomainLibrary.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataLayer.Repositories
 {
@@ -21,9 +23,15 @@ namespace DataLayer.Repositories
         {
             context.Clients.AddRange(clients);
         }
-        public void RemoveClient(int clientNumber)
+
+        public Client GetClient(int number)
         {
-            context.Clients.Remove(new Client() { ClientNumber = clientNumber });
+            return context.Clients
+                .First(c => c.ClientNumber == number);
+        }
+        public bool inDataBase(Client client) 
+        {
+            return context.Clients.Any(c => c.Equals(client));
         }
     }
 }

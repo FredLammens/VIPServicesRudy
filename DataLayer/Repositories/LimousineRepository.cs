@@ -23,16 +23,23 @@ namespace DataLayer.Repositories
             context.Limousines.AddRange(limousines);
         }
 
-        public void RemoveLimousine(int id)
-        {
-            context.Limousines.Remove(new Limousine() { Id = id });
-        }
         public IEnumerable<Limousine> GetAllLimousines() 
         {
             return context.Limousines
                 .Include(a => a.FixedArrangements)
                 .AsNoTracking()
                 .AsEnumerable();
+        }
+        public Limousine GetLimousine(int id) 
+        {
+            return context.Limousines
+                .Include(a => a.FixedArrangements)
+                .First(l => l.Id == id);
+        }
+        public bool inDataBase(Limousine limo) 
+        {
+            return context.Limousines
+                .Any(l => l.Equals(limo));
         }
     }
 }

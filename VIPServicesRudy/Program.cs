@@ -8,7 +8,6 @@ namespace VIPServicesRudy
     {
         static void Main(string[] args)
         {
-            Parser.InitDatabase();
         }
     }
 }

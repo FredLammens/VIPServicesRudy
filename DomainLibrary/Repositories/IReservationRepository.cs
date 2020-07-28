@@ -9,6 +9,6 @@ namespace DomainLibrary.Repositories
     public interface IReservationRepository
     {
         void AddReservering(Reservation reservation);
-        void RemoveReservering(int number);
+        bool InDatabase(Reservation reservation);
     }
 }

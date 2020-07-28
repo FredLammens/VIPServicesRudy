@@ -34,7 +34,7 @@ namespace DomainLibrary.Domain
             Console.WriteLine();
             return lines;
         }
-        public static void InsertIntoDatabase(IUnitOfWork uow)
+        public static void InsertIntoDatabaseCustomFiles(IUnitOfWork uow)
         {
             Console.WriteLine("Please enter path of folder with database files (clients,discounts,limousines): ");
             string[] filespath = Directory.GetFiles(Console.ReadLine());
@@ -72,6 +72,16 @@ namespace DomainLibrary.Domain
                 Console.WriteLine("saved all objects");
             }
         }
+        public static void InsertIntoDatabase(IUnitOfWork uow) 
+        {
+            List<Category> categories = ReadCategories(FileReader(@"DatabaseFiles/categories.txt"));
+            List<Client> clients = ReadClients(FileReader(@"DatabaseFiles/clients.txt"),categories);
+            List<Limousine> limos = ReadLimousines(FileReader(@"DatabaseFiles/limousines.txt"));
+            uow.Categories.AddCategories(categories);
+            uow.Clients.AddClients(clients);
+            uow.Limousines.AddLimousines(limos);
+            uow.Complete();
+        }
         private static List<Limousine> ReadLimousines(List<string[]> file)
         {
             List<Limousine> limos = new List<Limousine>();
@@ -96,7 +106,7 @@ namespace DomainLibrary.Domain
             {
                 CategorieType type = (CategorieType)Enum.Parse(typeof(CategorieType), line[0]);
                 List<Discount> discounts = new List<Discount>();
-                for (int i = 1; i < line.Length - 1; i +=2 )
+                for (int i = 1; i < line.Length - 1; i += 2)
                 {
                     discounts.Add(new Discount(int.Parse(line[i]), float.Parse(line[i + 1])));
                 }
@@ -130,11 +140,18 @@ namespace DomainLibrary.Domain
             int? x = int.TryParse(s, out var temp) ? temp : (int?)null;
             return x;
         }
-        public static void InitDatabase() 
+        public static void InitDatabase(bool customFiles = false)
         {
-            VIPServicesRudyTestContext testcontext = new VIPServicesRudyTestContext();
-            IUnitOfWork uow = new UnitOfWork(testcontext);
-            InsertIntoDatabase(uow);
+                VIPServicesRudyContext context = new VIPServicesRudyContext();
+                IUnitOfWork uow = new UnitOfWork(context);
+            if (customFiles)
+                InsertIntoDatabaseCustomFiles(uow);
+            else
+                InsertIntoDatabase(uow);
+        }
+        public static void InitTestDatabase(IUnitOfWork uow)
+        {
+                InsertIntoDatabase(uow);
         }
     }
 }

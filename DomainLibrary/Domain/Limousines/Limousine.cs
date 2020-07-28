@@ -29,5 +29,16 @@ namespace DomainLibrary.Domain.Limousines
                 return true;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Limousine limousine &&
+                   Name == limousine.Name &&
+                   FirstHourPrice == limousine.FirstHourPrice;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, FirstHourPrice);
+        }
     }
 }

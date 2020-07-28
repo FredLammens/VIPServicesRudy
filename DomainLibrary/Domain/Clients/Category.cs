@@ -24,6 +24,18 @@ namespace DomainLibrary.Domain.Clients
         }
 
         public Category() { }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Category category &&
+                   EqualityComparer<List<Discount>>.Default.Equals(StaffDiscount, category.StaffDiscount) &&
+                   Name == category.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(StaffDiscount, Name);
+        }
     }
     public enum CategorieType
     {

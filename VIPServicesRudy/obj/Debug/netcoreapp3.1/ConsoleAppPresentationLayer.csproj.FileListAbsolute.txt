@@ -55,3 +55,6 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\obj\Debug\netcoreapp3.1\ConsoleAppPresentationLayer.genruntimeconfig.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\DatabaseFiles\categories.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\DatabaseFiles\clients.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy\bin\Debug\netcoreapp3.1\DatabaseFiles\limousines.txt

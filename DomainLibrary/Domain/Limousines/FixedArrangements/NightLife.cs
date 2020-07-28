@@ -46,5 +46,6 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             }
             return hours;
         }
+
     }
 }

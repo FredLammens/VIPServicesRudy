@@ -9,7 +9,8 @@ namespace DomainLibrary.Repositories
     public interface IClientRepository
     {
         void AddClient(Client client);
-        void RemoveClient(int clientNumber);
         void AddClients(IList<Client> clients);
+        Client GetClient(int ID);
+        bool inDataBase(Client client);
     }
 }

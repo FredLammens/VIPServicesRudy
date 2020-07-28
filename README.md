@@ -6,3 +6,4 @@
 1. HourlyArrangement => CalculateHour exception = hardcoded find a way for softcode => via date kijken ?
 3. EFtests
 5. eventueel aan limo/reservering => wedding, nightlife,... appart bijhouden , in plaats van in list voor WPF
+4. DCD maken

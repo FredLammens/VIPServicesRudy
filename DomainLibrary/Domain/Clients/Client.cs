@@ -11,7 +11,7 @@ namespace DomainLibrary.Domain.Clients
     {
         [Key]
         public int ClientNumber { get; set; }
-        public string Name { get; private set; }
+        public string Name { get; private set; } //naam en achternaam 
         public string VATNumber { get; private set; }
         public string Adres { get; private set; }
         public Category Categorie { get; private set; }

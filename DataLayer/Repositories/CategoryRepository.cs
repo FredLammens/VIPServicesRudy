@@ -1,5 +1,6 @@
 ﻿using DomainLibrary.Domain.Clients;
 using DomainLibrary.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DataLayer.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private VIPServicesRudyContext context;
+        private readonly VIPServicesRudyContext context;
         public CategoryRepository(VIPServicesRudyContext context)
         {
             this.context = context;
@@ -21,7 +22,9 @@ namespace DataLayer.Repositories
         }
         public Category GetCategory(CategorieType name) 
         {
-            return context.Categories.Single(c => c.Name == name);
+            return context.Categories
+                .Include(c => c.StaffDiscount)
+                .Single(c => c.Name == name);
         }
     }
 }

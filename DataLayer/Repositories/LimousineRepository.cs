@@ -8,7 +8,7 @@ namespace DataLayer.Repositories
 {
     public class LimousineRepository : ILimousineRepository
     {
-        private VIPServicesRudyContext context;
+        private readonly VIPServicesRudyContext context;
         public LimousineRepository(VIPServicesRudyContext context)
         {
             this.context = context;

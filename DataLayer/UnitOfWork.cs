@@ -10,7 +10,7 @@ namespace DataLayer
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private VIPServicesRudyContext context;
+        private readonly VIPServicesRudyContext context;
 
         public ICategoryRepository Categories { get; private set; }
         public IClientRepository Clients { get; private set; }

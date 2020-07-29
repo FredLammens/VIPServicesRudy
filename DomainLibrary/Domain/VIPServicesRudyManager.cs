@@ -12,7 +12,7 @@ namespace DomainLibrary.Domain
 {
     public class VIPServicesRudyManager
     {
-        private IUnitOfWork uow;
+        private readonly IUnitOfWork uow;
 
         public VIPServicesRudyManager(IUnitOfWork uow)
         {
@@ -57,6 +57,27 @@ namespace DomainLibrary.Domain
         public IEnumerable<Limousine> GetAllLimousine() //Vloot
         {
             return uow.Limousines.GetAllLimousines();
+        }
+        //----------------------------------------------------Tests-------------------------------------------------
+        public IEnumerable<Reservation> getReservations(Client client) 
+        {
+            return uow.Reservations.GetReservations(client);
+        }
+        public IEnumerable<Reservation> getReservations(DateTime startDate) 
+        {
+            return uow.Reservations.GetReservations(startDate);
+        }
+        public IEnumerable<Client> GetClientsWithName(string name) 
+        {
+            return uow.Clients.GetClientsWithName(name);
+        }
+        public IEnumerable<Client> GetClientsWithAdres(string adres) 
+        {
+            return uow.Clients.GetClientsWithAdres(adres);
+        }
+        public IEnumerable<Client> GetClientsWithVAT(string vatnumber) 
+        {
+            return uow.Clients.GetClientsWithVAT(vatnumber);
         }
 
     }

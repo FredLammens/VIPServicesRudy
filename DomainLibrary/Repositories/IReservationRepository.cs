@@ -1,8 +1,8 @@
 ﻿
+using DomainLibrary.Domain.Clients;
 using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DomainLibrary.Repositories
 {
@@ -10,5 +10,7 @@ namespace DomainLibrary.Repositories
     {
         void AddReservering(Reservation reservation);
         bool InDatabase(Reservation reservation);
+        IEnumerable<Reservation> GetReservations(DateTime startDate);
+        IEnumerable<Reservation> GetReservations(Client client);
     }
 }

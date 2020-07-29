@@ -1,18 +1,15 @@
 ﻿using DataLayer;
-using DomainLibrary;
 using DomainLibrary.Domain;
 using DomainLibrary.Domain.Clients;
 using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Domain.Limousines.FixedArrangements;
 using DomainLibrary.Domain.Limousines.HourlyArrangements;
-using DomainLibrary.Domain.Limousines.Hours;
 using DomainLibrary.Domain.Reservering;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace VIPServicesRudyTests
 {
@@ -40,7 +37,7 @@ namespace VIPServicesRudyTests
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Client zit al in de databank.");
         }
         [TestMethod]
-        public void TestRudyManagerAddLimousineWorking()
+        public void TestRudyManagerAddLimousine()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
@@ -76,7 +73,7 @@ namespace VIPServicesRudyTests
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine moet 3 vaste arrangementen hebben.");
         }
         [TestMethod]
-        public void TestRudyManagerGetAllLimousineWorking() 
+        public void TestRudyManagerGetAllLimousine() 
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
@@ -84,7 +81,7 @@ namespace VIPServicesRudyTests
             limos.Count.ShouldBe(21);
         }
         [TestMethod]
-        public void TestRudyManagerAddReservationWorking()
+        public void TestRudyManagerAddReservation()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
@@ -107,7 +104,7 @@ namespace VIPServicesRudyTests
             Limousine limoTest = uow.Limousines.GetLimousine(2);
             Client clientTest = new Client("Kek", "684432685", "Jef De Belderlaan 6", uow.Categories.GetCategory(CategorieType.huwelijksplanner));
             Arrangement arrangement = new HourlyArrangement(100, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-            Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement));
+            Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart.AddDays(1), reservationDateEnd.AddDays(1), Location.Gent, Location.Brussel, limoTest, arrangement));
             Action act = () => m.AddReservation(test);
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Client zit nog niet in databank gelieve client eerst toe te voegen.");
         }
@@ -124,6 +121,46 @@ namespace VIPServicesRudyTests
             Reservation test = new Reservation("Kerkstraat 45", clientTest, new ReservationDetails(reservationDateStart, reservationDateEnd, Location.Gent, Location.Brussel, limoTest, arrangement));
             Action act = () => m.AddReservation(test);
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine zit nog niet in databank gelieve Limousine eerst toe te voegen.");
+        }
+        [TestMethod]
+        public void TestRudyManagerGetReservationswithClient() 
+        {
+            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
+            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
+            Client clientTest = uow.Clients.GetClient(2);
+            m.getReservations(clientTest).Count().ShouldBe(1);
+        }
+        [TestMethod]
+        public void TestRudyManagerGetReservationswithStartDate() 
+        {
+            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
+            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
+            DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
+            m.getReservations(reservationDateStart).Count().ShouldBe(1);
+        }
+        [TestMethod]
+        public void TestRudyManagerGetClientsWithName() 
+        {
+            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
+            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
+            List<Client> test = m.GetClientsWithName("Het Witte Paard").ToList();
+            test.Count.ShouldBe(1);
+        }
+        [TestMethod]
+        public void TestRudyManagerGetClientsWithAdres() 
+        {
+            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
+            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
+            List<Client> test = m.GetClientsWithAdres("Vluchtweg 18 - Lievegem").ToList();
+            test.Count.ShouldBe(1);
+        }
+        [TestMethod]
+        public void TestRudyManagerGetClientsWithVAT() 
+        {
+            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
+            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
+            List<Client> test = m.GetClientsWithVAT("BE8765432019").ToList();
+            test.Count.ShouldBe(1);
         }
     }
 }

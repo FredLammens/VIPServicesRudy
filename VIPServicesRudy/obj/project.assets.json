@@ -5109,9 +5109,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppPresentationLayer.csproj",
-      "projectName": "ConsoleAppPresentationLayer",
-      "projectPath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppDatabseInit.csproj",
+      "projectName": "ConsoleAppDatabseInit",
+      "projectPath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppDatabseInit.csproj",
       "packagesPath": "C:\\Users\\Biebem\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\obj\\",
       "projectStyle": "PackageReference",

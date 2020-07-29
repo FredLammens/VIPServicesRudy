@@ -58,7 +58,7 @@ namespace DomainLibrary.Domain
         {
             return uow.Limousines.GetAllLimousines();
         }
-        //----------------------------------------------------Tests-------------------------------------------------
+        //----------------------------------------------------Added last-------------------------------------------------
         public IEnumerable<Reservation> getReservations(Client client) 
         {
             return uow.Reservations.GetReservations(client);

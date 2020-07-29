@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Vip Services Rudy" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"/><!--Nieuwe Reservatie-->
+            <Button Grid.Column="1"/><!--Zoek Reservatie-->
+        </Grid>
 
     </Grid>
 </Window>

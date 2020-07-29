@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S+eL5jGMPgN7YgUhfIAEsqce0T3VQ1V/fMesK7b11Nke+z15U32hR1j5rU2iXzRMRmtSrhn4spKNYn/A8w6qfA==",
+  "dgSpecHash": "yithLkS8vM3cl45/l2nyj8zx+g6qdnq5hKh6frcrAV4l2wuWHueV1KubM8Ck+elal+imoqSl2q7lg7sGIavaQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppPresentationLayer.csproj",
+  "projectFilePath": "C:\\Users\\Biebem\\Documents\\Visual Studio Projects\\VIPServicesRudy\\VIPServicesRudy\\ConsoleAppDatabseInit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Biebem\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Biebem\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

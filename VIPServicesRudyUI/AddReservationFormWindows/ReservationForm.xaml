@@ -46,21 +46,25 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                         <Label Content="StartLocatie: "/>
-                        <ComboBox Margin="29,0,0,0"/>
+                        <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="AankomstLocatie: "/>
-                        <ComboBox/>
+                        <ComboBox x:Name="ArrivalLocationComboBox" Margin="2"/>
                     </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="ReservatieStartDatum: "/>
-                            <DatePicker/>
+                            <DatePicker x:Name="ReservationStartDate" Margin="9,0,0,2"/>
+                            <Label Content="StartUur: "/>
+                            <TextBlock x:Name="StartHourTextBox" MinWidth="40"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="ReservatieEindDatum: "/>
-                            <DatePicker/>
+                            <DatePicker x:Name="ReservationEndDate" Margin="10,2,0,0"/>
+                            <Label Content="EindUur: "/>
+                            <TextBlock x:Name="EndHourTextBox" MinWidth="40"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -78,7 +82,7 @@
                 </StackPanel>
             </GroupBox>
             <!--Limousine & Arrangement-->
-                    <Button Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                    <Button x:Name="AddReservationBtn" Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
         </StackPanel>
     </ScrollViewer>
 </Window>

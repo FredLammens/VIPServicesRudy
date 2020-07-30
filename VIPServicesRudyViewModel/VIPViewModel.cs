@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace VIPServicesRudyViewModel
         }
         #endregion
 
-        public Client selectedClient { get; set; }
+        #region collections
         private ObservableCollection<Client> _clients;
         public ObservableCollection<Client> Clients
         {
@@ -35,42 +36,56 @@ namespace VIPServicesRudyViewModel
             }
         }
         private ObservableCollection<Limousine> _limousines;
-        public ObservableCollection<Limousine> Limousines 
+        public ObservableCollection<Limousine> Limousines
         {
             get { return _limousines; }
-            set 
+            set
             {
-                _limousines = value; RaisePropertyChanged("Limousines"); 
+                _limousines = value; RaisePropertyChanged("Limousines");
             }
         }
         private ObservableCollection<Reservation> _reservations;
-        public ObservableCollection<Reservation> Reservations 
+        public ObservableCollection<Reservation> Reservations
         {
             get { return _reservations; }
-            set 
+            set
             {
                 _reservations = value;
                 RaisePropertyChanged("Reservations");
             }
         }
-
-        public void AddItems() 
+        #endregion
+        public Client SelectedClient { get; set; }
+        public Limousine SelectedLimousine { get; set; }
+        public System.Array Categories { get; set; } = Enum.GetValues(typeof(CategorieType));
+        public System.Array Locations { get; set; } = Enum.GetValues(typeof(Location));
+        public void AddItems()
         {
             VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
             Clients = new ObservableCollection<Client>(manager.GetClients());
             Limousines = new ObservableCollection<Limousine>(manager.GetAllLimousine());
             Reservations = new ObservableCollection<Reservation>(manager.GetReservations());
         }
-        public string ShowClient() 
+        public string ShowClient()
         {
-            if (selectedClient == null)
-            {
+            if (SelectedClient == null)
                 return "Klantnaam";
-            }
-            else 
-            {
-                return selectedClient.Name;
-            }
+            else
+                return SelectedClient.Name;
+        }
+        public string ShowLimousine()
+        {
+            if (SelectedLimousine == null)
+                return "LimousineNaam";
+            else
+                return SelectedLimousine.Name;
+        }
+        public string MakeClient(string name, string VATNumber, string adres, CategorieType type)
+        {
+                VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
+                Client client = new Client(name, VATNumber, adres, manager.GetCategory(type));
+                SelectedClient = client;
+                return name;
         }
 
     }

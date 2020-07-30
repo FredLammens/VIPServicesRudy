@@ -88,6 +88,10 @@ namespace DomainLibrary.Domain
         {
             return uow.Reservations.GetReservations();
         }
+        public Category GetCategory(CategorieType type) 
+        {
+            return uow.Categories.GetCategory(type);
+        }
 
     }
 }

@@ -9,28 +9,32 @@
     <StackPanel  Margin="10">
         <StackPanel Orientation="Horizontal" Margin="2">
             <Label Content="Naam: "/>
-            <TextBox Width="300" Margin="42,0,0,0"/>
+            <TextBox x:Name="ClientNameInput" Width="300" Margin="42,0,0,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="2">
             <Label Content="BTW-nummer: "/>
-            <TextBox Width="300"/>
+            <TextBox x:Name="VATNumberInput" Width="300"/>
         </StackPanel>
         <GroupBox Header="Adres">
             <WrapPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Straat: "/>
-                    <TextBox MinWidth="200"/>
+                    <TextBox x:Name="StreatInput" MinWidth="200"/>
                     <Label Content="Nr: "/>
-                    <TextBox Width="30"/>
+                    <TextBox x:Name="NrInput" Width="30"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Postcode: "/>
-                    <TextBox Width="60"/>
+                    <TextBox x:Name="PostalCodeInput" Width="60"/>
                     <Label Content="Gemeente: "/>
-                    <TextBox MinWidth="150"/>
+                    <TextBox x:Name="TownInput" MinWidth="150"/>
                 </StackPanel>
             </WrapPanel>
         </GroupBox>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Categorie: "/>
+            <ComboBox x:Name="CategoryComboBox"/>
+        </StackPanel>
         <Button x:Name="AddClientSubmitBtn" Content="Voeg Client toe" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Click="AddClientSubmitBtn_Click"/>
     </StackPanel>
 </Window>

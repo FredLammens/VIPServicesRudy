@@ -19,17 +19,21 @@ namespace VIPServicesRudyUI
     public partial class AddLimousine : Window
     {
         VIPViewModel vm;
-        public AddLimousine(VIPViewModel vm)
+        ReservationForm parent;
+        public AddLimousine(VIPViewModel vm, ReservationForm parent)
         {
             InitializeComponent();
             this.vm = vm;
             DataContext = vm;
-            //LimousineDataGrid1.Items.Refresh();
+            this.parent = parent;
         }
 
         private void SubmitLimousineBtn_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(vm.ShowLimousine() + "Added");
             Close();
+            parent.ShowLimousine();
+            parent.Show();
         }
     }
 }

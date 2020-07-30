@@ -15,7 +15,7 @@
                 <TextBlock  VerticalAlignment="Bottom">
                   Klant: 
                 </TextBlock>
-                <TextBox VerticalAlignment="Bottom" Margin="6,0,0,0" IsReadOnly="True">
+                <TextBox x:Name="ClientShowBox" VerticalAlignment="Bottom" Margin="6,0,0,0" IsReadOnly="True">
                     KlantNaam
                 </TextBox>
             </WrapPanel>
@@ -69,7 +69,7 @@
                             <TextBlock  VerticalAlignment="Bottom">
                   Limousine:
                             </TextBlock>
-                            <TextBox VerticalAlignment="Bottom" Margin="6,0,10,0" IsReadOnly="True">
+                            <TextBox x:Name="LimousineShowBox" VerticalAlignment="Bottom" Margin="6,0,10,0" IsReadOnly="True">
                                 LimousineNaam
                             </TextBox>
                         </StackPanel>

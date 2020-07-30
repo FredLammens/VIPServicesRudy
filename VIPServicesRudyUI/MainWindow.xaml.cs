@@ -26,7 +26,7 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
             vm = new VIPViewModel();
-            vm.addItems();
+            vm.AddItems();
             //DataContext = vm;
         }
 

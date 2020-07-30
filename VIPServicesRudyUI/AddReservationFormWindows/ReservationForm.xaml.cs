@@ -27,8 +27,9 @@ namespace VIPServicesRudyUI
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddExistingClient aec = new AddExistingClient(vm);
+            AddExistingClient aec = new AddExistingClient(vm,this);
             aec.Show();
+            Hide();
         }
 
         private void AddNewClientBtn_Click(object sender, RoutedEventArgs e)
@@ -41,6 +42,10 @@ namespace VIPServicesRudyUI
         {
             AddLimousine al = new AddLimousine(vm);
             al.Show();
+        }
+        public void ShowClient() 
+        {
+            ClientShowBox.Text = vm.ShowClient();
         }
     }
 }

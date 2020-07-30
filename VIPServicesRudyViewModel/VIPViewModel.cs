@@ -23,6 +23,7 @@ namespace VIPServicesRudyViewModel
         }
         #endregion
 
+        public Client selectedClient { get; set; }
         private ObservableCollection<Client> _clients;
         public ObservableCollection<Client> Clients
         {
@@ -53,12 +54,23 @@ namespace VIPServicesRudyViewModel
             }
         }
 
-        public void addItems() 
+        public void AddItems() 
         {
             VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
             Clients = new ObservableCollection<Client>(manager.GetClients());
             Limousines = new ObservableCollection<Limousine>(manager.GetAllLimousine());
             Reservations = new ObservableCollection<Reservation>(manager.GetReservations());
+        }
+        public string ShowClient() 
+        {
+            if (selectedClient == null)
+            {
+                return "Klantnaam";
+            }
+            else 
+            {
+                return selectedClient.Name;
+            }
         }
 
     }

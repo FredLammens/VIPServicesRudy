@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace DomainLibrary.Domain.Limousines
 {
     public class Limousine
     {
         [Key]
-        public int Id { get; set; }//added for db
+        public int Id { get; set; }
         public string Name { get; private set; }
         public int FirstHourPrice { get; private set; }
         public List<Arrangement> FixedArrangements { get; private set; }
@@ -17,7 +18,7 @@ namespace DomainLibrary.Domain.Limousines
         {
             Name = name;
             FirstHourPrice = firstHourPrice;
-            FixedArrangements = fixedArrangements;
+            FixedArrangements = fixedArrangements.OrderByDescending(a => a.GetType().ToString()).ToList();
         }
         public Limousine() { }
 

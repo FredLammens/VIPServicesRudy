@@ -43,5 +43,15 @@ namespace DataLayer.Repositories
                 .Include(r => r.PriceCalculation)
                 .Where(r => r.Details.ReservationDateStart == startDate);
         }
+
+        public IEnumerable<Reservation> GetReservations()
+        {
+            return context.Reservations
+                .AsNoTracking()
+                .Include(r => r.Client)
+                .Include(r => r.Details)
+                .Include(r => r.PriceCalculation)
+                .AsEnumerable();
+        }
     }
 }

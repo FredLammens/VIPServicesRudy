@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
 {
@@ -17,14 +18,16 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class ReservationForm : Window
     {
-        public ReservationForm()
+        VIPViewModel vm;
+        public ReservationForm(VIPViewModel vm)
         {
             InitializeComponent();
+            this.vm = vm;
         }
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddExistingClient aec = new AddExistingClient();
+            AddExistingClient aec = new AddExistingClient(vm);
             aec.Show();
         }
 
@@ -36,7 +39,7 @@ namespace VIPServicesRudyUI
 
         private void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddLimousine al = new AddLimousine();
+            AddLimousine al = new AddLimousine(vm);
             al.Show();
         }
     }

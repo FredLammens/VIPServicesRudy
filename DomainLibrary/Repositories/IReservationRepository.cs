@@ -12,5 +12,6 @@ namespace DomainLibrary.Repositories
         bool InDatabase(Reservation reservation);
         IEnumerable<Reservation> GetReservations(DateTime startDate);
         IEnumerable<Reservation> GetReservations(Client client);
+        IEnumerable<Reservation> GetReservations();
     }
 }

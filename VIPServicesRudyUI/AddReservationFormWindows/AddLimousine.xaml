@@ -6,22 +6,43 @@
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
         Title="AddLimousine" Height="450" Width="800">
-    <StackPanel Margin="10">
-        <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
+    <Window.Resources>
+        <Style  TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Content.Text, RelativeSource={RelativeSource Self}}"  Value="" >
+                    <Setter Property="Background" Value="LightGray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>     
+        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" Grid.Row="0">
             <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
-            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center"/>
+            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <DataGrid/>
-        <StackPanel Orientation="Horizontal">
+        <DataGrid x:Name="LimousineDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Limousines}" Grid.Row="1" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="EersteUurPrijs" Binding="{Binding FirstHourPrice}" Width="*"/>
+                <DataGridTextColumn Header="Nightlife" Binding="{Binding FixedArrangements[0].Price}" Width="*"/>
+                <DataGridTextColumn Header="Wedding" Binding="{Binding FixedArrangements[1].Price}" Width="*"/>
+                <DataGridTextColumn Header="Wellness" Binding="{Binding FixedArrangements[2].Price}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Label Content="Hourly"/>
             <CheckBox VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
             <Label Content="Arrangement"/>
             <ComboBox VerticalAlignment="Center"/>
             <Label Content="Price: "/>
             <TextBox IsReadOnly="True"/>
         </StackPanel>
-        <Button x:Name="SubmitLimousineBtn" Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="SubmitLimousineBtn_Click"/>
-    </StackPanel>
+    <Button x:Name="SubmitLimousineBtn" Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="SubmitLimousineBtn_Click" Grid.Row="3"/>
+    </Grid>
 </Window>

@@ -6,13 +6,26 @@
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
         Title="SearchReservations" Height="450" Width="800">
-    <StackPanel Margin="10">
-        <!--Zelfde als existing client mss hergebruiken ?-->
-        <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
+    <Window.Resources>
+        <Style  TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Content.Text, RelativeSource={RelativeSource Self}}"  Value="" >
+                    <Setter Property="Background" Value="LightGray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center" Grid.Row="0">
             <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
-            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center"/>
+            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <DataGrid/>
-        <Button x:Name="ShowReservationBtn" Content="Toon Reservatie" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="ShowReservationBtn_Click"/>
-    </StackPanel>
+        <DataGrid Grid.Row="1" Margin="10"/>
+        <Button x:Name="ShowReservationBtn" Content="Toon Reservatie" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="ShowReservationBtn_Click" Grid.Row="2"/>
+    </Grid>
 </Window>

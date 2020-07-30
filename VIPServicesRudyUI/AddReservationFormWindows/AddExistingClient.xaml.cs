@@ -19,11 +19,10 @@ namespace VIPServicesRudyUI
     public partial class AddExistingClient : Window
     {
         private VIPViewModel vm;
-        public AddExistingClient()
+        public AddExistingClient(VIPViewModel vm)
         {
             InitializeComponent();
-            vm = new VIPViewModel();
-            vm.addClientItems();
+            this.vm = vm;
             DataContext = vm;
             ClientDataGrid.Items.Refresh();
         }

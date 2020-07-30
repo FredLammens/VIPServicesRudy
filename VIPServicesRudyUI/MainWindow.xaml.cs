@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
 {
@@ -20,21 +21,25 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        VIPViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+            vm = new VIPViewModel();
+            vm.addItems();
+            //DataContext = vm;
         }
 
         private void NewReservationBtn_Click(object sender, RoutedEventArgs e)
         {
-            ReservationForm rf = new ReservationForm();
+            ReservationForm rf = new ReservationForm(vm);
             Close();
             rf.Show();
         }
 
         private void SearchReservationBtn_Click(object sender, RoutedEventArgs e)
         {
-            SearchReservations sr = new SearchReservations();
+            SearchReservations sr = new SearchReservations(vm);
             Close();
             sr.Show();
         }

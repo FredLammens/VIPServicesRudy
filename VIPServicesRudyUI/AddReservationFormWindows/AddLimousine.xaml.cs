@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
 {
@@ -17,9 +18,13 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class AddLimousine : Window
     {
-        public AddLimousine()
+        VIPViewModel vm;
+        public AddLimousine(VIPViewModel vm)
         {
             InitializeComponent();
+            this.vm = vm;
+            DataContext = vm;
+            //LimousineDataGrid1.Items.Refresh();
         }
 
         private void SubmitLimousineBtn_Click(object sender, RoutedEventArgs e)

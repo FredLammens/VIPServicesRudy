@@ -84,6 +84,10 @@ namespace DomainLibrary.Domain
         {
             return uow.Clients.GetClients();
         }
+        public IEnumerable<Reservation> GetReservations() 
+        {
+            return uow.Reservations.GetReservations();
+        }
 
     }
 }

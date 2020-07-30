@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
 {
@@ -17,9 +18,12 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class SearchReservations : Window
     {
-        public SearchReservations()
+        VIPViewModel vm;
+        public SearchReservations(VIPViewModel vm)
         {
             InitializeComponent();
+            this.vm = vm;
+            DataContext = vm;
         }
 
         private void ShowReservationBtn_Click(object sender, RoutedEventArgs e)

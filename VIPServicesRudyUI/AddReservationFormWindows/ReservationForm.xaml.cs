@@ -21,5 +21,23 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
         }
+
+        private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddExistingClient aec = new AddExistingClient();
+            aec.Show();
+        }
+
+        private void AddNewClientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewClient anc = new AddNewClient();
+            anc.Show();
+        }
+
+        private void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddLimousine al = new AddLimousine();
+            al.Show();
+        }
     }
 }

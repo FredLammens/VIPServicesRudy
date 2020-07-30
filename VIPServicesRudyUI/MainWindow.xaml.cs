@@ -24,5 +24,19 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
         }
+
+        private void NewReservationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ReservationForm rf = new ReservationForm();
+            Close();
+            rf.Show();
+        }
+
+        private void SearchReservationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SearchReservations sr = new SearchReservations();
+            Close();
+            sr.Show();
+        }
     }
 }

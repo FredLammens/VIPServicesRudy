@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
 {
@@ -17,9 +18,15 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class AddExistingClient : Window
     {
+        private VIPViewModel vm;
         public AddExistingClient()
         {
             InitializeComponent();
+            vm = new VIPViewModel();
+            vm.addClientItems();
+            DataContext = vm;
+            ClientDataGrid.Items.Refresh();
         }
+
     }
 }

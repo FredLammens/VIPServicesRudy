@@ -79,6 +79,11 @@ namespace DomainLibrary.Domain
         {
             return uow.Clients.GetClientsWithVAT(vatnumber);
         }
+        //-----------------Not tested
+        public IEnumerable<Client> GetClients() 
+        {
+            return uow.Clients.GetClients();
+        }
 
     }
 }

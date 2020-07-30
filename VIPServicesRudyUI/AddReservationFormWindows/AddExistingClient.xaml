@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
         Title="AddExistingClient" Height="450" Width="800">
     <StackPanel Margin="10">
@@ -11,7 +10,7 @@
             <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
             <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center"/>
         </StackPanel>
-        <DataGrid/>
+        <DataGrid x:Name="ClientDataGrid" ItemsSource="{Binding Clients}"/>
         <Button Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
     </StackPanel>
 </Window>

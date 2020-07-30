@@ -22,6 +22,6 @@
             <Label Content="Price: "/>
             <TextBox IsReadOnly="True"/>
         </StackPanel>
-        <Button Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+        <Button x:Name="SubmitLimousineBtn" Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="SubmitLimousineBtn_Click"/>
     </StackPanel>
 </Window>

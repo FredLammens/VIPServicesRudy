@@ -31,6 +31,6 @@
                 </StackPanel>
             </WrapPanel>
         </GroupBox>
-
+        <Button x:Name="AddClientSubmitBtn" Content="Voeg Client toe" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Click="AddClientSubmitBtn_Click"/>
     </StackPanel>
 </Window>

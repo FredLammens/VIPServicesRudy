@@ -26,10 +26,10 @@ namespace DataLayer.Repositories
 
         public IEnumerable<Client> GetClientsWithAdres(string adres)
         {
-                        return context.Clients
-                                .Include(c => c.Categorie)
-                                .Include(c => c.Reservations)
-                                .Where(c => c.Adres == adres);
+            return context.Clients
+                    .Include(c => c.Categorie)
+                    .Include(c => c.Reservations)
+                    .Where(c => c.Adres == adres);
         }
 
         public Client GetClient(int number)
@@ -59,6 +59,14 @@ namespace DataLayer.Repositories
         public bool inDataBase(Client client)
         {
             return context.Clients.Any(c => c.Equals(client));
+        }
+
+        public IEnumerable<Client> GetClients()
+        {
+            return context.Clients
+                .Include(c => c.Categorie)
+                .Include(c => c.Reservations)
+                .AsEnumerable();
         }
     }
 }

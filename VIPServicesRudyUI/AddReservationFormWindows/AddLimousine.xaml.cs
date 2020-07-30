@@ -21,5 +21,10 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
         }
+
+        private void SubmitLimousineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

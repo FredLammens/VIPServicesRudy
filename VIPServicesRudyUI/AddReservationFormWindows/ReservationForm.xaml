@@ -9,7 +9,7 @@
     <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="10">
             <!--klant & startadres-->
-            <GroupBox Header="Klant">
+            <GroupBox Header="Klant" Margin="2">
                 <StackPanel>
                     <WrapPanel Margin="6">
                 <TextBlock  VerticalAlignment="Bottom">
@@ -20,20 +20,20 @@
                 </TextBox>
             </WrapPanel>
             <WrapPanel>
-                <Button Content="Voeg bestaande toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,10,0"/>
-                <Button Content="Voeg nieuw toe" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button x:Name="AddExistingCLientBtn" Content="Voeg bestaande toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,10,0" Click="AddExistingCLientBtn_Click"/>
+                <Button x:Name="AddNewClientBtn" Content="Voeg nieuw toe" HorizontalAlignment="Left" VerticalAlignment="Center" Click="AddNewClientBtn_Click"/>
             </WrapPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="StartAdres">
+            <GroupBox Header="StartAdres" Margin="2">
                 <WrapPanel>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Straat: "/>
                         <TextBox MinWidth="200"/>
                         <Label Content="Nr: "/>
                         <TextBox Width="30"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Postcode: "/>
                         <TextBox Width="60"/>
                         <Label Content="Gemeente: "/>
@@ -41,7 +41,7 @@
                     </StackPanel>
                 </WrapPanel>
             </GroupBox>
-            <GroupBox Header="Limousine/Arrangement">
+            <GroupBox Header="Limousine/Arrangement" Margin="2">
                 <StackPanel>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -73,7 +73,7 @@
                                 LimousineNaam
                             </TextBox>
                         </StackPanel>
-                            <Button Content="Voeg Limousine toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0"/>
+                            <Button x:Name="AddLimousineBtn" Content="Voeg Limousine toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0" Click="AddLimousineBtn_Click"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>

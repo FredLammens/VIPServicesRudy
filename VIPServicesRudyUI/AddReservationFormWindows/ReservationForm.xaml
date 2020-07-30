@@ -5,8 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
-        Title="ReservationForm" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ReservationForm" Height="720" Width="700">
+    <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10">
+            <!--klant & startadres-->
+            <GroupBox Header="Klant">
+                <StackPanel>
+                    <WrapPanel Margin="6">
+                <TextBlock  VerticalAlignment="Bottom">
+                  Klant: 
+                </TextBlock>
+                <TextBox VerticalAlignment="Bottom" Margin="6,0,0,0" IsReadOnly="True">
+                    KlantNaam
+                </TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Content="Voeg bestaande toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,10,0"/>
+                <Button Content="Voeg nieuw toe" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="StartAdres">
+                <WrapPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Straat: "/>
+                        <TextBox MinWidth="200"/>
+                        <Label Content="Nr: "/>
+                        <TextBox Width="30"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Postcode: "/>
+                        <TextBox Width="60"/>
+                        <Label Content="Gemeente: "/>
+                        <TextBox MinWidth="150"/>
+                    </StackPanel>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Limousine/Arrangement">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                        <Label Content="StartLocatie: "/>
+                        <ComboBox Margin="29,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="AankomstLocatie: "/>
+                        <ComboBox/>
+                    </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ReservatieStartDatum: "/>
+                            <DatePicker/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ReservatieEindDatum: "/>
+                            <DatePicker/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="6">
+                            <TextBlock  VerticalAlignment="Bottom">
+                  Limousine:
+                            </TextBlock>
+                            <TextBox VerticalAlignment="Bottom" Margin="6,0,10,0" IsReadOnly="True">
+                                LimousineNaam
+                            </TextBox>
+                        </StackPanel>
+                            <Button Content="Voeg Limousine toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <!--Limousine & Arrangement-->
+                    <Button Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

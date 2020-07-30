@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
         Title="AddExistingClient" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
+            <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
+            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid/>
+        <Button Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+    </StackPanel>
 </Window>

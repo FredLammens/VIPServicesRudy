@@ -18,8 +18,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="80*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>     
         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" Grid.Row="0">
@@ -35,14 +34,7 @@
                 <DataGridTextColumn Header="Wellness" Binding="{Binding FixedArrangements[2].Price}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Label Content="Hourly"/>
-            <CheckBox VerticalAlignment="Center"/>
-            <Label Content="Arrangement"/>
-            <ComboBox VerticalAlignment="Center"/>
-            <Label Content="Price: "/>
-            <TextBox IsReadOnly="True"/>
-        </StackPanel>
+
     <Button x:Name="SubmitLimousineBtn" Content="Toevoegen aan formulier" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="SubmitLimousineBtn_Click" Grid.Row="3"/>
     </Grid>
 </Window>

@@ -29,15 +29,15 @@
                 <WrapPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Straat: "/>
-                        <TextBox MinWidth="200"/>
+                        <TextBox x:Name="StartAdresStreat" MinWidth="200"/>
                         <Label Content="Nr: "/>
-                        <TextBox Width="30"/>
+                        <TextBox x:Name="StartAdresNr" Width="30"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Postcode: "/>
-                        <TextBox Width="60"/>
+                        <TextBox x:Name="StartAdresPostalCode" Width="60"/>
                         <Label Content="Gemeente: "/>
-                        <TextBox MinWidth="150"/>
+                        <TextBox x:Name="StartAdresTown" MinWidth="150"/>
                     </StackPanel>
                 </WrapPanel>
             </GroupBox>
@@ -45,29 +45,28 @@
                 <StackPanel>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                        <Label Content="StartLocatie: "/>
-                        <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="AankomstLocatie: "/>
-                        <ComboBox x:Name="ArrivalLocationComboBox" Margin="2"/>
-                    </StackPanel>
+                            <Label Content="StartLocatie: "/>
+                            <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedStartLocation}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="AankomstLocatie: "/>
+                            <ComboBox x:Name="ArrivalLocationComboBox" Margin="2" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedArrivalLocation}"/>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="ReservatieStartDatum: "/>
                             <DatePicker x:Name="ReservationStartDate" Margin="9,0,0,2"/>
                             <Label Content="StartUur: "/>
-                            <TextBlock x:Name="StartHourTextBox" MinWidth="40"/>
+                            <TextBox x:Name="StartHourTextBox" MinWidth="40" Margin="5"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="ReservatieEindDatum: "/>
                             <DatePicker x:Name="ReservationEndDate" Margin="10,2,0,0"/>
                             <Label Content="EindUur: "/>
-                            <TextBlock x:Name="EndHourTextBox" MinWidth="40"/>
+                            <TextBox x:Name="EndHourTextBox" MinWidth="40" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
-
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="6">
                             <TextBlock  VerticalAlignment="Bottom">
@@ -77,12 +76,18 @@
                                 LimousineNaam
                             </TextBox>
                         </StackPanel>
-                            <Button x:Name="AddLimousineBtn" Content="Voeg Limousine toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0" Click="AddLimousineBtn_Click"/>
+                        <Button x:Name="AddLimousineBtn" Content="Voeg Limousine toe" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0" Click="AddLimousineBtn_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Arrangement"/>
+                        <ComboBox x:Name="ArrangementComboBox" VerticalAlignment="Center" Margin="2" SelectedItem="{Binding SelectedArrangement}" DropDownClosed="ArrangementComboBox_DropDownClosed"/>
+                        <Label Content="Price: "/>
+                        <TextBox x:Name="PriceField" IsReadOnly="True" MinWidth="30" Margin="5"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
             <!--Limousine & Arrangement-->
-                    <Button x:Name="AddReservationBtn" Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                    <Button x:Name="AddReservationBtn" Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="AddReservationBtn_Click"/>
         </StackPanel>
     </ScrollViewer>
 </Window>

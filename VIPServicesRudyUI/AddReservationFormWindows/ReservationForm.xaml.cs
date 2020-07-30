@@ -1,4 +1,5 @@
 ﻿using DomainLibrary.Domain.Clients;
+using DomainLibrary.Domain.Limousines;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,8 @@ namespace VIPServicesRudyUI
             this.vm = vm;
             StartLocationComboBox.ItemsSource = vm.Locations;
             ArrivalLocationComboBox.ItemsSource = vm.Locations;
+            ArrangementComboBox.ItemsSource = vm.Arrangements;
+            ArrangementComboBox.SelectedIndex = 1;
         }
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
@@ -68,8 +71,7 @@ namespace VIPServicesRudyUI
                 MessageBox.Show("Gelieve een startdatum te selecteren.");
             else 
             {
-                TimeSpan.TryParse(StartHourTextBox.Text, out startTime);
-                if (startTime == null)
+                if(!TimeSpan.TryParse(StartHourTextBox.Text, out startTime))
                     MessageBox.Show("Gelieve een starttijd in te voeren.");
                 else 
                 {
@@ -84,12 +86,11 @@ namespace VIPServicesRudyUI
             DateTime end = ReservationEndDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);
             TimeSpan endTime;
             if (end == DateTime.MinValue)
-                MessageBox.Show("Gelieve een startdatum te selecteren.");
+                MessageBox.Show("Gelieve een eindDatum te selecteren.");
             else
             {
-                TimeSpan.TryParse(StartHourTextBox.Text, out endTime);
-                if (endTime == null)
-                    MessageBox.Show("Gelieve een starttijd in te voeren.");
+                if(!TimeSpan.TryParse(StartHourTextBox.Text, out endTime))
+                    MessageBox.Show("Gelieve een eindtijd in te voeren.");
                 else
                 {
                     end.Add(endTime);
@@ -97,6 +98,48 @@ namespace VIPServicesRudyUI
                 }
             }
             return DateTime.MinValue;
+        }
+        private void ShowPrice()
+        {
+            //check if all the other boxes are inserted 
+            //check client
+            int streatNumber;
+            int postalCode;
+            if (ClientShowBox.Text == "KlantNaam")
+                MessageBox.Show("Gelieve klant in te geven.");
+            else if (StartAdresStreat.Text.Length == 0)
+                MessageBox.Show("Gelieve straat in te vullen.");
+            else if (!int.TryParse(StartAdresNr.Text, out streatNumber))
+                MessageBox.Show("Gelieve straatnr in te vullen.");
+            else if (!int.TryParse(StartAdresPostalCode.Text,out postalCode))
+                MessageBox.Show("Gelieve postcode in te vullen.");
+            else if (StartAdresTown.Text.Length == 0)
+                MessageBox.Show("Gelieve gemeente in te vullen.");
+            else if (StartLocationComboBox.SelectedItem == null)
+                MessageBox.Show("Gelieve startLocatie te selecteren.");
+            else if (ArrivalLocationComboBox.SelectedItem == null)
+                MessageBox.Show("Gelieve aankomstLocatie te selecteren.");
+            else if (LimousineShowBox.Text == "LimousineNaam")
+                MessageBox.Show("Gelieve limousine te selecteren.");
+            else if (GetReservationStart() != DateTime.MinValue && GetReservationEnd() != DateTime.MinValue)
+            {
+                //kijken of nr en postcode nummers zijn 
+                string adres = StartAdresStreat.Text
+                             + streatNumber
+                             + postalCode
+                             + StartAdresTown.Text;
+                PriceField.Text = vm.GetPrice(adres, GetReservationStart(), GetReservationEnd());
+            }
+        }
+
+        private void AddReservationBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ArrangementComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            ShowPrice();
         }
     }
 }

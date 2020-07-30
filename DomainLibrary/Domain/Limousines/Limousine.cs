@@ -24,7 +24,9 @@ namespace DomainLibrary.Domain.Limousines
 
         public bool IsReservable(DateTime reservationDateStart)
         {
-            if ((reservationDateStart - LastReservation).Hours < 6)
+            if (LastReservation == null)
+                return true;
+            else if ((reservationDateStart - LastReservation).Hours < 6)
                 return false;
             else
                 return true;

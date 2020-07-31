@@ -40,5 +40,10 @@ namespace DomainLibrary.Domain.Clients
         {
             return HashCode.Combine(Name, VATNumber, Adres);
         }
+
+        public override string ToString()
+        {
+            return $"Client: {Name} \nAdres: {Adres} \nBTWnummer: {VATNumber} \nCategorie: {Categorie.Name}";
+        }
     }
 }

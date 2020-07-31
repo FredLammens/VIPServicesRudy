@@ -49,5 +49,15 @@ namespace DomainLibrary.Domain.Reservering
                     return (decimal)(subtotal * client.Categorie.StaffDiscount.Where(x => x.Aantal == key).FirstOrDefault().Korting);
             }
         }
+
+        public override string ToString()
+        {
+            string hours = "uren: \n";
+            foreach (Hour hour in Hours)
+            {
+                hours += $"uur: {hour.HourType} duratie: {hour.Period} eenheidsprijs: {hour.UnitPrice}\n";
+            }
+            return $"PriceCalculation:\n{hours}\nSubtotaal: {Subtotal}\nKorting: {ChargedDiscounts}\nTotaal exclusief BTW: {TotalExclusiveVAT}\nBTW: {VATAmount}\nTotaal: {Total}\n";
+        }
     }
 }

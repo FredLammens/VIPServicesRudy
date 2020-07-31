@@ -30,7 +30,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
             }
         }
 
-        public HourlyArrangement(int firstHourPrice, HourlyArrangementType type, DateTime reservationDateStart, DateTime reservationDateEnd)//reservationstart en eind weg => toevoegen aan limo moet kunnen
+        public HourlyArrangement(int firstHourPrice, HourlyArrangementType type, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
             Type = type;
             hours = CalculateHours(reservationDateStart, reservationDateEnd, firstHourPrice);
@@ -94,6 +94,11 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
                 hours.Add(new Hour(HourType.NachtUur,nightPeriod, firstHourPrice));
             }
             return hours;
+        }
+
+        public override string ToString()
+        {
+            return $"Arrangement: {Type}";
         }
     }
     public enum HourlyArrangementType

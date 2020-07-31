@@ -24,9 +24,7 @@ namespace DomainLibrary.Domain.Limousines
 
         public bool IsReservable(DateTime reservationDateStart)
         {
-            if (LastReservation == null)
-                return true;
-            else if ((reservationDateStart - LastReservation).Hours < 6)
+            if ((reservationDateStart - LastReservation).Hours < 6 && (reservationDateStart - LastReservation).Hours > 0)
                 return false;
             else
                 return true;
@@ -42,6 +40,11 @@ namespace DomainLibrary.Domain.Limousines
         public override int GetHashCode()
         {
             return HashCode.Combine(Name, FirstHourPrice);
+        }
+
+        public override string ToString()
+        {
+            return $"Limousine: \nNaam: {Name}\nEersteUurPrijs: {FirstHourPrice}\n";
         }
     }
 }

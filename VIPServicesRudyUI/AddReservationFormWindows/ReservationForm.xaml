@@ -46,11 +46,11 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="StartLocatie: "/>
-                            <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedStartLocation}"/>
+                            <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0" SelectedItem="{Binding SelectedStartLocation}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="AankomstLocatie: "/>
-                            <ComboBox x:Name="ArrivalLocationComboBox" Margin="2" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedArrivalLocation}"/>
+                            <ComboBox x:Name="ArrivalLocationComboBox" Margin="2" SelectedItem="{Binding SelectedArrivalLocation}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
@@ -80,14 +80,14 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Arrangement"/>
-                        <ComboBox x:Name="ArrangementComboBox" VerticalAlignment="Center" Margin="2" SelectedItem="{Binding SelectedArrangement}" DropDownClosed="ArrangementComboBox_DropDownClosed"/>
+                        <ComboBox x:Name="ArrangementComboBox" VerticalAlignment="Center" Margin="2"/>
                         <Label Content="Price: "/>
                         <TextBox x:Name="PriceField" IsReadOnly="True" MinWidth="30" Margin="5"/>
+                        <Button x:Name="ShowPriceBtn" Content=" Show Price" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ShowPriceBtn_Click"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <!--Limousine & Arrangement-->
-                    <Button x:Name="AddReservationBtn" Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="AddReservationBtn_Click"/>
+            <Button x:Name="AddReservationBtn" Content="Voeg Reservartie toe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="AddReservationBtn_Click"/>
         </StackPanel>
     </ScrollViewer>
 </Window>

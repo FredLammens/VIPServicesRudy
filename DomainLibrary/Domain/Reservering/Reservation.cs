@@ -37,5 +37,10 @@ namespace DomainLibrary.Domain.Reservering
         {
             return HashCode.Combine(ReservationDate, Adres, Client, Details);
         }
+
+        public override string ToString()
+        {
+            return $"Reservatie :\n{Client}\nAdres waar limousine verwacht wordt: {Adres}\n{Details}\n{PriceCalculation}";
+        }
     }
 }

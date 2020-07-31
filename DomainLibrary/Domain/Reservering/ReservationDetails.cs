@@ -1,5 +1,7 @@
 ﻿
 using DomainLibrary.Domain.Limousines;
+using DomainLibrary.Domain.Limousines.HourlyArrangements;
+using DomainLibrary.Domain.Limousines.Hours;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -33,5 +35,15 @@ namespace DomainLibrary.Domain.Reservering
             Arrangement = arrangement;
         }
         public ReservationDetails() { }
+
+        public override string ToString()
+        {
+            string arrangment;
+            if (Arrangement.GetType() == typeof(HourlyArrangement))
+                arrangment = Arrangement.ToString();
+            else
+                arrangment = $"Arrangement: {Arrangement.GetType()}";
+            return $"ReservatieDetails: \nStartdatum: {ReservationDateStart}\nEinddatum: {ReservationDateEnd}\nStartLocatie: {StartLocation}\nAankomstLocatie: {ArrivalLocation}\nLimousine: {Limousine}\n{Arrangement}";
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace VIPServicesRudyViewModel
         public System.Array Categories { get; set; } = Enum.GetValues(typeof(CategorieType));
         public System.Array Locations { get; set; } = Enum.GetValues(typeof(Location));
         public string[] Arrangements { get; set; } = { "NightLife", "Wedding", "Wellness","Business","Aiport" };
-        public string SelectedArrangement { private get; set; } = "Wedding";
+        public string SelectedArrangement { get; set; }
         public Location SelectedStartLocation { get; set; }
         public Location SelectedArrivalLocation { get; set; }
 
@@ -117,6 +117,11 @@ namespace VIPServicesRudyViewModel
                 default:
                     return null;
             }
+        }
+        public string AddReservation() 
+        {
+            manager.AddReservation(reservation);
+            return reservation.ToString();
         }
 
     }

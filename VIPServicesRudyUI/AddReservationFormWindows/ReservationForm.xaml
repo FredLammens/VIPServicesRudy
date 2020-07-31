@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
-        Title="ReservationForm" Height="720" Width="700">
+        Title="ReservationForm" Height="500" Width="500" MinHeight="500" MinWidth="500">
     <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
         <Grid Margin="10">
             <Grid.RowDefinitions>

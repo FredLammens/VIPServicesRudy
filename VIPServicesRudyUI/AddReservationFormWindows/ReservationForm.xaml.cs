@@ -99,9 +99,9 @@ namespace VIPServicesRudyUI
             else
             {
                 string adres = StartAdresStreat.Text
-                             + streatNumber
-                             + postalCode
-                             + StartAdresTown.Text;
+                             + " " + streatNumber
+                             + " " + postalCode
+                             + " " + StartAdresTown.Text;
                 DateTime start = ReservationStartDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);
                 DateTime end = ReservationEndDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);
                 vm.SelectedArrangement = ArrangementComboBox.SelectedValue.ToString();
@@ -118,7 +118,6 @@ namespace VIPServicesRudyUI
 
         private void AddReservationBtn_Click(object sender, RoutedEventArgs e)
         {
-            ShowPrice();
             MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {

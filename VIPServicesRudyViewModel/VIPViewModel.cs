@@ -68,6 +68,7 @@ namespace VIPServicesRudyViewModel
         public Location SelectedArrivalLocation { get; set; }
 
         private Reservation reservation;
+        public Reservation SelectedReservation { get; set; }
         public void AddItems()
         {           
             Clients = new ObservableCollection<Client>(manager.GetClients());

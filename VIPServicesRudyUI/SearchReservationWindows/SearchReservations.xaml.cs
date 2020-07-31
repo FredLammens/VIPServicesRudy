@@ -28,7 +28,7 @@ namespace VIPServicesRudyUI
 
         private void ShowReservationBtn_Click(object sender, RoutedEventArgs e)
         {
-            ShowReservation sr = new ShowReservation();
+            ShowReservation sr = new ShowReservation(vm);
             Close();
             sr.Show();
         }

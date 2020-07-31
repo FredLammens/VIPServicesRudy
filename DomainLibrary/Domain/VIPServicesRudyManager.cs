@@ -59,11 +59,11 @@ namespace DomainLibrary.Domain
             return uow.Limousines.GetAllLimousines();
         }
         //----------------------------------------------------Added last-------------------------------------------------
-        public IEnumerable<Reservation> getReservations(Client client) 
+        public IEnumerable<Reservation> getReservationsClient(Client client) 
         {
             return uow.Reservations.GetReservations(client);
         }
-        public IEnumerable<Reservation> getReservations(DateTime startDate) 
+        public IEnumerable<Reservation> getReservationsDate(DateTime startDate) 
         {
             return uow.Reservations.GetReservations(startDate);
         }

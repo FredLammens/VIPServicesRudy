@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="AddExistingClient" Height="450" Width="800">
+        Title="AddExistingClient" Height="450" Width="600" MinHeight="450" MinWidth="600">
      <Window.Resources>
         <Style  TargetType="{x:Type DataGridCell}">
             <Style.Triggers>

@@ -28,7 +28,6 @@ namespace DataLayer.Repositories
         public IEnumerable<Reservation> GetReservations(Client client)
         {
             return context.Reservations
-                .AsNoTracking()
                 .Include(r => r.Client)
                 .Include(r => r.Details)
                 .Include(r => r.PriceCalculation)
@@ -37,7 +36,6 @@ namespace DataLayer.Repositories
         public IEnumerable<Reservation> GetReservations(DateTime startDate)
         {
             return context.Reservations
-                .AsNoTracking()
                 .Include(r => r.Client)
                 .Include(r => r.Details)
                 .Include(r => r.PriceCalculation)
@@ -47,7 +45,6 @@ namespace DataLayer.Repositories
         public IEnumerable<Reservation> GetReservations()
         {
             return context.Reservations
-                .AsNoTracking()
                 .Include(r => r.Client)
                 .Include(r => r.Details)
                 .Include(r => r.PriceCalculation)

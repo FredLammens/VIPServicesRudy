@@ -12,7 +12,7 @@ namespace DomainLibrary.Domain.Clients
     {
         //[NotMapped]
         //public SortedList<int, float> StaffDiscount { get; }
-        public List<Discount> StaffDiscount { get; private set; }
+        public List<Discount> StaffDiscount { get; private set; } = new List<Discount>();
 
         [Key]
         public CategorieType Name { get; set; }

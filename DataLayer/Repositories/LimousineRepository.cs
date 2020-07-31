@@ -27,7 +27,6 @@ namespace DataLayer.Repositories
         {
             return context.Limousines
                 .Include(a => a.FixedArrangements)
-                .AsNoTracking()
                 .AsEnumerable();
         }
         public Limousine GetLimousine(int id) 

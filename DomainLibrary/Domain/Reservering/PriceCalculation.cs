@@ -37,7 +37,7 @@ namespace DomainLibrary.Domain.Reservering
                 return 0;
             int amountLoaned = client.Reservations.Count(r => r.Details.ReservationDateStart.Year == year);
             //return calculated discount 
-            if (client.Categorie.StaffDiscount.Equals(null))
+            if (client.Categorie.StaffDiscount == null)
                 return 0;
             else
             {

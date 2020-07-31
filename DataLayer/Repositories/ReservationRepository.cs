@@ -47,7 +47,10 @@ namespace DataLayer.Repositories
             return context.Reservations
                 .Include(r => r.Client)
                 .Include(r => r.Details)
+                .Include(r => r.Details.Arrangement)
+                .Include(r => r.Details.Limousine)
                 .Include(r => r.PriceCalculation)
+                .Include(r => r.PriceCalculation.Hours)
                 .AsEnumerable();
         }
     }

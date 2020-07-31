@@ -25,7 +25,7 @@
             <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
             <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding Reservations}"/>
+        <DataGrid x:Name="ReservationsDataGrid" Grid.Row="1" Margin="10" ItemsSource="{Binding Reservations}" CanUserAddRows="False"/>
         <Button x:Name="ShowReservationBtn" Content="Toon Reservatie" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="ShowReservationBtn_Click" Grid.Row="2"/>
     </Grid>
 </Window>

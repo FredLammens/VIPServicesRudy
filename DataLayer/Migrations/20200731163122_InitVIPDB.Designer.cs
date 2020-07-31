@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DataLayer.Migrations.VIPServicesRudy
+namespace DataLayer.Migrations
 {
     [DbContext(typeof(VIPServicesRudyContext))]
-    [Migration("20200728131843_InitVIPDB")]
+    [Migration("20200731163122_InitVIPDB")]
     partial class InitVIPDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -115,6 +115,9 @@ namespace DataLayer.Migrations.VIPServicesRudy
                     b.Property<int>("HourType")
                         .HasColumnType("int");
 
+                    b.Property<int?>("HourlyArrangementId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Period")
                         .HasColumnType("int");
 
@@ -125,6 +128,8 @@ namespace DataLayer.Migrations.VIPServicesRudy
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HourlyArrangementId");
 
                     b.HasIndex("PriceCalculationId");
 
@@ -294,6 +299,10 @@ namespace DataLayer.Migrations.VIPServicesRudy
 
             modelBuilder.Entity("DomainLibrary.Domain.Limousines.Hours.Hour", b =>
                 {
+                    b.HasOne("DomainLibrary.Domain.Limousines.HourlyArrangements.HourlyArrangement", null)
+                        .WithMany("Hours")
+                        .HasForeignKey("HourlyArrangementId");
+
                     b.HasOne("DomainLibrary.Domain.Reservering.PriceCalculation", null)
                         .WithMany("Hours")
                         .HasForeignKey("PriceCalculationId");

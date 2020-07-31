@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DataLayer.Migrations
+namespace DataLayer.Migrations.VIPServicesRudyTest
 {
     [DbContext(typeof(VIPServicesRudyTestContext))]
     partial class VIPServicesRudyTestContextModelSnapshot : ModelSnapshot
@@ -113,6 +113,9 @@ namespace DataLayer.Migrations
                     b.Property<int>("HourType")
                         .HasColumnType("int");
 
+                    b.Property<int?>("HourlyArrangementId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Period")
                         .HasColumnType("int");
 
@@ -123,6 +126,8 @@ namespace DataLayer.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HourlyArrangementId");
 
                     b.HasIndex("PriceCalculationId");
 
@@ -292,6 +297,10 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("DomainLibrary.Domain.Limousines.Hours.Hour", b =>
                 {
+                    b.HasOne("DomainLibrary.Domain.Limousines.HourlyArrangements.HourlyArrangement", null)
+                        .WithMany("Hours")
+                        .HasForeignKey("HourlyArrangementId");
+
                     b.HasOne("DomainLibrary.Domain.Reservering.PriceCalculation", null)
                         .WithMany("Hours")
                         .HasForeignKey("PriceCalculationId");

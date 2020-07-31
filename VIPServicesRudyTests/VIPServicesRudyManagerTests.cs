@@ -128,7 +128,7 @@ namespace VIPServicesRudyTests
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
             Client clientTest = uow.Clients.GetClient(2);
-            m.getReservations(clientTest).Count().ShouldBe(1);
+            m.getReservationsClient(clientTest).Count().ShouldBe(1);
         }
         [TestMethod]
         public void TestRudyManagerGetReservationswithStartDate() 
@@ -136,7 +136,7 @@ namespace VIPServicesRudyTests
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
-            m.getReservations(reservationDateStart).Count().ShouldBe(1);
+            m.getReservationsDate(reservationDateStart).Count().ShouldBe(1);
         }
         [TestMethod]
         public void TestRudyManagerGetClientsWithName() 

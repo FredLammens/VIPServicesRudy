@@ -4,14 +4,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DataLayer.Migrations.VIPServicesRudy
+namespace DataLayer.Migrations.VIPServicesRudyTest
 {
-    [DbContext(typeof(VIPServicesRudyContext))]
-    partial class VIPServicesRudyContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(VIPServicesRudyTestContext))]
+    [Migration("20200731163150_InitTestDB")]
+    partial class InitTestDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,6 +115,9 @@ namespace DataLayer.Migrations.VIPServicesRudy
                     b.Property<int>("HourType")
                         .HasColumnType("int");
 
+                    b.Property<int?>("HourlyArrangementId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Period")
                         .HasColumnType("int");
 
@@ -123,6 +128,8 @@ namespace DataLayer.Migrations.VIPServicesRudy
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HourlyArrangementId");
 
                     b.HasIndex("PriceCalculationId");
 
@@ -292,6 +299,10 @@ namespace DataLayer.Migrations.VIPServicesRudy
 
             modelBuilder.Entity("DomainLibrary.Domain.Limousines.Hours.Hour", b =>
                 {
+                    b.HasOne("DomainLibrary.Domain.Limousines.HourlyArrangements.HourlyArrangement", null)
+                        .WithMany("Hours")
+                        .HasForeignKey("HourlyArrangementId");
+
                     b.HasOne("DomainLibrary.Domain.Reservering.PriceCalculation", null)
                         .WithMany("Hours")
                         .HasForeignKey("PriceCalculationId");

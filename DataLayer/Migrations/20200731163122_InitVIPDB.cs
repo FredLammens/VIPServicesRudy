@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataLayer.Migrations.VIPServicesRudy
+namespace DataLayer.Migrations
 {
     public partial class InitVIPDB : Migration
     {
@@ -123,11 +123,18 @@ namespace DataLayer.Migrations.VIPServicesRudy
                     HourType = table.Column<int>(nullable: false),
                     Period = table.Column<int>(nullable: false),
                     UnitPrice = table.Column<int>(nullable: false),
+                    HourlyArrangementId = table.Column<int>(nullable: true),
                     PriceCalculationId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hour", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Hour_Arrangements_HourlyArrangementId",
+                        column: x => x.HourlyArrangementId,
+                        principalTable: "Arrangements",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Hour_PriceCalculation_PriceCalculationId",
                         column: x => x.PriceCalculationId,
@@ -214,6 +221,11 @@ namespace DataLayer.Migrations.VIPServicesRudy
                 name: "IX_Discount_CategoryName",
                 table: "Discount",
                 column: "CategoryName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hour_HourlyArrangementId",
+                table: "Hour",
+                column: "HourlyArrangementId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Hour_PriceCalculationId",

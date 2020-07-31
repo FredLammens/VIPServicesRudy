@@ -1,5 +1,6 @@
 ﻿
 using DomainLibrary.Domain.Limousines.Hours;
+using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,39 +8,31 @@ using System.Text;
 namespace DomainLibrary.Domain.Limousines.HourlyArrangements
 {
     public class HourlyArrangement : Arrangement
-    { 
+    {
         public HourlyArrangementType Type { get; }
 
-        readonly List<Hour> hours;
+        public List<Hour> Hours { get; private set; } // Last fix private set 
         static readonly int maxTerm = 11;
 
-        public override int? Price
-        {
-            get
-            {
-                int subtotal = 0;
-                foreach (Hour hour in hours)
-                {
-                    subtotal += (hour.UnitPrice * hour.Period);
-                }
-                return subtotal;
-            }
-            set 
-            {
-                Price = value;
-            }
-        }
+        public override int? Price { get; set; }
 
         public HourlyArrangement(int firstHourPrice, HourlyArrangementType type, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
             Type = type;
-            hours = CalculateHours(reservationDateStart, reservationDateEnd, firstHourPrice);
+            Hours = CalculateHours(reservationDateStart, reservationDateEnd, firstHourPrice);
+            int subtotal = 0;
+            foreach (Hour hour in Hours)
+            {
+                subtotal += (hour.UnitPrice * hour.Period);
+            }
+            Price = subtotal;
+
         }
         public HourlyArrangement() { }
 
         public override List<Hour> GetHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
-            return hours;
+            return Hours;
         }
         private List<Hour> CalculateHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {

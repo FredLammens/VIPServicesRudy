@@ -118,9 +118,12 @@ namespace VIPServicesRudyViewModel
                     return null;
             }
         }
-        public string AddReservation() 
+        public void AddReservation() 
         {
             manager.AddReservation(reservation);
+        }
+        public string ShowReservation() 
+        {
             return reservation.ToString();
         }
 

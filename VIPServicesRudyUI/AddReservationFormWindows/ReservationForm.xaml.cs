@@ -60,7 +60,7 @@ namespace VIPServicesRudyUI
         }
         public void MakeClient(string name, string VATNumber, string adres, CategorieType categorie) 
         {
-            ClientShowBox.Text = vm.MakeClient(name,VATNumber,adres,categorie);
+                ClientShowBox.Text = vm.MakeClient(name, VATNumber, adres, categorie);
         }
         private void ShowPrice()
         {
@@ -105,15 +105,27 @@ namespace VIPServicesRudyUI
                 DateTime start = ReservationStartDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);
                 DateTime end = ReservationEndDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);
                 vm.SelectedArrangement = ArrangementComboBox.SelectedValue.ToString();
-                PriceField.Text = vm.GetPrice(adres, start.AddHours(startTime), end.AddHours(endTime));
+                try
+                {
+                    PriceField.Text = vm.GetPrice(adres, start.AddHours(startTime), end.AddHours(endTime));
+                }
+                catch (Exception e) 
+                {
+                    MessageBox.Show(e.Message,"PriceCalculation", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 
         private void AddReservationBtn_Click(object sender, RoutedEventArgs e)
         {
             ShowPrice();
-            MessageBox.Show(vm.AddReservation());
-            Close();
+            MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                vm.AddReservation();
+                Close();
+                MessageBox.Show("Reservation Added");
+            }
         }
 
         private void ShowPriceBtn_Click(object sender, RoutedEventArgs e)

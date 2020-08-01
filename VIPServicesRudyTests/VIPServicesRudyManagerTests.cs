@@ -130,37 +130,5 @@ namespace VIPServicesRudyTests
             Client clientTest = uow.Clients.GetClient(2);
             m.getReservationsClient(clientTest).Count().ShouldBe(1);
         }
-        [TestMethod]
-        public void TestRudyManagerGetReservationswithStartDate() 
-        {
-            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
-            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
-            DateTime reservationDateStart = new DateTime(2020, 01, 23, 15, 00, 00);
-            m.getReservationsDate(reservationDateStart).Count().ShouldBe(1);
-        }
-        [TestMethod]
-        public void TestRudyManagerGetClientsWithName() 
-        {
-            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
-            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
-            List<Client> test = m.GetClientsWithName("Het Witte Paard").ToList();
-            test.Count.ShouldBe(1);
-        }
-        [TestMethod]
-        public void TestRudyManagerGetClientsWithAdres() 
-        {
-            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
-            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
-            List<Client> test = m.GetClientsWithAdres("Vluchtweg 18 - Lievegem").ToList();
-            test.Count.ShouldBe(1);
-        }
-        [TestMethod]
-        public void TestRudyManagerGetClientsWithVAT() 
-        {
-            UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
-            VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
-            List<Client> test = m.GetClientsWithVAT("BE8765432019").ToList();
-            test.Count.ShouldBe(1);
-        }
     }
 }

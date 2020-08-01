@@ -27,7 +27,12 @@ namespace DomainLibrary.Domain
             uow.Reservations.AddReservering(reservation);
             uow.Complete();
         }
-        
+
+        public void AddClient(Client client)
+        {
+            uow.Clients.AddClient(client);
+        }
+
         public IEnumerable<Limousine> GetAllLimousine() //Vloot
         {
             return uow.Limousines.GetAllLimousines();
@@ -50,5 +55,14 @@ namespace DomainLibrary.Domain
             return uow.Clients.inDataBase(client);
         }
 
+        public void AddLimousine(Limousine limo)
+        {
+            uow.Limousines.AddLimousine(limo);
+        }
+
+        public IEnumerable<Reservation> getReservationsClient(Client client)
+        {
+            return uow.Reservations.GetReservations(client);
+        }
     }
 }

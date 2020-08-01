@@ -14,7 +14,6 @@ namespace DataLayer.Repositories
         {
             this.context = context;
         }
-
         public void AddClient(Client client)
         {
             context.Clients.Add(client);

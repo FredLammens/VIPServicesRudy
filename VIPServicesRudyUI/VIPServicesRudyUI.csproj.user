@@ -22,9 +22,6 @@
     <Compile Update="SearchReservationWindows\SearchReservations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SearchReservationWindows\ShowReservation.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddReservationFormWindows\AddExistingClient.xaml">
@@ -43,9 +40,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SearchReservationWindows\SearchReservations.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SearchReservationWindows\ShowReservation.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

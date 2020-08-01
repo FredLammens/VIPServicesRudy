@@ -26,6 +26,8 @@ namespace VIPServicesRudyUI
             InitializeComponent();
             this.vm = vm;
             DataContext = vm;
+            ReservationStartDate.DisplayDateStart = DateTime.Today;
+            ReservationEndDate.DisplayDateEnd = DateTime.Today;
         }
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)

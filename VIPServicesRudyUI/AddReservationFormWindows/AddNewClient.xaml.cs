@@ -49,7 +49,7 @@ namespace VIPServicesRudyUI
                 MessageBox.Show("Gelieve Gemeente in te vullen.");
             else
             {
-                parent.MakeClient(ClientNameInput.Text, VATNumberInput.Text, StreatInput.Text + nr + postalCode + TownInput.Text, (CategorieType)CategoryComboBox.SelectedItem);
+                parent.MakeClient(ClientNameInput.Text, VATNumberInput.Text, StreatInput.Text +" "+ nr + " - " + postalCode +" "+ TownInput.Text, (CategorieType)CategoryComboBox.SelectedItem);
                 MessageBox.Show(ClientNameInput.Text + " added.");
                 parent.Show();
                 Close();

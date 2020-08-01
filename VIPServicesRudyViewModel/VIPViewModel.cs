@@ -144,21 +144,27 @@ namespace VIPServicesRudyViewModel
             else if (int.TryParse(input, out int nr))
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.ClientNumber == nr));
             else if (input.StartsWith("BE"))
-                Clients = new ObservableCollection<Client>(allClients.Where(c => c.VATNumber == input));
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.VATNumber.ToLower().Contains(input.ToLower())));
             else if (input.Contains("-"))
-                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Adres == input));
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Adres.Contains(input)));
             else if (Enum.TryParse<CategorieType>(input,out CategorieType result))
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.Categorie.Name == result));
             else
-                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Name == input));
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Name.ToLower().Contains(input.ToLower())));
         }
         public void SearchLimo(string input) 
         {
-
+            if (input.Length == 0)
+                Limousines = new ObservableCollection<Limousine>(allLimousines);
+            else
+                Limousines = new ObservableCollection<Limousine>(allLimousines.Where(l => l.Name.ToLower().Contains(input.ToLower())));
         }
         public void SearchReservation(string input) 
         {
-
+            if (DateTime.TryParse(input, out DateTime reservatieDatum))
+                Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.ReservationDate.Equals(reservatieDatum)));
+            else
+                Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.Client.Name.ToLower().Contains(input.ToLower())));
         }
 
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
-        Title="SearchReservations" Height="450" Width="800">
+        Title="ZoekReservaties" Height="450" Width="800">
     <Window.Resources>
         <Style  TargetType="{x:Type DataGridCell}">
             <Style.Triggers>
@@ -22,8 +22,8 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center" Grid.Row="0">
-            <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
-            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="ReservationSearchBox" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
+            <Button x:Name="ReservationSearchBtn" Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ReservationSearchBtn_Click"/>
         </StackPanel>
         <DataGrid x:Name="ReservationsDataGrid" Grid.Row="1" Margin="10" ItemsSource="{Binding Reservations}" SelectedItem="{Binding SelectedReservation}" CanUserAddRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VIPServicesRudyUI"
         mc:Ignorable="d"
-        Title="AddNewClient" MinHeight="500" MinWidth="650" Height="500" Width="650">
+        Title="Nieuwe Cliënt Toevoegen" MinHeight="500" MinWidth="650" Height="500" Width="650">
     <Grid  Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>

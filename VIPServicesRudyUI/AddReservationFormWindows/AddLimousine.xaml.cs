@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,6 +35,17 @@ namespace VIPServicesRudyUI
             Close();
             parent.ShowLimousine();
             parent.Show();
+        }
+
+        private void AddLimousineSearchBoxBtn_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SearchLimo(AddLimousineSearchBox.Text);
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            MessageBoxResult message = MessageBox.Show("Ben je zeker dat je wilt sluiten zonder op te slaan ?", "LimousineToevoegen", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+            if (message == MessageBoxResult.No)
+                e.Cancel = true;
         }
     }
 }

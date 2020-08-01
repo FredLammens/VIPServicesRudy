@@ -39,6 +39,8 @@ namespace VIPServicesRudyUI
                 MessageBox.Show("Gelieve een naam in te geven.");
             if (VATNumberInput.Text.Length == 0)
                 MessageBox.Show("Gelieve het BTW-nummer in te vullen.");
+            if (!VATNumberInput.Text.StartsWith("BE"))
+                MessageBox.Show("Gelieve een geldig BTW-nummer in te vullen.");
             if (StreatInput.Text.Length == 0)
                 MessageBox.Show("Gelieve straat in te vullen.");
             if (!int.TryParse(NrInput.Text, out nr))

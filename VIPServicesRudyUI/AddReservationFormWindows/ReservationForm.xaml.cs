@@ -99,7 +99,7 @@ namespace VIPServicesRudyUI
             else
             {
                 string adres = StartAdresStreat.Text
-                             + " " + streatNumber
+                             + " " + streatNumber + " -"
                              + " " + postalCode
                              + " " + StartAdresTown.Text;
                 DateTime start = ReservationStartDate.SelectedDate.GetValueOrDefault(DateTime.MinValue);

@@ -52,11 +52,11 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="StartLocatie: "/>
-                            <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0" SelectedItem="{Binding SelectedStartLocation}"/>
+                            <ComboBox x:Name="StartLocationComboBox" Margin="29,2,2,0" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedStartLocation}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="AankomstLocatie: "/>
-                            <ComboBox x:Name="ArrivalLocationComboBox" Margin="2" SelectedItem="{Binding SelectedArrivalLocation}"/>
+                            <ComboBox x:Name="ArrivalLocationComboBox" Margin="2" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedArrivalLocation}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
@@ -86,7 +86,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Arrangement"/>
-                        <ComboBox x:Name="ArrangementComboBox" VerticalAlignment="Center" Margin="2"/>
+                        <ComboBox x:Name="ArrangementComboBox" VerticalAlignment="Center" Margin="2" ItemsSource="{Binding Arrangements}"/>
                         <Label Content="Price: "/>
                         <TextBox x:Name="PriceField" IsReadOnly="True" MinWidth="30" Margin="5"/>
                         <Button x:Name="ShowPriceBtn" Content=" Show Price" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ShowPriceBtn_Click"/>

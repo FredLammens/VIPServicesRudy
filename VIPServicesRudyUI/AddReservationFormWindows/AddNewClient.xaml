@@ -52,7 +52,7 @@
                 <ColumnDefinition Width="90*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Categorie: " Grid.Column="0"  VerticalAlignment="Center"/>
-            <ComboBox x:Name="CategoryComboBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1"/>
+            <ComboBox x:Name="CategoryComboBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" ItemsSource="{Binding Categories}"/>
         </Grid>
         <Button x:Name="AddClientSubmitBtn" Content="Voeg Client toe" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Click="AddClientSubmitBtn_Click" Grid.Row="4"/>
     </Grid>

@@ -60,8 +60,8 @@ namespace VIPServicesRudyViewModel
         VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
         public Client SelectedClient { get; set; }
         public Limousine SelectedLimousine { get; set; }
-        public System.Array Categories { get; set; } = Enum.GetValues(typeof(CategorieType));
-        public System.Array Locations { get; set; } = Enum.GetValues(typeof(Location));
+        public Array Categories { get; set; } = Enum.GetValues(typeof(CategorieType));
+        public Array Locations { get; set; } = Enum.GetValues(typeof(Location));
         public string[] Arrangements { get; set; } = { "NightLife", "Wedding", "Wellness","Business","Aiport" };
         public string SelectedArrangement { get; set; }
         public Location SelectedStartLocation { get; set; }

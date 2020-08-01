@@ -26,7 +26,7 @@ namespace VIPServicesRudyUI
             InitializeComponent();
             this.vm = vm;
             this.parent = parent;
-            CategoryComboBox.ItemsSource = vm.Categories;
+            DataContext = vm;
         }
 
         private void AddClientSubmitBtn_Click(object sender, RoutedEventArgs e)

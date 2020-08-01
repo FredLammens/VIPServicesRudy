@@ -25,9 +25,7 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
             this.vm = vm;
-            StartLocationComboBox.ItemsSource = vm.Locations;
-            ArrivalLocationComboBox.ItemsSource = vm.Locations;
-            ArrangementComboBox.ItemsSource = vm.Arrangements;
+            DataContext = vm;
         }
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)

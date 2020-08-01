@@ -58,11 +58,5 @@ namespace VIPServicesRudyUI
                 Close();
             }
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            MessageBoxResult message = MessageBox.Show("Ben je zeker dat je wilt sluiten zonder op te slaan ?", "NieuweKlantToevoegen", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
-            if (message == MessageBoxResult.No)
-                e.Cancel = true;
-        }
     }
 }

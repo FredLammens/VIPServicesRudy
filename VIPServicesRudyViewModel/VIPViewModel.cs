@@ -133,11 +133,6 @@ namespace VIPServicesRudyViewModel
         {
             return reservation.ToString();
         }
-        public void AddNewClient() 
-        {
-            if(!manager.IsClientInDatabase(SelectedClient))
-            manager.AddClient(SelectedClient);
-        }
 
     }
 }

@@ -122,7 +122,6 @@ namespace VIPServicesRudyUI
             MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
-                vm.AddNewClient();
                 vm.AddReservation();
                 Close();
                 MessageBox.Show("Reservation Added");

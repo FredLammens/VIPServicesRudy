@@ -21,9 +21,6 @@ namespace DomainLibrary.Domain
         public void AddReservation(Reservation reservation) 
         {
             //check if reservation is already in it => al gecheckt bij limo reservatie 
-            //check of client al in db check of limo al in databank
-            if (!uow.Clients.inDataBase(reservation.Client))
-                throw new ArgumentException("Client zit nog niet in databank gelieve client eerst toe te voegen.");
             if(!uow.Limousines.inDataBase(reservation.Details.Limousine))
                 throw new ArgumentException("Limousine zit nog niet in databank gelieve Limousine eerst toe te voegen.");
 
@@ -79,7 +76,7 @@ namespace DomainLibrary.Domain
         {
             return uow.Clients.GetClientsWithVAT(vatnumber);
         }
-        //-----------------Not tested
+        //-----------------Not tested--------------------------------------------------------------------------------------------
         public IEnumerable<Client> GetClients() 
         {
             return uow.Clients.GetClients();

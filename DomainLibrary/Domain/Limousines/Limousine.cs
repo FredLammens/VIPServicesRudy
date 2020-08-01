@@ -44,7 +44,7 @@ namespace DomainLibrary.Domain.Limousines
 
         public override string ToString()
         {
-            return $"Limousine: \nNaam: {Name}\nEersteUurPrijs: {FirstHourPrice}\n";
+            return $"Limousine: \nNaam: {Name}\nEersteUurPrijs: {FirstHourPrice}";
         }
     }
 }

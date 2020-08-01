@@ -26,8 +26,6 @@ namespace VIPServicesRudyUI
         {
             InitializeComponent();
             vm = new VIPViewModel();
-            vm.AddItems();
-            //DataContext = vm;
         }
 
         private void NewReservationBtn_Click(object sender, RoutedEventArgs e)

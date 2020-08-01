@@ -91,7 +91,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
 
         public override string ToString()
         {
-            return $"Arrangement: {Type}";
+            return $"{Type}";
         }
     }
     public enum HourlyArrangementType

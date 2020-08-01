@@ -38,12 +38,7 @@ namespace DomainLibrary.Domain.Reservering
 
         public override string ToString()
         {
-            string arrangment;
-            if (Arrangement.GetType() == typeof(HourlyArrangement))
-                arrangment = Arrangement.ToString();
-            else
-                arrangment = $"Arrangement: {Arrangement.GetType()}";
-            return $"ReservatieDetails: \nStartdatum: {ReservationDateStart}\nEinddatum: {ReservationDateEnd}\nStartLocatie: {StartLocation}\nAankomstLocatie: {ArrivalLocation}\nLimousine: {Limousine}\n{Arrangement}";
+            return $"Startdatum: {ReservationDateStart}\nEinddatum: {ReservationDateEnd}\nStartLocatie: {StartLocation}\nAankomstLocatie: {ArrivalLocation}\nLimousine: {Limousine}\n{Arrangement}";
         }
     }
 }

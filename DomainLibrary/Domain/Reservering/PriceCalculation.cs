@@ -53,11 +53,13 @@ namespace DomainLibrary.Domain.Reservering
         public override string ToString()
         {
             string hours = "uren: \n";
-            foreach (Hour hour in Hours)
+            for (int i = 0; i < Hours.Count; i++)
             {
-                hours += $"uur: {hour.HourType} duratie: {hour.Period} eenheidsprijs: {hour.UnitPrice}\n";
+                hours += $"uur: {Hours[i].HourType} duratie: {Hours[i].Period} eenheidsprijs: {Hours[i].UnitPrice}\n";
+                if (i == Hours.Count - 1)
+                    hours += $"uur: {Hours[i].HourType} duratie: {Hours[i].Period} eenheidsprijs: {Hours[i].UnitPrice}";
             }
-            return $"PriceCalculation:\n{hours}\nSubtotaal: {Subtotal}\nKorting: {ChargedDiscounts}\nTotaal exclusief BTW: {TotalExclusiveVAT}\nBTW: {VATAmount}\nTotaal: {Total}\n";
+            return $"{hours}\nSubtotaal: {Subtotal}\nKorting: {ChargedDiscounts}\nTotaal exclusief BTW: {TotalExclusiveVAT}\nBTW: {VATAmount}\nTotaal: {Total}\n";
         }
     }
 }

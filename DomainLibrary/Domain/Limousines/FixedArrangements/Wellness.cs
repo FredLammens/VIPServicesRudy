@@ -34,5 +34,10 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             //return hours
             return new List<Hour>() { new Hour(HourType.VastePrijs, period, (int)Price) };
         }
+
+        public override string ToString()
+        {
+            return "Wellness";
+        }
     }
 }

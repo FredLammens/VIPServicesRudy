@@ -47,5 +47,9 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             return hours;
         }
 
+        public override string ToString()
+        {
+            return "NightLife";
+        }
     }
 }

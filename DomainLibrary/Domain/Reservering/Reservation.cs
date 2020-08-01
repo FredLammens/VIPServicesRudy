@@ -40,7 +40,17 @@ namespace DomainLibrary.Domain.Reservering
 
         public override string ToString()
         {
-            return $"Reservatie :\n{Client}\nAdres waar limousine verwacht wordt: {Adres}\n{Details}\n{PriceCalculation}";
+            return "Reservatie: \n" +
+                "\nClient: \n" +
+                "===================================\n" +
+                $"{Client}\n" +
+                "\nInfo Reservering\n" +
+                "===================================\n" +
+                $"Adres waar limousine verwacht wordt: {Adres}\n{Details}\n" +
+                "\nPrijsCalculatie: " +
+                "===================================\n" +
+                $"{PriceCalculation}" +
+                "===================================\n";
         }
     }
 }

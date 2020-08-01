@@ -43,7 +43,7 @@ namespace DomainLibrary.Domain.Clients
 
         public override string ToString()
         {
-            return $"Client: {Name} \nAdres: {Adres} \nBTWnummer: {VATNumber} \nCategorie: {Categorie.Name}";
+            return $"{Name} \nAdres: {Adres} \nBTWnummer: {VATNumber} \nCategorie: {Categorie.Name}";
         }
     }
 }

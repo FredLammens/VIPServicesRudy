@@ -30,12 +30,26 @@ namespace VIPServicesRudyUI
         }
 
         private void AddClientSubmitBtn_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            int nr;
+            int postalCode;
             if (CategoryComboBox.SelectedItem == null)
-                MessageBox.Show("Selecteer een categorie a.u.b");
+                MessageBox.Show("Selecteer een categorie.");
+            if (ClientNameInput.Text.Length == 0)
+                MessageBox.Show("Gelieve een naam in te geven.");
+            if (VATNumberInput.Text.Length == 0)
+                MessageBox.Show("Gelieve het BTW-nummer in te vullen.");
+            if (StreatInput.Text.Length == 0)
+                MessageBox.Show("Gelieve straat in te vullen.");
+            if (!int.TryParse(NrInput.Text, out nr))
+                MessageBox.Show("Gelieve een nummer in te vullen.");
+            if (!int.TryParse(PostalCodeInput.Text, out postalCode))
+                MessageBox.Show("Gelieve Postcode in te vullen.");
+            if (TownInput.Text.Length == 0)
+                MessageBox.Show("Gelieve Gemeente in te vullen.");
             else
             {
-                parent.MakeClient(ClientNameInput.Text, VATNumberInput.Text, StreatInput.Text + NrInput.Text + PostalCodeInput.Text + TownInput.Text, (CategorieType)CategoryComboBox.SelectedItem);
+                parent.MakeClient(ClientNameInput.Text, VATNumberInput.Text, StreatInput.Text + nr + postalCode + TownInput.Text, (CategorieType)CategoryComboBox.SelectedItem);
                 MessageBox.Show(ClientNameInput.Text + " added.");
                 parent.Show();
                 Close();

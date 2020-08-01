@@ -35,5 +35,10 @@ namespace VIPServicesRudyUI
             parent.ShowClient();
             parent.Show();
         }
+
+        private void AddExistingClientSearch_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SearchClient(AddExistingClientSearchBox.Text);
+        }
     }
 }

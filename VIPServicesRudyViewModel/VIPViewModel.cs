@@ -10,6 +10,7 @@ using DomainLibrary.Domain.Limousines;
 using DomainLibrary.Domain.Limousines.FixedArrangements;
 using DomainLibrary.Domain.Limousines.HourlyArrangements;
 using DomainLibrary.Domain.Reservering;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace VIPServicesRudyViewModel
 {
@@ -26,7 +27,8 @@ namespace VIPServicesRudyViewModel
         }
         #endregion
 
-        #region collections
+        #region observablecollections
+        private List<Client> allClients;
         private ObservableCollection<Client> _clients;
         public ObservableCollection<Client> Clients
         {
@@ -37,6 +39,7 @@ namespace VIPServicesRudyViewModel
                 RaisePropertyChanged("Clients");
             }
         }
+        private List<Limousine> allLimousines;
         private ObservableCollection<Limousine> _limousines;
         public ObservableCollection<Limousine> Limousines
         {
@@ -46,6 +49,7 @@ namespace VIPServicesRudyViewModel
                 _limousines = value; RaisePropertyChanged("Limousines");
             }
         }
+        private List<Reservation> allReservations;
         private ObservableCollection<Reservation> _reservations;
         public ObservableCollection<Reservation> Reservations
         {
@@ -72,15 +76,14 @@ namespace VIPServicesRudyViewModel
 
         public VIPViewModel()
         {
-            AddItems();
+            allClients = manager.GetClients().ToList();
+            allLimousines = manager.GetAllLimousine().ToList();
+            allReservations = manager.GetReservations().ToList();
+            Clients = new ObservableCollection<Client>(allClients);
+            Limousines = new ObservableCollection<Limousine>(allLimousines);
+            Reservations = new ObservableCollection<Reservation>(allReservations);
         }
 
-        public void AddItems()
-        {           
-            Clients = new ObservableCollection<Client>(manager.GetClients());
-            Limousines = new ObservableCollection<Limousine>(manager.GetAllLimousine());
-            Reservations = new ObservableCollection<Reservation>(manager.GetReservations());
-        }
         public string ShowClient()
         {
             if (SelectedClient == null)
@@ -132,6 +135,30 @@ namespace VIPServicesRudyViewModel
         public string ShowReservation() 
         {
             return reservation.ToString();
+        }
+
+        public void SearchClient(string input)
+        {
+            if (input.Length == 0)
+                Clients = new ObservableCollection<Client>(allClients);
+            else if (int.TryParse(input, out int nr))
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.ClientNumber == nr));
+            else if (input.StartsWith("BE"))
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.VATNumber == input));
+            else if (input.Contains("-"))
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Adres == input));
+            else if (Enum.TryParse<CategorieType>(input,out CategorieType result))
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Categorie.Name == result));
+            else
+                Clients = new ObservableCollection<Client>(allClients.Where(c => c.Name == input));
+        }
+        public void SearchLimo(string input) 
+        {
+
+        }
+        public void SearchReservation(string input) 
+        {
+
         }
 
     }

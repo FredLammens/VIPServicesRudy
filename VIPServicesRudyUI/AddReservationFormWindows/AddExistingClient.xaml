@@ -21,8 +21,8 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center" Grid.Row="0">
-            <TextBox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
-            <Button Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="AddExistingClientSearchBox" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
+            <Button x:Name="AddExistingClientSearch" Grid.Row="0" Content="Search" HorizontalAlignment="Center" VerticalAlignment="Center" Click="AddExistingClientSearch_Click"/>
         </StackPanel>
         <DataGrid x:Name="ClientDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Clients}" Grid.Row="1" Margin="10" SelectedItem="{Binding SelectedClient}" IsReadOnly="True">
             <DataGrid.Columns>

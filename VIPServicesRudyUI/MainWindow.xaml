@@ -17,8 +17,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="NewReservationBtn" Grid.Column="0" Content="Nieuwe Reservatie" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2" Click="NewReservationBtn_Click"  /><!--Nieuwe Reservatie-->
-            <Button x:Name="SearchReservationBtn" Grid.Column="1" Content="Zoek Reservatie" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2" Click="SearchReservationBtn_Click" /><!--Zoek Reservatie-->
+            <Button x:Name="NewReservationBtn" Grid.Column="0" Content="Nieuwe Reservatie" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2" Click="NewReservationBtn_Click"  /><!--Nieuwe Reservatie-->
+            <Button x:Name="SearchReservationBtn" Grid.Column="1" Content="Zoek Reservatie" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2" Click="SearchReservationBtn_Click" /><!--Zoek Reservatie-->
         </Grid>
 
     </Grid>

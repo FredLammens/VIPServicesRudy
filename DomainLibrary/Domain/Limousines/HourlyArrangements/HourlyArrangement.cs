@@ -11,7 +11,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
     {
         public HourlyArrangementType Type { get; }
 
-        public List<Hour> Hours { get; private set; } // Last fix private set 
+        public List<Hour> Hours { get; private set; }
         static readonly int maxTerm = 11;
 
         public override int? Price { get; set; }
@@ -37,7 +37,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
         private List<Hour> CalculateHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
             List<Hour> hours = new List<Hour>();
-            int period = (reservationDateEnd - reservationDateStart).Hours;
+            int period = (int) (reservationDateEnd - reservationDateStart).TotalHours;
             if (period < 1)
                 throw new ArgumentException("Tijdsduur moet minstens 1 uur zijn.");
             if (period > maxTerm)

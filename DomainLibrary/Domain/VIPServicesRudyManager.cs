@@ -92,6 +92,10 @@ namespace DomainLibrary.Domain
         {
             return uow.Categories.GetCategory(type);
         }
+        public bool IsClientInDatabase(Client client) 
+        {
+            return uow.Clients.inDataBase(client);
+        }
 
     }
 }

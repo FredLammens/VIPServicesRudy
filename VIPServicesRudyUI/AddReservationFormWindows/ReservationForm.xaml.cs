@@ -27,7 +27,7 @@ namespace VIPServicesRudyUI
             this.vm = vm;
             DataContext = vm;
             ReservationStartDate.DisplayDateStart = DateTime.Today;
-            ReservationEndDate.DisplayDateEnd = DateTime.Today;
+            ReservationEndDate.DisplayDateStart = DateTime.Today;
         }
 
         private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
@@ -118,9 +118,11 @@ namespace VIPServicesRudyUI
 
         private void AddReservationBtn_Click(object sender, RoutedEventArgs e)
         {
+
             MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
+                vm.AddNewClient();
                 vm.AddReservation();
                 Close();
                 MessageBox.Show("Reservation Added");

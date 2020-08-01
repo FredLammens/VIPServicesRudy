@@ -27,7 +27,7 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             if (!HelperMethods.TimeInRange(reservationDateStart, startTime, endTime))
                 throw new ArgumentException($"Startreservatie moet tussen {startTime.Hours} uur en {endTime.Hours} uur zitten.");//startReservationdate must be between {startTime} and {endTime}
             //check if reservation is in hourterm
-            int period = (reservationDateEnd - reservationDateStart).Hours;
+            int period = (int)(reservationDateEnd - reservationDateStart).TotalHours;
             if (period < hourTerm)
                 throw new ArgumentException($"Tijdsduur moet minstens {hourTerm} uur zijn.");
             if (period > maxTerm)

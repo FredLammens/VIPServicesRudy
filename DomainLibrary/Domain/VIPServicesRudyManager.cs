@@ -14,24 +14,28 @@ namespace DomainLibrary.Domain
         {
             this.uow = uow;
         }
+
+        //public void AddClient(Client client)
+        //{
+        //    uow.Clients.AddClient(client);
+        //}
+        //public void AddLimousine(Limousine limo)
+        //{
+        //    uow.Limousines.AddLimousine(limo);
+        //}
+
         public void AddReservation(Reservation reservation)
         {
             //check if reservation is already in it => al gecheckt bij limo reservatie 
-            if (!uow.Limousines.inDataBase(reservation.Details.Limousine))
+            if (!uow.Limousines.InDataBase(reservation.Details.Limousine))
                 throw new ArgumentException("Limousine zit nog niet in databank gelieve Limousine eerst toe te voegen.");
 
             uow.Reservations.AddReservering(reservation);
             uow.Complete();
         }
-
-        public void AddClient(Client client)
+        public IEnumerable<Limousine> GetLimousines()
         {
-            uow.Clients.AddClient(client);
-        }
-
-        public IEnumerable<Limousine> GetAllLimousine() //Vloot
-        {
-            return uow.Limousines.GetAllLimousines();
+            return uow.Limousines.GetLimousines();
         }
 
         public IEnumerable<Client> GetClients()
@@ -51,14 +55,5 @@ namespace DomainLibrary.Domain
             return uow.Clients.inDataBase(client);
         }
 
-        public void AddLimousine(Limousine limo)
-        {
-            uow.Limousines.AddLimousine(limo);
-        }
-
-        public IEnumerable<Reservation> getReservationsClient(Client client)
-        {
-            return uow.Reservations.GetReservations(client);
-        }
     }
 }

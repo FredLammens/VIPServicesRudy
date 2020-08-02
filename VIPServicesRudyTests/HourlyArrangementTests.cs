@@ -49,7 +49,7 @@ namespace VIPServicesRudyTests
         public void TestGetPriceOnlyDayHours()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 9, 00, 00);
-            DateTime reservationDateEnd = new DateTime(2020, 01, 24, 12, 00, 00);
+            DateTime reservationDateEnd = new DateTime(2020, 01, 23, 12, 00, 00);
             HourlyArrangement hourlyArrangement = new HourlyArrangement(10, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
             //3 daguren 
             hourlyArrangement.Price.ShouldBe(20);

@@ -76,7 +76,7 @@ namespace VIPServicesRudyViewModel
         }
         public async Task InitializeLimousinesAsync()
         {
-            allLimousines = await Task.Run(() => manager.GetAllLimousine().ToList());
+            allLimousines = await Task.Run(() => manager.GetLimousines().ToList());
             Limousines = new ObservableCollection<Limousine>(allLimousines);
         }
         public async Task InitializeReservationsAsync()

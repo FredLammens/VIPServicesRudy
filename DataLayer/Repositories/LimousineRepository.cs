@@ -23,7 +23,7 @@ namespace DataLayer.Repositories
             context.Limousines.AddRange(limousines);
         }
 
-        public IEnumerable<Limousine> GetAllLimousines()
+        public IEnumerable<Limousine> GetLimousines()
         {
             return context.Limousines
                 .Include(a => a.FixedArrangements)
@@ -35,7 +35,7 @@ namespace DataLayer.Repositories
                 .Include(a => a.FixedArrangements)
                 .First(l => l.Id == id);
         }
-        public bool inDataBase(Limousine limo)
+        public bool InDataBase(Limousine limo)
         {
             return context.Limousines
                 .Any(l => l.Equals(limo));

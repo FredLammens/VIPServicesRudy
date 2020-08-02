@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VIPServicesRudyTests", "VIP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VIPServicesRudyUI", "VIPServicesRudyUI\VIPServicesRudyUI.csproj", "{584FF6A9-DEF8-407A-89D5-5586093572AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIPServicesRudyViewModel", "VIPServicesRudyViewModel\VIPServicesRudyViewModel.csproj", "{8F5BC424-FE8A-4A94-BAB9-D0A4B1C41CDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VIPServicesRudyViewModel", "VIPServicesRudyViewModel\VIPServicesRudyViewModel.csproj", "{8F5BC424-FE8A-4A94-BAB9-D0A4B1C41CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

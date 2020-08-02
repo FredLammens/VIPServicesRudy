@@ -46,12 +46,12 @@ namespace VIPServicesRudyTests
             uow.Limousines.inDataBase(limo).ShouldBeTrue();
         }
         [TestMethod]
-        public void TestRudyManagerAddLimousineAlreadyInDatabase() 
+        public void TestRudyManagerAddLimousineAlreadyInDatabase()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
             Limousine limo = uow.Limousines.GetLimousine(2);
-            Action act = () =>  m.AddLimousine(limo);
+            Action act = () => m.AddLimousine(limo);
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine zit al in database.");
         }
         [TestMethod]
@@ -59,12 +59,12 @@ namespace VIPServicesRudyTests
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
-            Limousine limo = new Limousine("trol", 200, new List<Arrangement>() { new HourlyArrangement(200,HourlyArrangementType.Airport,DateTime.Now,DateTime.Now.AddHours(5)), new Wedding(100), new Wellness(20) });
+            Limousine limo = new Limousine("trol", 200, new List<Arrangement>() { new HourlyArrangement(200, HourlyArrangementType.Airport, DateTime.Now, DateTime.Now.AddHours(5)), new Wedding(100), new Wellness(20) });
             Action act = () => m.AddLimousine(limo);
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine mag enkel vasteArrangementen hebben.");
         }
         [TestMethod]
-        public void TestRudyManagerAddLimousineOneArrangement() 
+        public void TestRudyManagerAddLimousineOneArrangement()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
@@ -73,7 +73,7 @@ namespace VIPServicesRudyTests
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine moet 3 vaste arrangementen hebben.");
         }
         [TestMethod]
-        public void TestRudyManagerGetAllLimousine() 
+        public void TestRudyManagerGetAllLimousine()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
@@ -123,7 +123,7 @@ namespace VIPServicesRudyTests
             act.ShouldThrow<ArgumentException>().Message.ShouldBe("Limousine zit nog niet in databank gelieve Limousine eerst toe te voegen.");
         }
         [TestMethod]
-        public void TestRudyManagerGetReservationswithClient() 
+        public void TestRudyManagerGetReservationswithClient()
         {
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);

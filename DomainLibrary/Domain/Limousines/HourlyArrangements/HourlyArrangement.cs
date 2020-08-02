@@ -1,9 +1,7 @@
 ﻿
 using DomainLibrary.Domain.Limousines.Hours;
-using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DomainLibrary.Domain.Limousines.HourlyArrangements
 {
@@ -37,7 +35,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
         private List<Hour> CalculateHours(DateTime reservationDateStart, DateTime reservationDateEnd, int firstHourPrice)
         {
             List<Hour> hours = new List<Hour>();
-            int period = (int) (reservationDateEnd - reservationDateStart).TotalHours;
+            int period = (int)(reservationDateEnd - reservationDateStart).TotalHours;
             if (period < 1)
                 throw new ArgumentException("Tijdsduur moet minstens 1 uur zijn.");
             if (period > maxTerm)
@@ -84,7 +82,7 @@ namespace DomainLibrary.Domain.Limousines.HourlyArrangements
             }
             if (nightPeriod > 0)
             {
-                hours.Add(new Hour(HourType.NachtUur,nightPeriod, firstHourPrice));
+                hours.Add(new Hour(HourType.NachtUur, nightPeriod, firstHourPrice));
             }
             return hours;
         }

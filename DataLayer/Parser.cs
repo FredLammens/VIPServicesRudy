@@ -5,11 +5,7 @@ using DomainLibrary.Domain.Limousines.FixedArrangements;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainLibrary.Domain
 {
@@ -72,10 +68,10 @@ namespace DomainLibrary.Domain
                 Console.WriteLine("saved all objects");
             }
         }
-        public static void InsertIntoDatabase(IUnitOfWork uow) 
+        public static void InsertIntoDatabase(IUnitOfWork uow)
         {
             List<Category> categories = ReadCategories(FileReader(@"DatabaseFiles/categories.txt"));
-            List<Client> clients = ReadClients(FileReader(@"DatabaseFiles/clients.txt"),categories);
+            List<Client> clients = ReadClients(FileReader(@"DatabaseFiles/clients.txt"), categories);
             List<Limousine> limos = ReadLimousines(FileReader(@"DatabaseFiles/limousines.txt"));
             uow.Categories.AddCategories(categories);
             uow.Clients.AddClients(clients);
@@ -142,8 +138,8 @@ namespace DomainLibrary.Domain
         }
         public static void InitDatabase(bool customFiles = false)
         {
-                VIPServicesRudyContext context = new VIPServicesRudyContext();
-                IUnitOfWork uow = new UnitOfWork(context);
+            VIPServicesRudyContext context = new VIPServicesRudyContext();
+            IUnitOfWork uow = new UnitOfWork(context);
             if (customFiles)
                 InsertIntoDatabaseCustomFiles(uow);
             else
@@ -151,7 +147,7 @@ namespace DomainLibrary.Domain
         }
         public static void InitTestDatabase(IUnitOfWork uow)
         {
-                InsertIntoDatabase(uow);
+            InsertIntoDatabase(uow);
         }
     }
 }

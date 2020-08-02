@@ -1,17 +1,6 @@
 ﻿using DomainLibrary.Domain.Clients;
-using DomainLibrary.Domain.Limousines;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
@@ -21,7 +10,7 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class ReservationForm : Window
     {
-        VIPViewModel vm;
+        readonly VIPViewModel vm;
         public ReservationForm(VIPViewModel vm)
         {
             InitializeComponent();
@@ -34,14 +23,14 @@ namespace VIPServicesRudyUI
         private async void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
         {
             await vm.InitializeClientsAsync();
-            AddExistingClient aec = new AddExistingClient(vm,this);
+            AddExistingClient aec = new AddExistingClient(vm, this);
             aec.Show();
             Hide();
         }
 
         private void AddNewClientBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddNewClient anc = new AddNewClient(vm,this);
+            AddNewClient anc = new AddNewClient(vm, this);
             anc.Show();
             Hide();
         }
@@ -49,37 +38,33 @@ namespace VIPServicesRudyUI
         private async void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
         {
             await vm.InitializeLimousinesAsync();
-            AddLimousine al = new AddLimousine(vm,this);
+            AddLimousine al = new AddLimousine(vm, this);
             al.Show();
             Hide();
         }
-        public void ShowClient() 
+        public void ShowClient()
         {
             ClientShowBox.Text = vm.ShowClient();
         }
-        public void ShowLimousine() 
+        public void ShowLimousine()
         {
             LimousineShowBox.Text = vm.ShowLimousine();
         }
-        public void MakeClient(string name, string VATNumber, string adres, CategorieType categorie) 
+        public void MakeClient(string name, string VATNumber, string adres, CategorieType categorie)
         {
-                ClientShowBox.Text = vm.MakeClient(name, VATNumber, adres, categorie);
+            ClientShowBox.Text = vm.MakeClient(name, VATNumber, adres, categorie);
         }
         private void ShowPrice()
         {
             //check if all the other boxes are inserted 
             //check client
-            int streatNumber;
-            int postalCode;
-            int startTime;
-            int endTime;
             if (ClientShowBox.Text == "KlantNaam")
                 MessageBox.Show("Gelieve klant in te geven.");
             else if (StartAdresStreat.Text.Length == 0)
                 MessageBox.Show("Gelieve straat in te vullen.");
-            else if (!int.TryParse(StartAdresNr.Text, out streatNumber))
+            else if (!int.TryParse(StartAdresNr.Text, out int streatNumber))
                 MessageBox.Show("Gelieve straatnr in te vullen.");
-            else if (!int.TryParse(StartAdresPostalCode.Text, out postalCode))
+            else if (!int.TryParse(StartAdresPostalCode.Text, out int postalCode))
                 MessageBox.Show("Gelieve postcode in te vullen.");
             else if (StartAdresTown.Text.Length == 0)
                 MessageBox.Show("Gelieve gemeente in te vullen.");
@@ -93,9 +78,9 @@ namespace VIPServicesRudyUI
                 MessageBox.Show("Gelieve een startDatum te selecteren.");
             else if (ReservationEndDate.SelectedDate.GetValueOrDefault(DateTime.MinValue) == DateTime.MinValue)
                 MessageBox.Show("Gelieve een eindDatum te selecteren.");
-            else if (!int.TryParse(StartHourTextBox.Text, out startTime))
+            else if (!int.TryParse(StartHourTextBox.Text, out int startTime))
                 MessageBox.Show("Gelieve een startuur te selecteren.");
-            else if (!int.TryParse(EndHourTextBox.Text, out endTime))
+            else if (!int.TryParse(EndHourTextBox.Text, out int endTime))
                 MessageBox.Show("Gelieve een einduur te selecteren.");
             else if (ArrangementComboBox.SelectedItem == null)
                 MessageBox.Show("Gelieve een arrangement te selecteren.");
@@ -112,9 +97,9 @@ namespace VIPServicesRudyUI
                 {
                     PriceField.Text = vm.GetPrice(adres, start.AddHours(startTime), end.AddHours(endTime));
                 }
-                catch (Exception e) 
+                catch (Exception e)
                 {
-                    MessageBox.Show(e.Message,"PriceCalculation", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(e.Message, "PriceCalculation", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -122,7 +107,7 @@ namespace VIPServicesRudyUI
         private async void AddReservationBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
+            MessageBoxResult result = MessageBox.Show(vm.ShowReservation(), "ReservationDetails", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
                 await vm.AddReservation();

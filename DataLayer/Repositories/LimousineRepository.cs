@@ -18,24 +18,24 @@ namespace DataLayer.Repositories
         {
             context.Limousines.Add(limousine);
         }
-        public void AddLimousines(IList<Limousine> limousines) 
+        public void AddLimousines(IList<Limousine> limousines)
         {
             context.Limousines.AddRange(limousines);
         }
 
-        public IEnumerable<Limousine> GetAllLimousines() 
+        public IEnumerable<Limousine> GetAllLimousines()
         {
             return context.Limousines
                 .Include(a => a.FixedArrangements)
                 .AsEnumerable();
         }
-        public Limousine GetLimousine(int id) 
+        public Limousine GetLimousine(int id)
         {
             return context.Limousines
                 .Include(a => a.FixedArrangements)
                 .First(l => l.Id == id);
         }
-        public bool inDataBase(Limousine limo) 
+        public bool inDataBase(Limousine limo)
         {
             return context.Limousines
                 .Any(l => l.Equals(limo));

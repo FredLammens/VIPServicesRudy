@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DomainLibrary.Domain.Limousines.Hours
 {
 
-    public static class HoursInfo 
+    public static class HoursInfo
     {
         //eventueel in settings.json ??
         //helpermethods hier toevoegen ?
@@ -16,7 +14,7 @@ namespace DomainLibrary.Domain.Limousines.Hours
         public static float restHourPercentage = 0.65f;
         public static float secondHourPercentage = 0.65f;
     }
-    public enum HourType 
+    public enum HourType
     {
         EersteUur,
         TweedeUur,
@@ -38,9 +36,9 @@ namespace DomainLibrary.Domain.Limousines.Hours
             Period = period;
             SetUnitPrice(HourType, unitPrice);
         }
-        private void SetUnitPrice(HourType hourtype , int unitPrice) 
+        private void SetUnitPrice(HourType hourtype, int unitPrice)
         {
-            switch (hourtype) 
+            switch (hourtype)
             {
                 case HourType.EersteUur:
                     UnitPrice = unitPrice;

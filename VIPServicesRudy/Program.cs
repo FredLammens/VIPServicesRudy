@@ -1,6 +1,5 @@
 ﻿using DomainLibrary.Domain;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace VIPServicesRudy
 {

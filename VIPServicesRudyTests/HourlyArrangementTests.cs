@@ -2,8 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VIPServicesRudyTests
 {
@@ -21,7 +19,7 @@ namespace VIPServicesRudyTests
             hourlyArrangement.Price.ShouldBe(100);
         }
         [TestMethod]
-        public void TestGetPriceStartHoursNightHours() 
+        public void TestGetPriceStartHoursNightHours()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 23, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 8, 00, 00);
@@ -30,7 +28,7 @@ namespace VIPServicesRudyTests
             hourlyArrangement.Price.ShouldBe(120);
         }
         [TestMethod]
-        public void TestGetPriceStartDayNightHoursEndDayNightHours() 
+        public void TestGetPriceStartDayNightHoursEndDayNightHours()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 21, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 7, 00, 00);
@@ -39,7 +37,7 @@ namespace VIPServicesRudyTests
             hourlyArrangement.Price.ShouldBe(135);
         }
         [TestMethod]
-        public void TestGetPriceOnlyNightHours() 
+        public void TestGetPriceOnlyNightHours()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 23, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 6, 00, 00);
@@ -48,7 +46,7 @@ namespace VIPServicesRudyTests
             hourlyArrangement.Price.ShouldBe(105);
         }
         [TestMethod]
-        public void TestGetPriceOnlyDayHours() 
+        public void TestGetPriceOnlyDayHours()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 9, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 24, 12, 00, 00);
@@ -60,7 +58,7 @@ namespace VIPServicesRudyTests
         //CalculateHoursTests
 
         [TestMethod]
-        public void TestCalculateHoursSameDates() 
+        public void TestCalculateHoursSameDates()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 9, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 9, 00, 00);
@@ -68,7 +66,7 @@ namespace VIPServicesRudyTests
             a.ShouldThrow<ArgumentException>().Message.ShouldBe("Tijdsduur moet minstens 1 uur zijn.");
         }
         [TestMethod]
-        public void TestCalculateHoursHourspanToBig() 
+        public void TestCalculateHoursHourspanToBig()
         {
             DateTime reservationDateStart = new DateTime(2020, 01, 23, 01, 00, 00);
             DateTime reservationDateEnd = new DateTime(2020, 01, 23, 13, 00, 00);

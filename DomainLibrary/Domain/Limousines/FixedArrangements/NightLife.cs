@@ -37,12 +37,12 @@ namespace DomainLibrary.Domain.Limousines.FixedArrangements
             //calculate periods
             if (period == hourTerm)
             {
-                hours.Add(new Hour(HourType.VastePrijs,period, (int)Price));
+                hours.Add(new Hour(HourType.VastePrijs, period, (int)Price));
             }
             else
             {
-                hours.Add(new Hour(HourType.VastePrijs,hourTerm, (int)Price)); //regular hours
-                hours.Add(new Hour(HourType.NachtUur,period - hourTerm, firstHourPrice)); //overtime
+                hours.Add(new Hour(HourType.VastePrijs, hourTerm, (int)Price)); //regular hours
+                hours.Add(new Hour(HourType.NachtUur, period - hourTerm, firstHourPrice)); //overtime
             }
             return hours;
         }

@@ -1,17 +1,15 @@
-﻿using System;
+﻿using DataLayer;
+using DomainLibrary.Domain;
+using DomainLibrary.Domain.Clients;
+using DomainLibrary.Domain.Limousines;
+using DomainLibrary.Domain.Limousines.HourlyArrangements;
+using DomainLibrary.Domain.Reservering;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using DataLayer;
-using DomainLibrary.Domain;
-using DomainLibrary.Domain.Clients;
-using DomainLibrary.Domain.Limousines;
-using DomainLibrary.Domain.Limousines.FixedArrangements;
-using DomainLibrary.Domain.Limousines.HourlyArrangements;
-using DomainLibrary.Domain.Reservering;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace VIPServicesRudyViewModel
 {
@@ -21,10 +19,7 @@ namespace VIPServicesRudyViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName)
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -62,29 +57,29 @@ namespace VIPServicesRudyViewModel
             }
         }
         #endregion
-        VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
+        readonly VIPServicesRudyManager manager = new VIPServicesRudyManager(new UnitOfWork(new VIPServicesRudyContext()));
         public Client SelectedClient { get; set; }
         public Limousine SelectedLimousine { get; set; }
         public Array Categories { get; set; } = Enum.GetValues(typeof(CategorieType));
         public Array Locations { get; set; } = Enum.GetValues(typeof(Location));
-        public string[] Arrangements { get; set; } = { "NightLife", "Wedding", "Wellness","Business","Aiport" };
+        public string[] Arrangements { get; set; } = { "NightLife", "Wedding", "Wellness", "Business", "Aiport" };
         public string SelectedArrangement { get; set; }
         public Location SelectedStartLocation { get; set; }
         public Location SelectedArrivalLocation { get; set; }
 
         private Reservation reservation;
         public Reservation SelectedReservation { get; set; }
-        public async Task InitializeClientsAsync() 
+        public async Task InitializeClientsAsync()
         {
             allClients = await Task.Run(() => manager.GetClients().ToList());
             Clients = new ObservableCollection<Client>(allClients);
         }
-        public async Task InitializeLimousinesAsync() 
+        public async Task InitializeLimousinesAsync()
         {
             allLimousines = await Task.Run(() => manager.GetAllLimousine().ToList());
             Limousines = new ObservableCollection<Limousine>(allLimousines);
         }
-        public async Task InitializeReservationsAsync() 
+        public async Task InitializeReservationsAsync()
         {
             allReservations = await Task.Run(() => manager.GetReservations().ToList());
             Reservations = new ObservableCollection<Reservation>(allReservations);
@@ -106,39 +101,33 @@ namespace VIPServicesRudyViewModel
         }
         public string MakeClient(string name, string VATNumber, string adres, CategorieType type)
         {
-                Client client = new Client(name, VATNumber, adres, manager.GetCategory(type));
-                SelectedClient = client;
-                return name;
+            Client client = new Client(name, VATNumber, adres, manager.GetCategory(type));
+            SelectedClient = client;
+            return name;
         }
 
-        public string GetPrice(string adres , DateTime reservationDateStart,DateTime reservationDateEnd) 
+        public string GetPrice(string adres, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
-            reservation = new Reservation(adres, SelectedClient, new ReservationDetails(reservationDateStart, reservationDateEnd, SelectedStartLocation, SelectedArrivalLocation, SelectedLimousine,GetSelectedArrangement(reservationDateStart,reservationDateEnd)));
+            reservation = new Reservation(adres, SelectedClient, new ReservationDetails(reservationDateStart, reservationDateEnd, SelectedStartLocation, SelectedArrivalLocation, SelectedLimousine, GetSelectedArrangement(reservationDateStart, reservationDateEnd)));
             return reservation.PriceCalculation.Total.ToString() + "€";
         }
-        private Arrangement GetSelectedArrangement(DateTime reservationDateStart, DateTime reservationDateEnd) 
+        private Arrangement GetSelectedArrangement(DateTime reservationDateStart, DateTime reservationDateEnd)
         {
-            switch (SelectedArrangement) 
+            return SelectedArrangement switch
             {
-                case "NightLife":
-                    return SelectedLimousine.FixedArrangements[0];
-                case "Wedding":
-                    return SelectedLimousine.FixedArrangements[1];
-                case "Wellness":
-                    return SelectedLimousine.FixedArrangements[2];
-                case "Business":
-                    return new HourlyArrangement(SelectedLimousine.FirstHourPrice, HourlyArrangementType.Business, reservationDateStart, reservationDateEnd);
-                case "Aiport":
-                    return new HourlyArrangement(SelectedLimousine.FirstHourPrice, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd);
-                default:
-                    return null;
-            }
+                "NightLife" => SelectedLimousine.FixedArrangements[0],
+                "Wedding" => SelectedLimousine.FixedArrangements[1],
+                "Wellness" => SelectedLimousine.FixedArrangements[2],
+                "Business" => new HourlyArrangement(SelectedLimousine.FirstHourPrice, HourlyArrangementType.Business, reservationDateStart, reservationDateEnd),
+                "Aiport" => new HourlyArrangement(SelectedLimousine.FirstHourPrice, HourlyArrangementType.Airport, reservationDateStart, reservationDateEnd),
+                _ => null,
+            };
         }
-        public async Task AddReservation() 
+        public async Task AddReservation()
         {
             await Task.Run(() => manager.AddReservation(reservation));
         }
-        public string ShowReservation() 
+        public string ShowReservation()
         {
             return reservation.ToString();
         }
@@ -153,19 +142,19 @@ namespace VIPServicesRudyViewModel
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.VATNumber.ToLower().Contains(input.ToLower())));
             else if (input.Contains("-"))
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.Adres.Contains(input)));
-            else if (Enum.TryParse<CategorieType>(input,out CategorieType result))
+            else if (Enum.TryParse<CategorieType>(input, out CategorieType result))
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.Categorie.Name == result));
             else
                 Clients = new ObservableCollection<Client>(allClients.Where(c => c.Name.ToLower().Contains(input.ToLower())));
         }
-        public void SearchLimo(string input) 
+        public void SearchLimo(string input)
         {
             if (input.Length == 0)
                 Limousines = new ObservableCollection<Limousine>(allLimousines);
             else
                 Limousines = new ObservableCollection<Limousine>(allLimousines.Where(l => l.Name.ToLower().Contains(input.ToLower())));
         }
-        public void SearchReservation(string input) 
+        public void SearchReservation(string input)
         {
             if (DateTime.TryParse(input, out DateTime reservatieDatum))
                 Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.ReservationDate.Date.Equals(reservatieDatum.Date)));

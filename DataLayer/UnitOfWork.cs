@@ -1,10 +1,6 @@
 ﻿using DataLayer.Repositories;
 using DomainLibrary;
 using DomainLibrary.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace DataLayer
 {
@@ -27,7 +23,7 @@ namespace DataLayer
 
         public int Complete()
         {
-                return context.SaveChanges();
+            return context.SaveChanges();
         }
 
         public void Dispose()

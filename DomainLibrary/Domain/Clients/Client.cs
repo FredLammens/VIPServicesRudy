@@ -3,7 +3,6 @@ using DomainLibrary.Domain.Reservering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DomainLibrary.Domain.Clients
 {

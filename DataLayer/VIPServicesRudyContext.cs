@@ -22,16 +22,16 @@ namespace DataLayer
         //----------------------
         private string connectionString;
         public VIPServicesRudyContext() { }
-        public VIPServicesRudyContext(string db="VIPServicesRudy") : base()
+        public VIPServicesRudyContext(string db = "VIPServicesRudy") : base()
         {
             SetConnectionString(db);
         }
-        private void SetConnectionString(string db = "VIPServicesRudy") 
+        private void SetConnectionString(string db = "VIPServicesRudy")
         {
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("appsettings.json", optional: false);
             var configuration = builder.Build();
-            switch (db) 
+            switch (db)
             {
                 case "VIPServicesRudy":
                     connectionString = configuration.GetConnectionString("VIPServicesRudyconnection").ToString();
@@ -48,7 +48,7 @@ namespace DataLayer
                 SetConnectionString();
             optionsBuilder.UseSqlServer(connectionString);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Arrangement>()
                 .ToTable("Arrangements")

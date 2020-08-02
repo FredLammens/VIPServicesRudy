@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -37,9 +38,10 @@ namespace VIPServicesRudyUI
             parent.Show();
         }
 
-        private void AddExistingClientSearch_Click(object sender, RoutedEventArgs e)
+        private async void AddExistingClientSearch_Click(object sender, RoutedEventArgs e)
         {
-            vm.SearchClient(AddExistingClientSearchBox.Text);
+            string searchInput = AddExistingClientSearchBox.Text;
+            await Task.Run(() => vm.SearchClient(searchInput));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -34,9 +35,10 @@ namespace VIPServicesRudyUI
             MessageBox.Show(vm.SelectedReservation.ToString(), "ReservationDetails", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void ReservationSearchBtn_Click(object sender, RoutedEventArgs e)
+        private async void ReservationSearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            vm.SearchReservation(ReservationSearchBox.Text);
+            string searchInput = ReservationSearchBox.Text;
+            await Task.Run(() => vm.SearchReservation(searchInput));
         }
     }
 }

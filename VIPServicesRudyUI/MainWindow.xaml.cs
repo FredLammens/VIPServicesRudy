@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
@@ -24,7 +25,9 @@ namespace VIPServicesRudyUI
 
         private async void SearchReservationBtn_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             await vm.InitializeReservationsAsync();
+            Mouse.OverrideCursor = null;
             SearchReservations sr = new SearchReservations(vm);
             Close();
             sr.Show();

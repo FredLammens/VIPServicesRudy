@@ -1,9 +1,9 @@
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.AssemblyInfoInputs.cache
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.AssemblyInfo.cs
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\bin\Debug\netcoreapp3.1\DomainLibrary.deps.json
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\bin\Debug\netcoreapp3.1\DomainLibrary.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.csprojAssemblyReference.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.AssemblyInfoInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.AssemblyInfo.cs
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.pdb
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DomainLibrary\obj\Debug\netcoreapp3.1\DomainLibrary.csprojAssemblyReference.cache

@@ -9,7 +9,7 @@ namespace VIPServicesRudyUI
     /// </summary>
     public partial class SearchReservations : Window
     {
-        VIPViewModel vm;
+        readonly VIPViewModel vm;
         public SearchReservations(VIPViewModel vm)
         {
             InitializeComponent();

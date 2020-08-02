@@ -1,7 +1,0 @@
-naam,aantal,korting
-vip,2,0.05,7,0.075,15,0.10
-huwelijksplanner,5,0.075,10,0.10,15,0.1250,20,0.15,25,0.25
-particulier,0
-organisatie,0
-concertpromotor,0
-evenementenbureau,0

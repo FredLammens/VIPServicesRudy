@@ -1,6 +1,7 @@
 ﻿using DomainLibrary.Domain.Clients;
 using System;
 using System.Windows;
+using System.Windows.Input;
 using VIPServicesRudyViewModel;
 
 namespace VIPServicesRudyUI
@@ -22,7 +23,9 @@ namespace VIPServicesRudyUI
 
         private async void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             await vm.InitializeClientsAsync();
+            Mouse.OverrideCursor = null;
             AddExistingClient aec = new AddExistingClient(vm, this);
             aec.Show();
             Hide();
@@ -37,7 +40,9 @@ namespace VIPServicesRudyUI
 
         private async void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             await vm.InitializeLimousinesAsync();
+            Mouse.OverrideCursor = null;
             AddLimousine al = new AddLimousine(vm, this);
             al.Show();
             Hide();
@@ -110,7 +115,9 @@ namespace VIPServicesRudyUI
             MessageBoxResult result = MessageBox.Show(vm.ShowReservation(), "ReservationDetails", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
+                Mouse.OverrideCursor = Cursors.Wait;
                 await vm.AddReservation();
+                Mouse.OverrideCursor = null;
                 Close();
                 MessageBox.Show("Reservation Added");
                 MainWindow mw = new MainWindow();

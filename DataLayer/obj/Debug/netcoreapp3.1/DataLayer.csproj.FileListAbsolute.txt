@@ -1,8 +1,7 @@
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\categories.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\clients.txt
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\limousines.txt
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.json
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.dev.json
@@ -10,10 +9,11 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\D
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DomainLibrary.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CopyComplete
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\categories.txt
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\clients.txt
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\DataLayer\bin\Debug\netcoreapp3.1\DatabaseFiles\limousines.txt

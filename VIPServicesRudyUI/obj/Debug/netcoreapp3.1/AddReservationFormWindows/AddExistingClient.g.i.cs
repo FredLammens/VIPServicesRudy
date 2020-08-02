@@ -84,7 +84,8 @@ namespace VIPServicesRudyUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/VIPServicesRudyUI;component/addreservationformwindows/addexistingclient.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/VIPServicesRudyUI;V1.0.0.0;component/addreservationformwindows/addexistingclient" +
+                    ".xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\AddReservationFormWindows\AddExistingClient.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -49,6 +49,9 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\bin\Debug\netcoreapp3.1\DataLayer.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\bin\Debug\netcoreapp3.1\DomainLibrary.pdb
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI.csprojAssemblyReference.cache
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddExistingClient.baml
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\SearchReservationWindows\SearchReservations.baml
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddExistingClient.g.cs
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddLimousine.g.cs
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddNewClient.g.cs
@@ -58,12 +61,9 @@ C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudy
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI_MarkupCompile.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI_MarkupCompile.lref
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddExistingClient.baml
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddLimousine.baml
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\AddNewClient.baml
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\AddReservationFormWindows\ReservationForm.baml
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\MainWindow.baml
-C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\SearchReservationWindows\SearchReservations.baml
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI.g.resources
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI.AssemblyInfoInputs.cache
 C:\Users\Biebem\Documents\Visual Studio Projects\VIPServicesRudy\VIPServicesRudyUI\obj\Debug\netcoreapp3.1\VIPServicesRudyUI.AssemblyInfo.cs

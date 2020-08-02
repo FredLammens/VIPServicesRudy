@@ -14,10 +14,10 @@ namespace DataLayer.Repositories
             this.context = context;
         }
 
-        public void AddLimousine(Limousine limousine)
-        {
-            context.Limousines.Add(limousine);
-        }
+        //public void AddLimousine(Limousine limousine)
+        //{
+        //    context.Limousines.Add(limousine);
+        //}
         public void AddLimousines(IList<Limousine> limousines)
         {
             context.Limousines.AddRange(limousines);

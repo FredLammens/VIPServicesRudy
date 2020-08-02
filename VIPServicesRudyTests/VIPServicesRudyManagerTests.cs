@@ -132,8 +132,7 @@ namespace VIPServicesRudyTests
             UnitOfWork uow = new UnitOfWork(new VIPServicesRudyTestContext(true));
             VIPServicesRudyManager m = new VIPServicesRudyManager(uow);
             CategorieType type = CategorieType.vip;
-            Category vip = null;
-            vip =  m.GetCategory(type);
+            Category vip = m.GetCategory(type);
             vip.Name.ShouldBe(CategorieType.vip);
             vip.StaffDiscount.Count.ShouldBe(3);
         }

@@ -52,7 +52,7 @@ namespace DomainLibrary.Domain
         }
         public bool IsClientInDatabase(Client client)
         {
-            return uow.Clients.inDataBase(client);
+            return uow.Clients.InDataBase(client);
         }
 
     }

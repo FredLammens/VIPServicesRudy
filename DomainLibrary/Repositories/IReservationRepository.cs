@@ -10,8 +10,6 @@ namespace DomainLibrary.Repositories
     {
         void AddReservering(Reservation reservation);
         bool InDatabase(Reservation reservation);
-        IEnumerable<Reservation> GetReservations(DateTime startDate);
-        IEnumerable<Reservation> GetReservations(Client client);
         IEnumerable<Reservation> GetReservations();
     }
 }

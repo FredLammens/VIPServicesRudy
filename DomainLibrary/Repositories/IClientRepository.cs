@@ -5,10 +5,10 @@ namespace DomainLibrary.Repositories
 {
     public interface IClientRepository
     {
-        void AddClient(Client client);
+        //void AddClient(Client client);
         void AddClients(IList<Client> clients);
         Client GetClient(int ID);
         IEnumerable<Client> GetClients();
-        bool inDataBase(Client client);
+        bool InDataBase(Client client);
     }
 }

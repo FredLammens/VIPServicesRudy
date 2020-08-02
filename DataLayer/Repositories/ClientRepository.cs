@@ -13,22 +13,22 @@ namespace DataLayer.Repositories
         {
             this.context = context;
         }
-        public void AddClient(Client client)
-        {
-            context.Clients.Add(client);
-        }
+        //public void AddClient(Client client)
+        //{
+        //    context.Clients.Add(client);
+        //}
         public void AddClients(IList<Client> clients)
         {
             context.Clients.AddRange(clients);
         }
 
-        public IEnumerable<Client> GetClientsWithAdres(string adres)
-        {
-            return context.Clients
-                    .Include(c => c.Categorie)
-                    .Include(c => c.Reservations)
-                    .Where(c => c.Adres == adres);
-        }
+        //public IEnumerable<Client> GetClientsWithAdres(string adres)
+        //{
+        //    return context.Clients
+        //            .Include(c => c.Categorie)
+        //            .Include(c => c.Reservations)
+        //            .Where(c => c.Adres == adres);
+        //}
 
         public Client GetClient(int number)
         {
@@ -38,23 +38,23 @@ namespace DataLayer.Repositories
                 .First(c => c.ClientNumber == number);
         }
 
-        public IEnumerable<Client> GetClientsWithName(string name)
-        {
-            return context.Clients
-                    .Include(c => c.Categorie)
-                    .Include(c => c.Reservations)
-                    .Where(c => c.Name == name);
-        }
+        //public IEnumerable<Client> GetClientsWithName(string name)
+        //{
+        //    return context.Clients
+        //            .Include(c => c.Categorie)
+        //            .Include(c => c.Reservations)
+        //            .Where(c => c.Name == name);
+        //}
 
-        public IEnumerable<Client> GetClientsWithVAT(string vatnumber)
-        {
-            return context.Clients
-                    .Include(c => c.Categorie)
-                    .Include(c => c.Reservations)
-                    .Where(c => c.VATNumber == vatnumber);
-        }
+        //public IEnumerable<Client> GetClientsWithVAT(string vatnumber)
+        //{
+        //    return context.Clients
+        //            .Include(c => c.Categorie)
+        //            .Include(c => c.Reservations)
+        //            .Where(c => c.VATNumber == vatnumber);
+        //}
 
-        public bool inDataBase(Client client)
+        public bool InDataBase(Client client)
         {
             return context.Clients.Any(c => c.Equals(client));
         }

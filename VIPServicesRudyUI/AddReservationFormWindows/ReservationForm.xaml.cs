@@ -30,8 +30,9 @@ namespace VIPServicesRudyUI
             ReservationEndDate.DisplayDateStart = DateTime.Today;
         }
 
-        private void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
+        private async void AddExistingCLientBtn_Click(object sender, RoutedEventArgs e)
         {
+            await vm.InitializeClientsAsync();
             AddExistingClient aec = new AddExistingClient(vm,this);
             aec.Show();
             Hide();
@@ -44,8 +45,9 @@ namespace VIPServicesRudyUI
             Hide();
         }
 
-        private void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
+        private async void AddLimousineBtn_Click(object sender, RoutedEventArgs e)
         {
+            await vm.InitializeLimousinesAsync();
             AddLimousine al = new AddLimousine(vm,this);
             al.Show();
             Hide();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using DataLayer;
 using DomainLibrary.Domain;
 using DomainLibrary.Domain.Clients;
@@ -73,14 +74,19 @@ namespace VIPServicesRudyViewModel
 
         private Reservation reservation;
         public Reservation SelectedReservation { get; set; }
-
-        public VIPViewModel()
+        public async Task InitializeClientsAsync() 
         {
-            allClients = manager.GetClients().ToList();
-            allLimousines = manager.GetAllLimousine().ToList();
-            allReservations = manager.GetReservations().ToList();
+            allClients = await Task.Run(() => manager.GetClients().ToList());
             Clients = new ObservableCollection<Client>(allClients);
+        }
+        public async Task InitializeLimousinesAsync() 
+        {
+            allLimousines = await Task.Run(() => manager.GetAllLimousine().ToList());
             Limousines = new ObservableCollection<Limousine>(allLimousines);
+        }
+        public async Task InitializeReservationsAsync() 
+        {
+            allReservations = await Task.Run(() => manager.GetReservations().ToList());
             Reservations = new ObservableCollection<Reservation>(allReservations);
         }
 

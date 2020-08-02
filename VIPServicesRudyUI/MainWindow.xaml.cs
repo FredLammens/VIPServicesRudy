@@ -35,8 +35,9 @@ namespace VIPServicesRudyUI
             rf.Show();
         }
 
-        private void SearchReservationBtn_Click(object sender, RoutedEventArgs e)
+        private async void SearchReservationBtn_Click(object sender, RoutedEventArgs e)
         {
+            await vm.InitializeReservationsAsync();
             SearchReservations sr = new SearchReservations(vm);
             Close();
             sr.Show();

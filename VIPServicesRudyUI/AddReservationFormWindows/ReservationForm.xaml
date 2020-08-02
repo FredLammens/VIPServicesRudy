@@ -35,15 +35,15 @@
                 <WrapPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Straat: "/>
-                        <TextBox x:Name="StartAdresStreat" MinWidth="200"/>
+                        <TextBox x:Name="StartAdresStreat" MinWidth="200" VerticalAlignment="Center"/>
                         <Label Content="Nr: "/>
-                        <TextBox x:Name="StartAdresNr" Width="30"/>
+                        <TextBox x:Name="StartAdresNr" Width="30" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="Postcode: "/>
-                        <TextBox x:Name="StartAdresPostalCode" Width="60"/>
+                        <TextBox x:Name="StartAdresPostalCode" Width="60" VerticalAlignment="Center"/>
                         <Label Content="Gemeente: "/>
-                        <TextBox x:Name="StartAdresTown" MinWidth="150"/>
+                        <TextBox x:Name="StartAdresTown" MinWidth="150" VerticalAlignment="Center"/>
                     </StackPanel>
                 </WrapPanel>
             </GroupBox>
@@ -64,13 +64,13 @@
                             <Label Content="ReservatieStartDatum: "/>
                             <DatePicker x:Name="ReservationStartDate" Margin="9,0,0,2"/>
                             <Label Content="StartUur: "/>
-                            <TextBox x:Name="StartHourTextBox" MinWidth="40" Margin="5"/>
+                            <TextBox x:Name="StartHourTextBox" MinWidth="40" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="ReservatieEindDatum: "/>
                             <DatePicker x:Name="ReservationEndDate" Margin="10,2,0,0"/>
                             <Label Content="EindUur: "/>
-                            <TextBox x:Name="EndHourTextBox" MinWidth="40" Margin="5"/>
+                            <TextBox x:Name="EndHourTextBox" MinWidth="40" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>

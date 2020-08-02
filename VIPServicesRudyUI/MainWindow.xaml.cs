@@ -31,7 +31,7 @@ namespace VIPServicesRudyUI
         private void NewReservationBtn_Click(object sender, RoutedEventArgs e)
         {
             ReservationForm rf = new ReservationForm(vm);
-            Close();
+            Hide();
             rf.Show();
         }
 

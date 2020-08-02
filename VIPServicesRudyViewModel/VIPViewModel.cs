@@ -168,7 +168,7 @@ namespace VIPServicesRudyViewModel
         public void SearchReservation(string input) 
         {
             if (DateTime.TryParse(input, out DateTime reservatieDatum))
-                Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.ReservationDate.Equals(reservatieDatum)));
+                Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.ReservationDate.Date.Equals(reservatieDatum.Date)));
             else
                 Reservations = new ObservableCollection<Reservation>(allReservations.Where(r => r.Client.Name.ToLower().Contains(input.ToLower())));
         }

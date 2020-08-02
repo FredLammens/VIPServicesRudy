@@ -134,9 +134,9 @@ namespace VIPServicesRudyViewModel
                     return null;
             }
         }
-        public void AddReservation() 
+        public async Task AddReservation() 
         {
-            manager.AddReservation(reservation);
+            await Task.Run(() => manager.AddReservation(reservation));
         }
         public string ShowReservation() 
         {

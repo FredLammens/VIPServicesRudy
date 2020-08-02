@@ -3,6 +3,7 @@ using DomainLibrary.Domain.Limousines;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -118,15 +119,17 @@ namespace VIPServicesRudyUI
             }
         }
 
-        private void AddReservationBtn_Click(object sender, RoutedEventArgs e)
+        private async void AddReservationBtn_Click(object sender, RoutedEventArgs e)
         {
 
             MessageBoxResult result = MessageBox.Show(vm.ShowReservation(),"ReservationDetails",MessageBoxButton.YesNo,MessageBoxImage.Information,MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
-                vm.AddReservation();
+                await vm.AddReservation();
                 Close();
                 MessageBox.Show("Reservation Added");
+                MainWindow mw = new MainWindow();
+                mw.Show();
             }
         }
 

@@ -7,7 +7,7 @@ namespace DomainLibrary.Domain.Reservering
 {
     public class Reservation
     {
-        public DateTime ReservationDate { get; } = DateTime.Now;
+        public DateTime ReservationDate { get; private set; } = DateTime.Now;
         [Key]
         public int Number { get; set; } // met EF autogenerate
         public string Adres { get; private set; }

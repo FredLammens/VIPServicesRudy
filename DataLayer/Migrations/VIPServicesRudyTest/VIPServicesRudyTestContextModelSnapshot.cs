@@ -201,6 +201,9 @@ namespace DataLayer.Migrations.VIPServicesRudyTest
                     b.Property<int?>("PriceCalculationId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Number");
 
                     b.HasIndex("ClientNumber");

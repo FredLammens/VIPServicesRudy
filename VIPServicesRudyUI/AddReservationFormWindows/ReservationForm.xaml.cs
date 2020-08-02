@@ -128,8 +128,6 @@ namespace VIPServicesRudyUI
                 await vm.AddReservation();
                 Close();
                 MessageBox.Show("Reservation Added");
-                MainWindow mw = new MainWindow();
-                mw.Show();
             }
         }
 

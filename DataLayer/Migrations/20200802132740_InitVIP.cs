@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class InitVIPDB : Migration
+    public partial class InitVIP : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -179,6 +179,7 @@ namespace DataLayer.Migrations
                 {
                     Number = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ReservationDate = table.Column<DateTime>(nullable: false),
                     Adres = table.Column<string>(nullable: true),
                     ClientNumber = table.Column<int>(nullable: true),
                     DetailsId = table.Column<int>(nullable: true),

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(VIPServicesRudyContext))]
-    [Migration("20200731163122_InitVIPDB")]
-    partial class InitVIPDB
+    [Migration("20200802132740_InitVIP")]
+    partial class InitVIP
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -202,6 +202,9 @@ namespace DataLayer.Migrations
 
                     b.Property<int?>("PriceCalculationId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Number");
 

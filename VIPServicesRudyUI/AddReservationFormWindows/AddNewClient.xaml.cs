@@ -23,19 +23,19 @@ namespace VIPServicesRudyUI
         {
             if (CategoryComboBox.SelectedItem == null)
                 MessageBox.Show("Selecteer een categorie.");
-            if (ClientNameInput.Text.Length == 0)
+            else if (ClientNameInput.Text.Length == 0)
                 MessageBox.Show("Gelieve een naam in te geven.");
-            if (VATNumberInput.Text.Length == 0)
+            else if (VATNumberInput.Text.Length == 0)
                 MessageBox.Show("Gelieve het BTW-nummer in te vullen.");
-            if (!VATNumberInput.Text.StartsWith("BE"))
+            else if (!VATNumberInput.Text.StartsWith("BE"))
                 MessageBox.Show("Gelieve een geldig BTW-nummer in te vullen.");
-            if (StreatInput.Text.Length == 0)
+            else if (StreatInput.Text.Length == 0)
                 MessageBox.Show("Gelieve straat in te vullen.");
-            if (!int.TryParse(NrInput.Text, out int nr))
+            else if (!int.TryParse(NrInput.Text, out int nr))
                 MessageBox.Show("Gelieve een nummer in te vullen.");
-            if (!int.TryParse(PostalCodeInput.Text, out int postalCode))
+            else if (!int.TryParse(PostalCodeInput.Text, out int postalCode))
                 MessageBox.Show("Gelieve Postcode in te vullen.");
-            if (TownInput.Text.Length == 0)
+            else if (TownInput.Text.Length == 0)
                 MessageBox.Show("Gelieve Gemeente in te vullen.");
             else
             {

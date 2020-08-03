@@ -19,9 +19,9 @@ namespace DomainLibrary.Domain.Reservering
         public Decimal TotalExclusiveVAT { get; private set; }
         public Decimal VATAmount { get; private set; }
         public Decimal Total { get; private set; }
-        public PriceCalculation(Arrangement arrangement, Limousine limo, Client client, DateTime reservationDateStart, DateTime reservationDateEnd)
+        public PriceCalculation(Arrangement arrangement, Limousine limousine, Client client, DateTime reservationDateStart, DateTime reservationDateEnd)
         {
-            Hours = arrangement.GetHours(reservationDateStart, reservationDateEnd, limo.FirstHourPrice);
+            Hours = arrangement.GetHours(reservationDateStart, reservationDateEnd, limousine.FirstHourPrice);
             Subtotal = (int)arrangement.Price;
             ChargedDiscounts = CalculateChargedDiscounts(Subtotal, client);
             TotalExclusiveVAT = Subtotal - ChargedDiscounts;

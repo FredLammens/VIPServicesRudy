@@ -46,7 +46,7 @@ namespace DomainLibrary.Domain.Reservering
                 $"{Client}\n" +
                 "\nInfo Reservering\n" +
                 "===================================\n" +
-                $"Adres waar limousine verwacht wordt: {Adres}\n{Details}\n" +
+                $"Adres waar limousine verwacht wordt:\n{Adres}\n{Details}\n" +
                 "\nPrijsCalculatie: " +
                 "===================================\n" +
                 $"{PriceCalculation}" +

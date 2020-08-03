@@ -84,8 +84,7 @@ namespace VIPServicesRudyUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/VIPServicesRudyUI;V1.0.0.0;component/searchreservationwindows/searchreservations" +
-                    ".xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/VIPServicesRudyUI;component/searchreservationwindows/searchreservations.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\SearchReservationWindows\SearchReservations.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

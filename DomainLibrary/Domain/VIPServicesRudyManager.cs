@@ -14,7 +14,7 @@ namespace DomainLibrary.Domain
         {
             this.uow = uow;
         }
-
+        // -> al verwerkt in toevoegen reservatie
         //public void AddClient(Client client)
         //{
         //    uow.Clients.AddClient(client);
